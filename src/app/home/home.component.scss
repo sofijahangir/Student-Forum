@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  height: 500px;
+  height: 375px;
   background-image: linear-gradient(to right top, #f6f6f6, #f7f7f7, #f8f9f8, #fafafa, #fbfbfb);
 }
 
@@ -18,14 +18,14 @@
 
 .banner {
   .banner-img {
-    margin-top: 40px;
+    margin-top: 20px;
     width: 50%;
     min-height: 355px;
   }
 
   .banner-desc {
     width: 50%;
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 30px;
 
     h2 {
@@ -40,16 +40,16 @@
 }
 
 .customers,
-.features, .footer {
+.features {
   margin-top: 40px;
   margin-bottom: 40px;
 
   .title {
     text-align: center;
     color: #5068A9;
-    opacity: 0.7;
+    opacity: 0.8;
     font-weight: 100;
-    font-size: 20px;
+    font-size: 21px;
     text-transform: uppercase;
     font-family: Aclonica;
   }
@@ -72,6 +72,7 @@
 
   .carousel-indicators {
     bottom: 40px;
+
     li {
       opacity: 0.5;
       transition: opacity 0.6s ease;
@@ -80,7 +81,6 @@
       height: 10px;
       border-radius: 10px;
       transition: all 0.3s ease-in-out;
-
 
       &.active {
         opacity: 1;
@@ -118,30 +118,6 @@
     }
   }
 }
-
-.footer {
-  background-image: linear-gradient(to top, #e0e0e0, #f4f4f4, #f7f7f7, #fbfbfb, #ffffff);
-  height: 250px;
-  padding: 30px;
-
-  .social-media {
-    list-style: none;
-    display: flex;
-    -webkit-box-pack: center;
--ms-flex-pack: center;
-justify-content: center;
-padding-left: 0;
-padding-top: 20px;
-    li {
-      padding: 10px 15px;
-      .fab {
-        color: #000;
-        font-size: 20px;
-      }
-    }
-  }
-}
-
 
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {

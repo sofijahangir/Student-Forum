@@ -1,0 +1,114 @@
+.logo {
+  width: 110px;
+}
+
+.nav-item.active {
+  border-bottom: 1px solid #5068A9;
+
+  .nav-link {
+    color: #5068A9;
+  }
+}
+
+.container {
+  max-width: 1000px;
+}
+
+.login-form {
+  height: 400px;
+}
+
+.login-form-box {
+  background-color: #5068A9;
+  margin: 35px 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  form {
+    z-index: 1;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .form-check-label {
+    font-size: 13px;
+    vertical-align: text-bottom;
+    color: #d8d8d8 !important;
+  }
+
+  .action-bar {
+    margin-top: 45px;
+  }
+
+  .form-group .form-control {
+    width: 100%;
+  }
+
+  .input-group-text {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #fff;
+    color: #fff;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+
+    i {
+      color: #d8d8d8;
+    }
+  }
+
+  .form-control {
+    display: block;
+    height: 33px;
+    padding: 6px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #fff;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+      border-bottom-width: 2px;
+
+      ~.input-group-append .input-group-text {
+        border-bottom-width: 2px;
+      }
+    }
+  }
+
+  .forgot-pwd {
+    font-size: 13px;
+    text-decoration: underline;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+}
