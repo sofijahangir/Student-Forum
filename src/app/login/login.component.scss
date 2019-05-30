@@ -19,25 +19,25 @@
 }
 
 .login-form-box {
-  background-color: #5068A9;
+  background-color: #6277B2;
   margin: 35px 0;
   padding-top: 40px;
   padding-bottom: 40px;
 
   form {
     z-index: 1;
-    width: 50%;
+    width: 65%;
     margin: 0 auto;
   }
 
   .form-check-label {
-    font-size: 13px;
+    font-size: 12px;
     vertical-align: text-bottom;
-    color: #d8d8d8 !important;
+    color: #f0f0f0 !important;
   }
 
   .action-bar {
-    margin-top: 45px;
+    margin-top: 40px;
   }
 
   .form-group .form-control {
