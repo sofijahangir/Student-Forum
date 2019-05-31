@@ -18,14 +18,12 @@
 
 .banner {
   .banner-img {
-    margin-top: 20px;
     width: 50%;
     min-height: 355px;
   }
 
   .banner-desc {
     width: 50%;
-    margin-top: 20px;
     padding: 30px;
 
     h2 {
@@ -118,10 +116,69 @@
     }
   }
 }
-
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
     padding-left: 1rem;
+  }
+}
+@media (max-width: 790px) {
+  h2 {
+    font-size: 20px !important;
+  }
+
+  p {
+    font-size: 0.875rem !important;
+  }
+
+  .banner .btn-square {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .customers {
+    margin-bottom: 15px;
+  }
+
+  .features {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: auto;
+  }
+
+  .banner {
+    .banner-img {
+      display: none;
+    }
+
+    .banner-desc {
+      width: 90%;
+      margin: 0 auto;
+      float: none !important;
+    }
+  }
+
+  .customers .fa-quote-left {
+    font-size: 35px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .pt-sm-4 {
+    padding-top: 4px !important;
+  }
+
+  .mt-20 {
+    margin-top: 20px;
+  }
+
+  .customers h2 {
+    width: 90%;
+    margin: 0 auto;
   }
 }
