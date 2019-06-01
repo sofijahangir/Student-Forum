@@ -9,8 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, data: { animation: 'HomePage' } },
   { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
-  { path: 'dashboard', component: DashboardComponent, data: { animation: 'HomePage' } },
-  { path: 'discussions', component: DiscussionsComponent, data: { animation: 'HomePage' } },
+  { path: 'dashboard', component: DashboardComponent, data: { animation: 'DashboardPage' } },
+  { path: 'discussions', component: DiscussionsComponent, data: { animation: 'DiscussionsPage' } },
 ];
 
 @NgModule({
