@@ -15,7 +15,7 @@ This application is built using the following frameworks and libraries :package:
 
 ## How to run the application ?
 
-1. Clone the repo to your local machine using `git clone https://git.cs.dal.ca/sharmila/student-forum.git`
+1. Clone the repo to your local machine using `git clone https://git.cs.dal.ca/sharmila/A2_Sharmila_Thirumalainathan.git`
 2. Navigate to the workspace folder using `cd student-forum`
 3. Launch the app using `ng serve --open`
 4. Now the application will open in your default browser in following URL [localhost:4200](http:\\localhost:4200\home).
@@ -60,7 +60,7 @@ So that's it for this episode. I know you are excited to see the completed versi
 * Logo Generator - [Hatchful](https://hatchful.shopify.com/)
 * Image Editing - [Pixlr](https://pixlr.com/x/)
 * Code Editor - [Atom](https://atom.io/)
-* Versioning - [Gitlab](https://git.cs.dal.ca/sharmila/student-forum)
+* Versioning - [Gitlab](https://git.cs.dal.ca/sharmila/A2_Sharmila_Thirumalainathan)
 
 ## Other references
 
