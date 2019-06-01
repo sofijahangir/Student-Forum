@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DiscussionsComponent } from './discussions/discussions.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     HomeFooterComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    DiscussionsComponent
   ],
   imports: [
     BrowserAnimationsModule,

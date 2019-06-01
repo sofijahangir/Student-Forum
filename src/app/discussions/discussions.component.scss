@@ -1,0 +1,36 @@
+@import '../common/layout.scss';
+
+.discussions-wrapper {
+  position: relative;
+  top: 90px;
+  background-color: #F8F9FD;
+
+  p {
+    font-size: 12px;
+  }
+}
+.content-title {
+  i {
+    margin-left: 25px;
+  }
+}
+
+.post-item {
+      border-bottom: 1px solid #eef0f5;
+
+      p {
+        color: #7b7b7b;
+        margin-top: -7px;
+      }
+      .fa-circle {
+        font-size: 3px;
+      }
+}
+
+.comments, .internal-label {
+  font-size: 12px;
+}
+
+.post-desc {
+  font-size: 14px;
+}

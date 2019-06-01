@@ -26,9 +26,19 @@ export class DashboardComponent implements OnInit {
     join_code: 9281
   }, {
     id: 4,
-    title: "Web Development",
+    title: "Software Development Concepts",
     code: "CSCI 5709",
-    join_code: 7282
+    join_code: 4536
+  }, {
+    id: 5,
+    title: "Mobile Computing",
+    code: "CSCI 5609",
+    join_code: 8362
+  }, {
+    id: 6,
+    title: "Visual Analytics",
+    code: "CSCI 5929",
+    join_code: 9172
   }];
 
   constructor() { }
@@ -36,7 +46,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  test() {
+  collapse() {
     if (document.getElementById("wrapper").classList.contains("collapse")) {
       document.getElementById("wrapper").classList.remove("collapse");
     } else {
