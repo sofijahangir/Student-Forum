@@ -31,9 +31,9 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown profile-menu">
             <a class="nav-link dropdown-toggle pt-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="assets\profile.jpg" class="profile-pic"  alt="Chandler"/>&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
+              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
             </a>
-            <div class="dropdown-menu animate appear" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu animate appear">
               <a class="dropdown-item">Manage profile</a>
               <a class="dropdown-item" routerLink="/home">Logout</a>
             </div>
@@ -44,18 +44,18 @@
 
     </div>
 
-    <div class="container course-wrapper px-4">
+    <div class="course-wrapper px-4">
       <div class="content-title row justify-content-around">
         <div class="col-sm-5 col-xs-12 p-0">
           <h6>
             <span class="float-left">Course Home &nbsp;&nbsp;</span>
-            <div class="dropdown float-left">
-              <span class="badge badge-warning dropdown-toggle py-1 px-2 cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Active</span>
-              <div class="dropdown-menu animate appear" aria-labelledby="dropdownMenuButton">
+            <span class="dropdown float-left">
+              <span class="badge badge-warning dropdown-toggle py-1 px-2 cursor-pointer" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Active</span>
+              <span class="dropdown-menu animate appear">
                 <a class="dropdown-item">Inactive</a>
                 <a class="dropdown-item">Archived</a>
-              </div>
-            </div>
+              </span>
+            </span>
           </h6>
         </div>
         <div class="col-sm-5 col-xs-0 p-0">

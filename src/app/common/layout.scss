@@ -103,7 +103,7 @@ $sidebar-sm-width: 70px;
   }
 
   .collapse-in-out {
-    width: $sidebar-sm-width;
+    width: 68px;
   }
 }
 
@@ -112,7 +112,7 @@ $sidebar-sm-width: 70px;
   top: 0;
   right: 0;
   left: $sidebar-width;
-  height: 60px;
+  height: 61px;
   margin: 0 5px;
   transition: all 0.3s ease-in;
   z-index: 1;
@@ -190,7 +190,7 @@ $sidebar-sm-width: 70px;
 
 .collapse-in-out {
   height: 50px;
-  width: $sidebar-width;
+  width: 238px;
   position: absolute;
   bottom: 0;
   left: 0;

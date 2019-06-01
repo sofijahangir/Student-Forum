@@ -80,10 +80,6 @@ export class DiscussionsComponent implements OnInit {
     comments: 0
   }];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   collapse() {
     if (document.getElementById("wrapper").classList.contains("collapse")) {

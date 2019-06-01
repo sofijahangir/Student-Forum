@@ -9,25 +9,26 @@
     font-size: 12px;
   }
 }
-.content-title {
-  i {
-    margin-left: 25px;
-  }
+
+.content-title i {
+  margin-left: 25px;
 }
 
 .post-item {
-      border-bottom: 1px solid #eef0f5;
+  border-bottom: 1px solid #eef0f5;
 
-      p {
-        color: #7b7b7b;
-        margin-top: -7px;
-      }
-      .fa-circle {
-        font-size: 3px;
-      }
+  p {
+    color: #7b7b7b;
+    margin-top: -7px;
+  }
+
+  .fa-circle {
+    font-size: 3px;
+  }
 }
 
-.comments, .internal-label {
+.comments,
+.internal-label {
   font-size: 12px;
 }
 

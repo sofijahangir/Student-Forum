@@ -41,11 +41,6 @@ export class DashboardComponent implements OnInit {
     join_code: 9172
   }];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   collapse() {
     if (document.getElementById("wrapper").classList.contains("collapse")) {
       document.getElementById("wrapper").classList.remove("collapse");
