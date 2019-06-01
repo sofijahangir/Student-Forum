@@ -1,4 +1,4 @@
-# StudentForum
+# Student Forum
 The main purpose of this web application is to create a **tailor-made forum for students**. With a plethora of online forums, there doesn't exist a customized forum for students. Recognizing the importance of the educational forum, the intention is to create a forum that facilitates interactions and learnings outside the classroom.   
 
 ## What are the framework & libraries used ?
@@ -28,7 +28,7 @@ The following are the pages that I've developed as the part of the student forum
 1. [Landing page](http:\\localhost:4200\home) - This the first page that a user will visit which can also be called as Destination Page.
 2. [Login](http:\\localhost:4200\login) - This page allows the user (both professor & student) to sign into the application.
 3. [Dashboard](http:\\localhost:4200\dashboard) - Dashboard is similar to a control panel which is the initial page of this application. From here the student can navigate to any desired page.
-4. [Discussion List Page]((http:\\localhost:4200\discussions) - It lists all the posts which has posted in the enrolled course group.
+4. [Discussion List Page](http:\\localhost:4200\discussions) - It lists all the posts which has posted in the enrolled course group.
 
 ## Application tour :rocket:
 Now let us go for around to visit the above pages.
