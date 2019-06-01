@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class HomeFooterComponent implements OnInit {
+  ngOnInit() {
 
+  }
 }

@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class DiscussionsComponent implements OnInit {
+  ngOnInit() {
+
+  }
+
   courses = [{
     id: 1,
     title: "Data Management",
