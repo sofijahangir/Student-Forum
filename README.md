@@ -25,10 +25,10 @@ This application is built using the following frameworks and libraries :package:
 ## What you can expect to see in here ?
 The following are the pages that I've developed as the part of the student forum application
 
-         1. Landing page - This the first page that a user will visit which can also be called as Destination Page.
-         2. Login - This page allows the user (both professor & student) to sign into the application.
-         3. Dashboard - Dashboard is similar to a control panel which is the initial page of this application. From here the student can navigate to any desired page.
-         4. Discussion List Page - It lists all the posts which has posted in the enrolled course group.
+1. [Landing page](http:\\localhost:4200\home) - This the first page that a user will visit which can also be called as Destination Page.
+2. [Login](http:\\localhost:4200\login) - This page allows the user (both professor & student) to sign into the application.
+3. [Dashboard](http:\\localhost:4200\dashboard) - Dashboard is similar to a control panel which is the initial page of this application. From here the student can navigate to any desired page.
+4. [Discussion List Page]((http:\\localhost:4200\discussions) - It lists all the posts which has posted in the enrolled course group.
 
 ## Application tour :rocket:
 Now let us go for around to visit the above pages.
@@ -70,3 +70,6 @@ So that's it for this episode. I know you are excited to see the completed versi
 4. Holeczek, Ł. (n.d.). Bootstrap cards. Retrieved from https://coreui.io/docs/components/cards/
 5. The Most Important Color In UI Design. (2017, November 03). Retrieved from https://blog.marvelapp.com/important-color-ui-design/
 6. Wanyoike, M. (2018, October 25). History of front-end frameworks. Retrieved from https://logrocket.com/blog/history-of-frontend-frameworks/
+
+## Author
+- Sharmila Thirumalainathan, *B00823668*.
