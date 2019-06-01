@@ -25,6 +25,10 @@
   .fa-circle {
     font-size: 3px;
   }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .comments,
@@ -34,4 +38,25 @@
 
 .post-desc {
   font-size: 14px;
+}
+
+.pagination-wrapper {
+  margin-top: 40px;
+  padding-bottom: 25px;
+  font-size: 14px;
+
+  .page-item.active .page-link {
+    background-color: #007bff;
+    border-radius: 3px;
+    color: #fff;
+  }
+
+  .page-link {
+    background-color: transparent;
+    border: none;
+
+    &:first-child, &:last-child {
+      color: #7b7b7b;
+    }
+  }
 }
