@@ -1,6 +1,8 @@
 # Student Forum
 The main purpose of this web application is to create a **tailor-made forum for students**. With a plethora of online forums, there doesn't exist a customized forum for students. Recognizing the importance of the educational forum, the intention is to create a forum that facilitates interactions and learnings outside the classroom.   
 
+  Application is live [here!!](https://student-forum-2019.herokuapp.com/home)
+
 ## What are the framework & libraries used ?
 This application is built using the following frameworks and libraries :package:.
 * [Angular 7](https://angular.io/) - Web application framework
