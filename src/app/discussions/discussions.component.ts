@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-discussions',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class DiscussionsComponent implements OnInit {
+  constructor(private router: Router) {
+
+  }
+
   ngOnInit() {
 
   }
@@ -84,6 +89,11 @@ export class DiscussionsComponent implements OnInit {
     comments: 0
   }];
 
+  searchCourse(value: string) {
+    if (value) {
+      this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
+    }
+  }
 
   collapse() {
     if (document.getElementById("wrapper").classList.contains("collapse")) {

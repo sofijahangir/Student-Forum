@@ -175,16 +175,16 @@ $sidebar-sm-width: 70px;
   margin-bottom: 20px;
   margin-left: 20px;
   transition: all 0.3s ease-in;
+}
 
-  .btn-primary {
-    font-size: 14px;
-    background-color: #5068A9;
-    border-color: #5068A9;
-    transition: all 0.3s ease-in;
+.btn-primary {
+  font-size: 14px;
+  background-color: #5068A9;
+  border-color: #5068A9;
+  transition: all 0.3s ease-in;
 
-    &:hover {
-      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-    }
+  &:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -243,6 +243,98 @@ $sidebar-sm-width: 70px;
   height: 35px;
   border-radius: 20px;
 }
+
+.content-wrapper {
+  position: relative;
+  top: 90px;
+  background-color: #F8F9FD;
+}
+
+.add-form {
+  max-width: 500px;
+
+  .form-check,
+  .form-group {
+    margin-bottom: 25px;
+
+    .far {
+      position: relative;
+      float: right;
+      top: -28px;
+      font-size: 14px;
+      top: -24px;
+      right: 11px;
+    }
+  }
+
+  .form-check-label,
+  .form-control,
+  input,
+  textarea {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+    font-size: 13px;
+
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.form-control {
+  background-color: #e7e9efc9;
+}
+
+.button-group {
+  .btn-light {
+    background-color: #e2e6ea;
+    border-color: #e2e6ea;
+  }
+
+  .btn {
+    font-size: 14px !important;
+    transition: all 0.3s ease-in;
+    border-radius: 0;
+    padding: 4px 14px;
+
+    &:hover {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.18), 0 3px 6px 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 13px;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 13px;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 13px;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 13px;
+}
+/* @media queries */
+@media (max-width: 575px) {
+  .add-form,
+  .file-upload-wrapper {
+    max-width: 300px !important;
+
+    .form-group {
+      margin-bottom: 28px;
+    }
+  }
+}
 @media (max-width: 770px) {
   .wrapper {
     #sidebar {
@@ -288,6 +380,14 @@ $sidebar-sm-width: 70px;
       display: none;
     }
   }
+}
+
+.text-primary {
+  color: #2e8fda !important;
+}
+
+.form-control:focus:not(.is-invalid) {
+  border-color: #2e8fda;
 }
 @media (max-width: 600px) {
   .search-box {

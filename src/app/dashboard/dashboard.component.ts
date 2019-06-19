@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class DashboardComponent implements OnInit {
+  constructor(private router: Router) {
+
+  }
+
   ngOnInit() {
 
   }
@@ -43,6 +48,12 @@ export class DashboardComponent implements OnInit {
     code: "CSCI 5929",
     join_code: 9172
   }];
+
+  searchCourse(value: string) {
+    if (value) {
+      this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
+    }
+  }
 
   collapse() {
     if (document.getElementById("wrapper").classList.contains("collapse")) {
