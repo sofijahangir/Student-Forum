@@ -50,8 +50,7 @@ export class DiscussiondetailsComponent implements OnInit {
       name.appendChild(document.createTextNode("Sharmila Thirumalainathan"));
 
       let commentData = document.createElement('p');
-      userInput = document.createTextNode(userInput);
-      commentData.appendChild(userInput);
+      commentData.appendChild(document.createTextNode(userInput));
 
       let commentTime = document.createElement('div');
       commentTime.setAttribute('class', 'discussion-period');
