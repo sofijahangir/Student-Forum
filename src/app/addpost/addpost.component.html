@@ -1,0 +1,112 @@
+<div class="wrapper d-flex w-100 h-100" id="wrapper">
+  <nav id="sidebar">
+    <div class="sidebar-sticky text-center">
+      <div class="sidebar-header">
+        <a class="navbar-brand" href="#"><img src="assets/logo.png" class="logo" alt="logo"></a>
+      </div>
+      <div class="quick-create text-left" title="Add course">
+        <button type="button" class="btn btn-primary" routerLink="/course/add"><i class="fas fa-plus"></i><span>&nbsp;&nbsp;Add Course</span></button>
+      </div>
+
+      <ul class="nav flex-column text-left">
+        <li class="nav-item active"><a href="#" class="nav-link" routerLink="/dashboard"><i class="fas fa-tv"></i><span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link" routerLink="/discussions"><i class="far fa-comments"></i><span>&nbsp;&nbsp;&nbsp;Discussions</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-sliders-h"></i><span>&nbsp;&nbsp;&nbsp;Settings</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-question-circle"></i><span>&nbsp;&nbsp;&nbsp;Help</span></a></li>
+      </ul>
+
+      <div class="collapse-in-out" (click)="collapse()" title="collapse">
+        <i class="fas fa-angle-double-left"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div id="content">
+    <div class="top-nav">
+      <nav class="navbar navbar-light pb-0 pr-2">
+        <div class="form-group search-box bg-transparent">
+          <input type="text" class="form-control bg-transparent" placeholder="Search Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
+          <i class="fa fa-search"></i>
+        </div>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown profile-menu">
+            <a class="nav-link dropdown-toggle pt-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
+            </a>
+            <div class="dropdown-menu animate appear">
+              <a class="dropdown-item">Manage profile</a>
+              <a class="dropdown-item" routerLink="/home">Logout</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link"><i class="far fa-bell"></i><span class="badge d-inline-block"></span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="content-wrapper px-4">
+      <div class="content-title row">
+        <div class="col-sm-5 col-xs-12">
+          <h6>
+            New Discussion
+          </h6>
+        </div>
+        <div class="col-sm-5 col-xs-0 p-0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 add-form">
+          <form [formGroup]="newPostform" (ngSubmit)="onSubmit()" class="mt-4">
+            <div class="form-group col-md-12">
+              <input type="text" class="form-control" placeholder="Title" formControlName="title" required autofocus
+                [ngClass]="{ 'is-invalid' : newPostform.controls.title.errors && (newPostform.controls.title.touched || newPostform.controls.title.dirty)}">
+              <span class="invalid-feedback" *ngIf="{ 'is-invalid' : newPostform.controls.title.errors && (newPostform.controls.title.touched || newPostform.controls.title.dirty)}">
+                Please enter a title
+              </span>
+            </div>
+
+            <div class="form-group col-md-12">
+              <select class="form-control">
+                <option value="" selected disabled>Select a course group</option>
+                <option>Data Management, CSCI 1234</option>
+                <option>Web Development, CSCI 5709</option>
+                <option>Cloud Computing, CSCI 5701</option>
+                <option>Software Development Concepts, CSCI 5709</option>
+              </select>
+            </div>
+
+            <!-- <div class="form-group col-md-12">
+              <select class="selectpicker w-100" multiple data-live-search="true">
+                <option>Data Management, CSCI 1234</option>
+                <option>Web Development, CSCI 5709</option>
+                <option>Cloud Computing, CSCI 5701</option>
+                <option>Software Development Concepts, CSCI 5709</option>
+              </select>
+            </div> -->
+
+            <div class="form-group col-md-12">
+              <textarea type="text" class="form-control" placeholder="Type your discussion" rows="7" formControlName="content" required autofocus
+                [ngClass]="{ 'is-invalid' : newPostform.controls.content.errors && (newPostform.controls.content.touched || newPostform.controls.content.dirty)}"></textarea>
+              <span class="invalid-feedback" *ngIf="{ 'is-invalid' : newPostform.controls.content.errors && (newPostform.controls.content.touched || newPostform.controls.content.dirty)}">
+                Please type some content to post
+              </span>
+            </div>
+
+            <div class="form-check col-md-12">
+              <label class="form-check-label">
+                Allow Anonymous Comments<input type="checkbox"><span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class="float-right mt-2 button-group mb-4 mr-3">
+              <button type="submit" class="btn btn-primary mr-3">Post</button>
+              <button routerLink="/courses" type="submit" class="btn btn-light">Cancel</button>
+            </div>
+          </form>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

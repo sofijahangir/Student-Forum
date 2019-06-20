@@ -1,0 +1,124 @@
+<div class="wrapper d-flex w-100 h-100" id="wrapper">
+  <nav id="sidebar">
+    <div class="sidebar-sticky text-center">
+      <div class="sidebar-header">
+        <a class="navbar-brand" href="#"><img src="assets/logo.png" class="logo" alt="logo"></a>
+      </div>
+      <div class="quick-create text-left" title="New Post">
+        <button type="button" class="btn btn-primary" routerLink="/discussions/add"><i class="fas fa-plus"></i><span>&nbsp;&nbsp;New Post</span></button>
+      </div>
+
+      <ul class="nav flex-column text-left">
+        <li class="nav-item"><a href="#" class="nav-link" routerLink="/dashboard"><i class="fas fa-tv"></i><span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
+        <li class="nav-item active"><a href="#" class="nav-link" routerLink="/discussions"><i class="far fa-comments"></i><span>&nbsp;&nbsp;&nbsp;Discussions</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-sliders-h"></i><span>&nbsp;&nbsp;&nbsp;Settings</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-question-circle"></i><span>&nbsp;&nbsp;&nbsp;Help</span></a></li>
+      </ul>
+
+      <div class="collapse-in-out" (click)="collapse()" title="collapse">
+        <i class="fas fa-angle-double-left"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div id="content">
+    <div class="top-nav">
+      <nav class="navbar navbar-light pb-0 pr-2">
+        <div class="form-group search-box bg-transparent">
+          <input type="text" class="form-control bg-transparent" placeholder="Search Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
+          <i class="fa fa-search"></i>
+        </div>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown profile-menu">
+            <a class="nav-link dropdown-toggle pt-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
+            </a>
+            <div class="dropdown-menu animate appear">
+              <a class="dropdown-item">Manage profile</a>
+              <a class="dropdown-item" routerLink="/home">Logout</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link"><i class="far fa-bell"></i><span class="badge d-inline-block"></span></a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="discussions-wrapper px-4 pb-4">
+      <div class="discussion-body col-sm-12 py-4">
+        <div class="discussion-content">
+          <div class="media">
+            <div class="media-left">
+              <img class="img-circle" width="50px" height="50px">
+            </div>
+            <div class="media-body pl-1">
+              <div class="col-sm">
+                <div class="mb-3">
+                  <strong>Michael Hackett</strong> has started a discussion
+                  <span class="badge badge-warning py-1 px-2">Internal</span>
+                  <div class="discussion-period">21 June 2019, 12:45 PM</div>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="discussion-actions">
+          <span class="text-primary cursor-pointer">Report</span>
+          <span class="text-primary cursor-pointer">&nbsp;&nbsp;Subscribe</span>
+        </div>
+      </div>
+      <div class="discussion-comments col-sm-11 offset-sm-1" id="discussion-comments">
+        <div class="comment py-3">
+          <div class="media">
+            <div class="media-left">
+              <img class="img-circle" width="25px" height="25px">
+            </div>
+            <div class="media-body pl-1">
+              <div class="col-sm">
+                <div class="mb-2">
+                  <h6>Aishwarya Naryanan</h6>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <div class="discussion-period">
+                  21 June 2019, 12:45 PM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment py-3">
+          <div class="media">
+            <div class="media-left">
+              <img class="img-circle"  width="25px" height="25px">
+            </div>
+            <div class="media-body pl-1">
+              <div class="col-sm">
+                <div class="mb-2">
+                  <h6>Vishaali Kadambur Srikanth</h6>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+                <div class="discussion-period">
+                  21 June 2019, 12:45 PM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment add-comment-section py-3 col-sm-11 offset-sm-1">
+        <div class="media">
+          <div class="media-body pl-1">
+            <div class="col-sm">
+              <textarea id="comment-input" placeholder="Reply to the discussion.." class="form-control" rows="2" value=commentData (focus)="showButtons()"></textarea>
+              <div class="btn-toolbar mt-3" id="add-comment-button-section">
+                <button class="btn btn-primary" (click)="addComment()">Post</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>

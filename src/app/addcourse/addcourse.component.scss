@@ -1,0 +1,75 @@
+@import '../common/layout.scss';
+
+.file-upload-wrapper {
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  height: 240px;
+  max-width: 450px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  border-radius: 16px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border: 3px dashed #7b7b7b;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    border-radius: 20px;
+  }
+
+  .file-upload-message {
+    position: relative;
+    top: 100px;
+    font-size: 15px;
+    .fas {
+      font-size: 18px
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 5;
+  }
+}
+.content-wrapper {
+  .row .col-sm-6 {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 575px) {
+  .content-wrapper {
+    .row .col-sm-6 {
+      max-width: 300px;
+      margin-top: 20px;
+    }
+  }
+
+
+  .file-upload-wrapper {
+    height: 75px !important;
+    margin-right: 115px;
+    margin-top: 15px;
+    margin-left: 0;
+
+    .file-upload-message {
+      top: 22px !important;
+      .fas {
+        display: none;
+      }
+    }
+  }
+}

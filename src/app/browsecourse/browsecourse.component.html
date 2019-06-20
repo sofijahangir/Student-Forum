@@ -44,41 +44,42 @@
 
     </div>
 
-    <div class="discussions-wrapper px-4">
+    <div class="course-wrapper px-4">
       <div class="content-title row pb-3 px-1">
         <div class="col-sm-5 col-xs-0 pl-3">
           <div class="dropdown float-left">
-            <div class="dropdown-toggle cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">All Post</div>
-            <div class="dropdown-menu animate appear">
-              <a class="dropdown-item">Trending</a>
-              <a class="dropdown-item">Inactive</a>
-              <a class="dropdown-item">Archived</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-7 col-xs-12">
-          <div class="float-right actions">
-            <i class="fas fa-sort-amount-up text-primary"></i>
+            <h6 *ngIf="!keyword">
+              All Courses&nbsp;&nbsp;
+            </h6>
+            <span class="badge badge-light py-2 px-3 ml-4"  *ngIf="keyword">Your search result for: {{keyword}}</span>
           </div>
         </div>
       </div>
 
 
-      <div class="row post-list ml-4">
-        <div class="post-item col-sm-11 col-xs-12 mt-4" *ngFor="let post of posts">
-          <h6>{{post.title}}<span class="text-warning internal-label" *ngIf="post.isInternal">&nbsp;&nbsp;&nbsp;<i class="fas fa-circle align-middle"></i>&nbsp;Internal</span>
-            <span class="float-right comments" *ngIf="post.comments"><i class="far fa-comment-alt"></i>&nbsp;{{post.comments}}</span>
-          </h6>
-          <p class="mb-2">by&nbsp;&nbsp;{{post.author}}</p>
-          <p><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{post.date}}</p>
-          <div class="mb-3 post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat sed cras ornare arcu. Faucibus nisl tincidunt eget nullam non nisi est. Neque
-            viverra justo nec ultrices...&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails()">Continue Reading</span></div>
+      <div class="row course-list ml-3">
+        <div class="course-item col-sm-11 col-xs-12 mt-4 row" *ngFor="let course of courses">
+          <div class="col-sm-10">
+            <h6>{{course.title}}<span class="text-warning internal-label">&nbsp;&nbsp;&nbsp;<i class="fas fa-circle align-middle"></i>&nbsp;{{course.code}}</span>
+            </h6>
+            <p class="mb-2 font-sm mt-2"><i class="fas fa-user-tie"></i>&nbsp;&nbsp;{{course.prof}}</p>
+            <p class="mb-2 font-sm"><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;Jan 12,  &nbsp;2019 - Apr 30,  &nbsp;2019</p>
+            <p>{{course.school_code}}</p>
+          </div>
+          <div class="col-sm-2 mb-3 d-flex justify-content-center text-right flex-column">
+            <div class="float-right">
+              <button type="submit" class="btn btn-primary" [class.btn-outlined]="course.isEnrolled">
+                <span *ngIf="course.isEnrolled"><i class="fas fa-check font-sm" >&nbsp;&nbsp;</i>Enrolled</span>
+                <span *ngIf="!course.isEnrolled">Enroll</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="pagination-wrapper row">
         <div class="col-sm-6 page-count">
-          Showing 6 of 12 Posts
+          Showing 6 of 12 results
         </div>
         <div class="col-sm-6">
           <nav class="float-right">

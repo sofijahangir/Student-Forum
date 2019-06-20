@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="#"><img src="assets/logo.png" class="logo" alt="logo"></a>
       </div>
       <div class="quick-create text-left" title="Add course">
-        <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i><span>&nbsp;&nbsp;Add Course</span></button>
+        <button type="button" class="btn btn-primary" routerLink="/course/add"><i class="fas fa-plus"></i><span>&nbsp;&nbsp;Add Course</span></button>
       </div>
 
       <ul class="nav flex-column text-left">
@@ -25,7 +25,7 @@
     <div class="top-nav">
       <nav class="navbar navbar-light pb-0 pr-2">
         <div class="form-group search-box bg-transparent">
-          <input type="text" class="form-control bg-transparent" placeholder="Type to Search">
+          <input type="text" class="form-control bg-transparent" placeholder="Search Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
           <i class="fa fa-search"></i>
         </div>
         <ul class="navbar-nav ml-auto">
