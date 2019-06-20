@@ -54,7 +54,7 @@
       </div>
       <div class="row">
         <div class="col-sm-6 add-form">
-          <form [formGroup]="addcourseform" (ngSubmit)="onSubmit()" class="mt-4">
+          <form [formGroup]="addcourseform" (ngSubmit)="submitForm()" class="mt-4">
             <div class="row">
               <div class="form-group col-md-6">
                 <input type="text" class="form-control" placeholder="Name" formControlName="coursename" required autofocus

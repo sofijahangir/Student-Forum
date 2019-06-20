@@ -23,7 +23,7 @@ export class AddcourseComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  submitForm() {
     if (this.addcourseform.invalid) {
       alert("Please Enter Course Details");
       this.addcourseform.reset();
