@@ -54,7 +54,7 @@
       </div>
       <div class="row">
         <div class="col-sm-8 add-form">
-          <form [formGroup]="newPostform" (ngSubmit)="onSubmit()" class="mt-4">
+          <form [formGroup]="newPostform" class="mt-4">
             <div class="form-group col-md-12">
               <input type="text" class="form-control" placeholder="Title" formControlName="title" required autofocus
                 [ngClass]="{ 'is-invalid' : newPostform.controls.title.errors && (newPostform.controls.title.touched || newPostform.controls.title.dirty)}">
