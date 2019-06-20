@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-discussiondetails',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiscussiondetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,7 @@ export class DiscussiondetailsComponent implements OnInit {
   }
 
   addComment() {
-    let userInput = document.getElementById('comment-input').value;
+    let userInput = (<HTMLInputElement>document.getElementById('comment-input')).value;
     if (userInput) {
       let commentWrapper = document.getElementById('discussion-comments');
 
@@ -72,8 +73,7 @@ export class DiscussiondetailsComponent implements OnInit {
       comment.appendChild(mediaDiv);
 
       commentWrapper.appendChild(comment);
-
-      document.getElementById('comment-input').value = '';
+      (<HTMLInputElement>document.getElementById('comment-input')).value = '';
     } else {
       window.alert("Comment cannot be empty");
     }
