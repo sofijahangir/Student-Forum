@@ -17,6 +17,10 @@ export class DiscussionsComponent implements OnInit {
 
   }
 
+  goToDetails() {
+    this.router.navigate(['/discussions/details']);
+  }
+
   courses = [{
     id: 1,
     title: "Data Management",
