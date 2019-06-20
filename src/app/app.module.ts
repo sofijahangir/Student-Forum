@@ -13,6 +13,7 @@ import { DiscussionsComponent } from './discussions/discussions.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { AddpostComponent } from './addpost/addpost.component';
 import { BrowsecourseComponent } from './browsecourse/browsecourse.component';
+import { DiscussiondetailsComponent } from './discussiondetails/discussiondetails.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BrowsecourseComponent } from './browsecourse/browsecourse.component';
     DiscussionsComponent,
     AddcourseComponent,
     AddpostComponent,
-    BrowsecourseComponent
+    BrowsecourseComponent,
+    DiscussiondetailsComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -19,10 +19,7 @@ export class BrowsecourseComponent implements OnInit {
   }
 
   searchCourse(value: string) {
-    if (value) {
-      this.keyword = value;
-      // this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
-    }
+    this.keyword = value;
   }
 
   collapse() {
