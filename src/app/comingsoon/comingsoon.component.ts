@@ -12,4 +12,17 @@ export class ComingsoonComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchCourse(value: string) {
+    if (value) {
+      this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
+    }
+  }
+
+  collapse() {
+    if (document.getElementById("wrapper").classList.contains("collapse")) {
+      document.getElementById("wrapper").classList.remove("collapse");
+    } else {
+      document.getElementById("wrapper").classList.add("collapse");
+    }
+  }
 }
