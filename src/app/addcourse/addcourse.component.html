@@ -57,7 +57,7 @@
           <form [formGroup]="addcourseform" (ngSubmit)="submitForm()" class="mt-4">
             <div class="row">
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="Name" formControlName="coursename" required autofocus
+                <input type="text" class="form-control" placeholder="Name" formControlName="coursename" required
                   [ngClass]="{ 'is-invalid' : addcourseform.controls.coursename.errors && (addcourseform.controls.coursename.touched || addcourseform.controls.coursename.dirty)}">
                 <span class="invalid-feedback" *ngIf="{ 'is-invalid' : addcourseform.controls.coursename.errors && (addcourseform.controls.coursename.touched || addcourseform.controls.coursename.dirty)}">
                   Please Enter a Course Name
@@ -65,7 +65,7 @@
               </div>
 
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="Course Code" formControlName="coursecode" required autofocus
+                <input type="text" class="form-control" placeholder="Course Code" formControlName="coursecode" required
                   [ngClass]="{ 'is-invalid' : addcourseform.controls.coursecode.errors && (addcourseform.controls.coursecode.touched || addcourseform.controls.coursecode.dirty)}">
                 <span class="invalid-feedback" *ngIf="{ 'is-invalid' : addcourseform.controls.coursecode.errors && (addcourseform.controls.coursecode.touched || addcourseform.controls.coursecode.dirty)}">
                   Please Enter a Course Code
@@ -75,7 +75,7 @@
 
             <div class="row">
               <div class="form-group  col-md-6">
-                <input type="text" class="form-control" placeholder="Start date" formControlName="startdate" required autofocus
+                <input type="text" class="form-control" placeholder="Start date" formControlName="startdate" required
                   [ngClass]="{ 'is-invalid' : addcourseform.controls.startdate.errors && (addcourseform.controls.startdate.touched || addcourseform.controls.startdate.dirty)}">
                 <i class="far fa-calendar-alt"></i>
                 <span class="invalid-feedback" *ngIf="{ 'is-invalid' : addcourseform.controls.startdate.errors && (addcourseform.controls.startdate.touched || addcourseform.controls.startdate.dirty)}">
@@ -83,7 +83,7 @@
                 </span>
               </div>
               <div class="form-group  col-md-6">
-                <input type="text" class="form-control" placeholder="End date" formControlName="enddate" required autofocus
+                <input type="text" class="form-control" placeholder="End date" formControlName="enddate" required
                   [ngClass]="{ 'is-invalid' : addcourseform.controls.enddate.errors && (addcourseform.controls.enddate.touched || addcourseform.controls.enddate.dirty)}">
                 <i class="far fa-calendar-alt"></i>
                 <span class="invalid-feedback" *ngIf="{ 'is-invalid' : addcourseform.controls.enddate.errors && (addcourseform.controls.enddate.touched || addcourseform.controls.enddate.dirty)}">
@@ -94,7 +94,7 @@
 
             <div class="row">
               <div class="form-group col-md-12">
-                <textarea type="text" class="form-control" placeholder="Description" rows="5" required autofocus></textarea>
+                <textarea type="text" class="form-control" placeholder="Description" rows="5" required></textarea>
               </div>
             </div>
           </form>

@@ -1,3 +1,5 @@
+@import '../common/layout.scss';
+
 .logo {
   width: 110px;
 }
@@ -19,7 +21,6 @@
 }
 
 .login-form-box {
-  background-color: #6277B2;
   margin: 35px 0;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -33,11 +34,10 @@
   .form-check-label {
     font-size: 12px;
     vertical-align: text-bottom;
-    color: #f0f0f0 !important;
   }
 
   .action-bar {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .form-group .form-control {
@@ -46,16 +46,29 @@
 
   .input-group-text {
     background-color: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: #fff;
-    color: #fff;
+    border: none;
     border-radius: 0;
     transition: all 0.3s ease-in-out;
+    margin-left: -26px;
+    z-index: 1000;
+    margin-bottom: 2px;
 
     i {
-      color: #d8d8d8;
+      color: #777;
+    }
+  }
+
+  .input-group.is-invalid {
+    .form-control {
+      border-color: #dc3545;
+    }
+
+    .input-group-text i{
+      color: #dc3545;
+    }
+
+    .invalid-feedback {
+      display: block;
     }
   }
 
@@ -65,23 +78,19 @@
     padding: 6px;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #fff;
-    background-color: transparent;
+    border-color: #8495C2;
     background-image: none;
-    border: none;
-    border-bottom: 1px solid #eee;
     outline: none !important;
     box-shadow: none !important;
     border-radius: 0;
     transition: all 0.3s ease-in-out;
+
 
     &:focus {
       border-bottom-width: 2px;
 
       ~.input-group-append .input-group-text {
         border-bottom-width: 2px;
-        i { color: #fff; }
-
       }
     }
   }
@@ -91,6 +100,11 @@
     text-decoration: underline;
   }
 }
+
+.container {
+  min-height: calc(100% - 345px);
+}
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
@@ -100,17 +114,17 @@
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #fff;
+  color: #999;
   opacity: 1;
   /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #fff;
+  color: #999;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #fff;
+  color: #999;
 }

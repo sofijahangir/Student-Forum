@@ -30,29 +30,38 @@
 
 <div class="container">
   <div class="row login-form justify-content-around py-4">
-    <div class="col-md-6 login-form-box">
-      <form class="position-relative" action="/dashboard">
-        <div class="input-group mb-4">
-          <input type="email" class="form-control" required placeholder="Email">
+    <div class="col-md-7 col-sm-10 login-form-box">
+      <form class="position-relative add-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="input-group mb-4"  [ngClass]="{ 'is-invalid' : loginForm.controls.email.errors && (loginForm.controls.email.touched || loginForm.controls.email.dirty)}">
+          <input type="email" class="form-control" required placeholder="Email" formControlName="email">
           <div class="input-group-append">
             <span class="input-group-text p-0"><i class="fas fa-envelope"></i></span>
           </div>
+          <div class="invalid-feedback" *ngIf="{ 'is-invalid' : loginForm.controls.email.errors && (loginForm.controls.email.touched || loginForm.controls.email.dirty)}">
+            Please enter a valid Email-ID
+          </div>
         </div>
 
-        <div class="input-group mb-2">
-          <input type="password" class="form-control" required placeholder="Password">
+        <div class="input-group mb-2"   [ngClass]="{ 'is-invalid' : loginForm.controls.password.errors && (loginForm.controls.password.touched || loginForm.controls.password.dirty)}">
+          <input type="password" class="form-control" required placeholder="Password" formControlName="password">
           <div class="input-group-append">
             <span class="input-group-text p-0"><i class="fas fa-key"></i></span>
+          </div>
+          <div class="invalid-feedback" *ngIf="{ 'is-invalid' : loginForm.controls.password.errors && (loginForm.controls.password.touched || loginForm.controls.password.dirty)}">
+            Please enter a vaild password
           </div>
         </div>
 
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="remember">
-          <label class="form-check-label text-light" for="remember">Remember me</label>
+          <label class="form-check-label text-dark" for="remember">Remember me</label>
         </div>
         <div class="d-flex justify-content-between action-bar align-items-center">
-          <button type="submit" class="btn btn-square btn-light px-4 py-1">Login</button>
-          <a class="text-white forgot-pwd cursor-pointer">Forgot password?</a>
+          <button type="submit" class="btn btn-square btn-primary px-4 py-2 col-md-12">Login</button>
+        </div>
+        <div class="d-flex justify-content-between mt-4 align-items-center">
+          <a class="forgot-pwd cursor-pointer text-primary">Register</a>
+          <a class="forgot-pwd cursor-pointer text-primary">Reset password</a>
         </div>
       </form>
     </div>
