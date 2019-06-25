@@ -1,1 +1,9 @@
 @import '../common/layout.scss';
+
+.container {
+  &.wrapper {
+    position: relative;
+    top: 90px;
+    background-color: #F8F9FD;
+  }
+}
