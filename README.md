@@ -27,10 +27,10 @@ This application is built using the following frameworks and libraries :package:
 ## What you can expect to see in here ?
 The following are the pages that I've developed as the part of the student forum application
 
-1. [Landing page](https://student-forum-2019.herokuapp.com\home) - This the first page that a user will visit which can also be called as Destination Page.
-2. [Login](https://student-forum-2019.herokuapp.com\login) - This page allows the user (both professor & student) to sign into the application.
-3. [Dashboard](https://student-forum-2019.herokuapp.com\dashboard) - Dashboard is similar to a control panel which is the initial page of this application. From here the student can navigate to any desired page.
-4. [Discussion List Page](https://student-forum-2019.herokuapp.com\discussions) - It lists all the posts which has posted in the enrolled course group.
+1. [Landing page](https://student-forum-2019.herokuapp.com/home) - This the first page that a user will visit which can also be called as Destination Page.
+2. [Login](https://student-forum-2019.herokuapp.com/login) - This page allows the user (both professor & student) to sign into the application.
+3. [Dashboard](https://student-forum-2019.herokuapp.com/dashboard) - Dashboard is similar to a control panel which is the initial page of this application. From here the student can navigate to any desired page.
+4. [Discussion List Page](https://student-forum-2019.herokuapp.com/discussions) - It lists all the posts which has posted in the enrolled course group.
 5. [Discussion Details page](https://student-forum-2019.herokuapp.com/discussions/details) - Discussion thread view
 6. [Discussion post page](https://student-forum-2019.herokuapp.com/discussions/add)
 7. [Course Add page](https://student-forum-2019.herokuapp.com/course/add)
