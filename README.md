@@ -31,6 +31,10 @@ The following are the pages that I've developed as the part of the student forum
 2. [Login](http:\\localhost:4200\login) - This page allows the user (both professor & student) to sign into the application.
 3. [Dashboard](http:\\localhost:4200\dashboard) - Dashboard is similar to a control panel which is the initial page of this application. From here the student can navigate to any desired page.
 4. [Discussion List Page](http:\\localhost:4200\discussions) - It lists all the posts which has posted in the enrolled course group.
+5. [Discussion Details page](https://student-forum-2019.herokuapp.com/discussions/details) - Discussion thread view
+6. [Discussion post page](https://student-forum-2019.herokuapp.com/discussions/add)
+7. [Course Add page](https://student-forum-2019.herokuapp.com/course/add)
+8. [Browse Course](https://student-forum-2019.herokuapp.com/course/browse?keyword=csc)
 
 ## Application tour :rocket:
 Now let us go for around to visit the above pages.
