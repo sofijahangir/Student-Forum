@@ -47,8 +47,6 @@ module.exports = {
       email: req.email
     });
 
-    console.log(user);
-
     if (!user) {
       return response.status(400).send({
         message: "Invalid username/email"
@@ -76,11 +74,9 @@ module.exports = {
             });
           } else {
 
-            console.log(hash)
-
             mailer.sendResetPwdMail({
               name: user.name,
-              url: hash
+              url: `http://localhost:4200/resetpassword?id=${hash}`
             })
 
             return response.send(200, {
@@ -120,7 +116,7 @@ module.exports = {
                 });
               } else {
                 await User.updateOne({
-                  email: req.email
+                  email: user.email
                 }).set({
                   resetTime: '',
                   password: hash

@@ -17,6 +17,7 @@ import { DiscussiondetailsComponent } from './discussiondetails/discussiondetail
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowsecourseComponent,
     DiscussiondetailsComponent,
     ComingsoonComponent,
-    SignupComponent
+    SignupComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserAnimationsModule,

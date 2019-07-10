@@ -30,7 +30,8 @@ export class StoreService {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error.message}`);
-      alert(error.error.message);
+      Swal.fire('Oops..', 'error.error.message', 'error')
+
     }
     return throwError('Something went wrong; please try again later.');
   };

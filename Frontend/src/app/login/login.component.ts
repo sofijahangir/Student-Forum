@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { StoreService } from '../store.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -37,11 +38,11 @@ export class LoginComponent implements OnInit {
 
   forgotPassword() {
     if (this.forgotPasswordForm.invalid) {
-      alert("Please enter valid E-mail");
+      Swal.fire('Oops..', 'Please enter valid E-mail', 'error')
       this.forgotPasswordForm.reset();
     } else {
       this.store.post('/forgotpassword', this.forgotPasswordForm.value).subscribe((res) => {
-        alert("ok")
+        Swal.fire('Email Sent successfully', 'Please check your inbox for further steps.', 'success')
         this.isLoading = false;
       }, err => {
         console.log(err);
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.invalid) {
-      alert("Please enter valid E-mail and credentials");
+      Swal.fire('Oops..', 'Please enter valid email and credentials', 'error')
       this.loginForm.reset();
     } else {
       this.isLoading = true;
