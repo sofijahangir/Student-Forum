@@ -9,20 +9,21 @@ var passport = require('passport'),
   bcrypt = require('bcrypt');
 
 module.exports = {
-  signin: function(request, response) {
-    response.view();
-  },
-
   authenticate: function(request, response) {
-    passport.authenticate('local', function(err, user, info) {
+    return passport.authenticate('local', (err, user, info) => {
       if ((err) || (!user)) {
         return response.status(400).send({
           message: 'Invalid Username/password'
         });
         response.send(err);
       }
-      request.logIn(user, function(err) {
+      request.logIn(user, (err) => {
         if (err) response.send(err);
+        if (request.allParams().name) {
+          return response.status(201).send({
+            message: 'User created successfully'
+          });
+        }
         return response.send({
           message: 'login successful'
         });

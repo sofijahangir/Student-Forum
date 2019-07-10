@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { StoreService } from '../store.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -68,5 +68,13 @@ export class DashboardComponent implements OnInit {
     } else {
       document.getElementById("wrapper").classList.add("collapse");
     }
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
   }
 }

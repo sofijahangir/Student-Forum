@@ -33,13 +33,13 @@ module.exports = {
     return _.omit(this, ['password'])
   },
 
-  beforeCreate: function(user, cb) {
+  beforeCreate: function(user, proceed) {
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(user.password, salt, function(err, hash) {
         if (err) {
-          cb(err);
+          proceed(err);
         } else {
-          cb(null, user);
+          proceed(null, user);
         }
       });
     });

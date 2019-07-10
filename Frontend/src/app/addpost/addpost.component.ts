@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from "@angular/router";
 import * as $ from 'jquery';
+import Swal from 'sweetalert2';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-addpost',
@@ -11,7 +13,7 @@ import * as $ from 'jquery';
 export class AddpostComponent implements OnInit {
   newPostform: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) { }
 
   ngOnInit() {
     this.newPostform = this.fb.group({
@@ -32,5 +34,13 @@ export class AddpostComponent implements OnInit {
     } else {
       document.getElementById("wrapper").classList.add("collapse");
     }
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
   }
 }

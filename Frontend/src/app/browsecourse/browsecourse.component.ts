@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
+import Swal from 'sweetalert2';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-browsecourse',
@@ -10,7 +12,7 @@ export class BrowsecourseComponent implements OnInit {
 
   keyword: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private store: StoreService) {
   }
 
   ngOnInit() {
@@ -28,6 +30,14 @@ export class BrowsecourseComponent implements OnInit {
     } else {
       document.getElementById("wrapper").classList.add("collapse");
     }
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
   }
 
   courses = [{

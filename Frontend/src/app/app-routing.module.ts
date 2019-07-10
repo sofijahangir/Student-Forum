@@ -10,6 +10,7 @@ import { BrowsecourseComponent } from './browsecourse/browsecourse.component';
 import { DiscussiondetailsComponent } from './discussiondetails/discussiondetails.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'discussions/add', component: AddpostComponent, data: { animation: 'DashboardPage' } },
   { path: 'discussions/details', component: DiscussiondetailsComponent, data: { animation: 'LoginPage' } },
   { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'comingsoon', component: ComingsoonComponent }
 ];
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import Swal from 'sweetalert2';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-discussiondetails',
@@ -8,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class DiscussiondetailsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store: StoreService) { }
 
   ngOnInit() {
   }
@@ -92,4 +94,11 @@ export class DiscussiondetailsComponent implements OnInit {
     }
   }
 
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
+  }
 }
