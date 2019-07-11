@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { StoreService } from '../store.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +11,16 @@ import { Router } from "@angular/router";
 
 
 export class DashboardComponent implements OnInit {
-  constructor(private router: Router) {
+  constructor(private router: Router, private store: StoreService) {
 
   }
 
   ngOnInit() {
+
+    this.store.get('/user').subscribe((res) => {
+    }, err => {
+      console.log(err);
+    });
 
   }
 
@@ -61,5 +68,13 @@ export class DashboardComponent implements OnInit {
     } else {
       document.getElementById("wrapper").classList.add("collapse");
     }
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
   }
 }

@@ -22,8 +22,11 @@
 
 .login-form-box {
   margin: 35px 0;
-  padding-top: 40px;
   padding-bottom: 40px;
+
+  h5 {
+    padding-bottom: 20px;
+  }
 
   form {
     z-index: 1;

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from "@angular/router";
-
+import Swal from 'sweetalert2';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-addcourse',
@@ -12,7 +13,7 @@ export class AddcourseComponent implements OnInit {
 
   addcourseform: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) { }
 
   ngOnInit() {
     this.addcourseform = this.fb.group({
@@ -44,5 +45,13 @@ export class AddcourseComponent implements OnInit {
     } else {
       document.getElementById("wrapper").classList.add("collapse");
     }
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
   }
 }

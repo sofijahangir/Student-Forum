@@ -15,6 +15,9 @@ import { AddpostComponent } from './addpost/addpost.component';
 import { BrowsecourseComponent } from './browsecourse/browsecourse.component';
 import { DiscussiondetailsComponent } from './discussiondetails/discussiondetails.component';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+import { SignupComponent } from './signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -29,14 +32,17 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
     AddpostComponent,
     BrowsecourseComponent,
     DiscussiondetailsComponent,
-    ComingsoonComponent
+    ComingsoonComponent,
+    SignupComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
