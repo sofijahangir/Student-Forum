@@ -1,3 +1,11 @@
+/**
+ * passport.js
+ *
+ * @description :: AUthentication related actions using passport.
+ * @author      :: Sharmila Thirumalainathan, B00823668
+ *
+ */
+
 var passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
   bcrypt = require('bcrypt');

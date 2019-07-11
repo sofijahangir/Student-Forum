@@ -2,7 +2,7 @@
  * UserController
  *
  * @description :: Server-side actions for handling incoming request.
- * @author      :: Sharmila, B00823668
+ * @author      :: Sharmila Thirumalainathan, B00823668
  */
 
 var auth = require('./AuthController');

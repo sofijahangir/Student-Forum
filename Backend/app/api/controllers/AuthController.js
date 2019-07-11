@@ -2,7 +2,7 @@
  * UserController
  *
  * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
+ * @author      :: Sharmila Thirumalainathan, B00823668
  */
 
 var passport = require('passport'),

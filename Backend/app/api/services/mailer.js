@@ -1,3 +1,13 @@
+/**
+ * mailer.js
+ *
+ * @description :: Mailer logic for triggering e-mail.
+ * @author      :: Sharmila Thirumalainathan, B00823668
+ *
+ */
+
+
+
 module.exports.sendResetPwdMail = function(obj) {
   process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
 
