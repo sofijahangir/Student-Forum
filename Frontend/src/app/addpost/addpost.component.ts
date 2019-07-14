@@ -13,12 +13,34 @@ import { StoreService } from '../store.service';
 export class AddpostComponent implements OnInit {
   newPostform: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) { }
+  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) { 
+
+  }
+
+  submitForm()
+  {
+    if (this.newPostform.invalid) {
+      Swal.fire('Oops..', 'Please enter required details', 'error')
+      this.newPostform.reset();
+    } else {
+      console.log(this.newPostform.value);
+      this.store.post('/addPost', this.newPostform.value).subscribe((res) => {
+        this.router.navigate(['/discussions/add']);
+        // this.isLoading = false;
+      }, err => {
+        console.log(err);
+        // this.isLoading = false;
+      });
+    }
+  }
 
   ngOnInit() {
     this.newPostform = this.fb.group({
       title: ['', Validators.required],
-      content: ['', Validators.required]
+      content: ['', Validators.required],
+      allowAnon: false,
+      course: ['', Validators.required],
+
     });
   }
 

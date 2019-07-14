@@ -41,7 +41,12 @@ module.exports.routes = {
   'POST /forgotpassword': {
     controller: 'AuthController',
     action: 'forgotpassword'
-  }
+  },
+
+  'Post /addPost' : {
+    controller: 'CreatePostController',
+    action: 'create'
+  },
 
   /***************************************************************************
    *                                                                          *
