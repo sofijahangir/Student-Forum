@@ -62,13 +62,14 @@
           <div class="col-sm-10">
             <h6>{{course.title}}<span class="text-warning internal-label">&nbsp;&nbsp;&nbsp;<i class="fas fa-circle align-middle"></i>&nbsp;{{course.code}}</span>
             </h6>
-            <p class="mb-2 font-sm mt-2"><i class="fas fa-user-tie"></i>&nbsp;&nbsp;{{course.prof}}</p>
-            <p class="mb-2 font-sm"><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;Jan 12,  &nbsp;2019 - Apr 30,  &nbsp;2019</p>
+            <p class="mb-2 font-sm mt-2"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;{{course.description}}</p>
+            <!-- <p class="mb-2 font-sm mt-2"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;{{course.d | date:'MMM d, y'}}</p> -->
+            <p class="mb-2 font-sm"><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{course.sdate | date:'MMM d, y'}}  &nbsp;-  &nbsp;{{course.edate | date:'MMM d, y'}}</p>
             <p>{{course.school_code}}</p>
           </div>
           <div class="col-sm-2 mb-3 d-flex justify-content-center text-right flex-column">
             <div class="float-right">
-              <button type="submit" class="btn btn-primary" [class.btn-outlined]="course.isEnrolled">
+              <button type="submit" [disabled]="course.isEnrolled" (click)="enroll(course.id)" class="btn btn-primary" [class.btn-outlined]="course.isEnrolled">
                 <span *ngIf="course.isEnrolled"><i class="fas fa-check font-sm" >&nbsp;&nbsp;</i>Enrolled</span>
                 <span *ngIf="!course.isEnrolled">Enroll</span>
               </button>

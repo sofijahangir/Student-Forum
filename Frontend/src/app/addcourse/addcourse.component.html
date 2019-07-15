@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
 <div class="wrapper d-flex w-100 h-100" id="wrapper">
   <nav id="sidebar">
     <div class="sidebar-sticky text-center">
@@ -75,7 +76,7 @@
 
             <div class="row">
               <div class="form-group  col-md-6">
-                <input type="text" class="form-control" placeholder="Start date" formControlName="startdate" required
+                <input bsDatepicker [bsConfig]="{dateInputFormat: 'MM-DD-YYYY', containerClass: 'theme-default'}"type="text" class="form-control" placeholder="Start date" formControlName="startdate" required
                   [ngClass]="{ 'is-invalid' : addcourseform.controls.startdate.errors && (addcourseform.controls.startdate.touched || addcourseform.controls.startdate.dirty)}">
                 <i class="far fa-calendar-alt"></i>
                 <span class="invalid-feedback" *ngIf="{ 'is-invalid' : addcourseform.controls.startdate.errors && (addcourseform.controls.startdate.touched || addcourseform.controls.startdate.dirty)}">
@@ -83,7 +84,7 @@
                 </span>
               </div>
               <div class="form-group  col-md-6">
-                <input type="text" class="form-control" placeholder="End date" formControlName="enddate" required
+                <input bsDatepicker [bsConfig]="{dateInputFormat: 'MM-DD-YYYY', containerClass: 'theme-default'}" type="text" class="form-control" placeholder="End date" formControlName="enddate" required
                   [ngClass]="{ 'is-invalid' : addcourseform.controls.enddate.errors && (addcourseform.controls.enddate.touched || addcourseform.controls.enddate.dirty)}">
                 <i class="far fa-calendar-alt"></i>
                 <span class="invalid-feedback" *ngIf="{ 'is-invalid' : addcourseform.controls.enddate.errors && (addcourseform.controls.enddate.touched || addcourseform.controls.enddate.dirty)}">
@@ -94,7 +95,16 @@
 
             <div class="row">
               <div class="form-group col-md-12">
-                <textarea type="text" class="form-control" placeholder="Description" rows="5" required></textarea>
+                <textarea type="text" class="form-control" placeholder="Description" formControlName="desc" rows="5" required></textarea>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <div class="float-right mt-2 button-group">
+                  <button type="submit" class="btn btn-primary mr-3">Save</button>
+                  <button routerLink="/course/browse" type="submit" class="btn btn-light">Cancel</button>
+                </div>
               </div>
             </div>
           </form>
@@ -112,14 +122,7 @@
         </div>
       </div>
 
-      <div class="row pb-4">
-        <div class="col-sm-6">
-          <div class="float-right mt-2 button-group">
-            <button type="submit" class="btn btn-primary mr-3">Save</button>
-            <button routerLink="/courses" type="submit" class="btn btn-light">Cancel</button>
-          </div>
-        </div>
-      </div>
+     
     </div>
   </div>
 </div>
