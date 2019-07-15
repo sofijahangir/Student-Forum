@@ -16,7 +16,12 @@ export class DiscussionsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    
+    this.store.get('/getDiscussions?filter=All&course=1',{}).subscribe((res) => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
   goToDetails() {

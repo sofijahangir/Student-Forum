@@ -64,10 +64,13 @@ export class StoreService {
 
   get(endpoint, data = {}) {
     this.url = `${apiURL}${endpoint}`;
-    data["email"] = this.email;
+    if(endpoint!='/user')
+    {
+      this.url = this.url + '&email=' + this.email;
+    }
     return this.http.get(this.url, httpOptions)
       .pipe(
-        tap(data => console.log('Request successful')),
+        tap(_=> console.log('Request successful')),
         catchError(this.handleError)
       );
   }
