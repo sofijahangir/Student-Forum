@@ -48,6 +48,11 @@ module.exports.routes = {
     action: 'create'
   },
 
+  'Get /getDiscussions' : {
+    controller: 'ListDiscussionController',
+    action: 'getList'
+  }
+
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *

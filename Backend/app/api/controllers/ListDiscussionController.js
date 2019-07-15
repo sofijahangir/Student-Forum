@@ -9,31 +9,55 @@ module.exports = {
   
     getList: function(request, response) {
         var post = request.allParams();
-
-        if(post.email==null)
+        if(post.filter=="All")
         {
-            return response.status(500).send({
-                error: "User is invalid"
-            });
-        }
-        else if(post.filter!=null)
-        {
-            if(post.course!=null)
+            if(post.course=="")
             {
-                
+                Post.find({email:post.email})
+                .exec(function(err,list)
+                {
+                    if(err)
+                    {
+                        response.send(err);
+                    }
+                    else
+                    {   
+                        console.log(list)
+                        response.send(list)
+                    }
+                })
             }
             else
             {
-                
+                Post.find({email:post.email,courseID:post.course})
+                .exec(function(err,list)
+                {
+                    if(err)
+                    {
+                        response.send(err);
+                    }
+                    else
+                    {   
+                        response.send(list)
+                    }
+                })
             }
-        }
-        else if(post.course!=null)
-        {
 
         }
-        else
+        else if(post.filter=="Archived")
         {
-
+            Post.find({email:post.email,courseID:post.course})
+            .exec(function(err,list)
+            {
+                if(err)
+                {
+                    response.send(err);
+                }
+                else
+                {   
+                    response.send(list)
+                }
+            })
         }
     },
 
