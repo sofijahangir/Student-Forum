@@ -18,6 +18,7 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     DiscussiondetailsComponent,
     ComingsoonComponent,
     SignupComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,7 +43,9 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot(),
+    DatepickerModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
