@@ -11,7 +11,6 @@ module.exports = {
         var post = request.allParams();
         if(post.filter=="All")
         {
-            console.log("Hello");
             if(post.course=="")
             {
                 Post.find({email:post.email})

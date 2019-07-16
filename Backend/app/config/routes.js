@@ -51,6 +51,11 @@ module.exports.routes = {
   'Get /getDiscussions' : {
     controller: 'ListDiscussionController',
     action: 'getList'
+  },
+
+  'Get /getName' : {
+    controller: 'UserController',
+    action: 'fetchName'
   }
 
   /***************************************************************************

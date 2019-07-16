@@ -9,6 +9,24 @@ var auth = require('./AuthController');
 var bcrypt = require('bcrypt');
 
 module.exports = {
+
+  fetchName: function(request,response)
+  {
+    var email = request.allParams();
+    User.find({email:email.email})
+    .exec(function(err,user)
+    {
+        if(err)
+        {
+            response.send(err);
+        }
+        else
+        {  
+            response.send(user[0].name)
+        }
+    })
+  },
+
   create: function(request, response) {
 
     var user = request.allParams();

@@ -18,7 +18,7 @@ export class DiscussionsComponent implements OnInit {
   ngOnInit() {
     
     this.store.get('/getDiscussions?filter=All&course=1',{}).subscribe((res) => {
-      console.log(res);
+      
     }, err => {
       console.log(err);
     });
@@ -77,7 +77,7 @@ export class DiscussionsComponent implements OnInit {
   }, {
     id: 2,
     title: "REST API Architecture",
-    author: "Michael Hackett",
+    author: "Michael Hackett", 
     date: "May 7, 2019",
     comments: 6
   }, {
