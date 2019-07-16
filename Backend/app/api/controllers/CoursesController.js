@@ -33,10 +33,6 @@ module.exports = {
     enroll: async function (req, res) {
         var course = req.allParams();
         console.log(course.id);
-        // var cname = course.coursename;
-        // console.log(cname);
-        // Courses.update(course).set({enroll:true});
-        // Courses.update({enroll: true}).exec()
         var c = await Courses.updateOne({
             id: course.id
         }).set({
@@ -48,10 +44,6 @@ module.exports = {
     search: async function (req, res) {
         var course = req.allParams();
         console.log(course.coursename);
-        // var cname = course.coursename;
-        // console.log(cname);
-        // Courses.update(course).set({enroll:true});
-        // Courses.update({enroll: true}).exec()
         var c = await Courses.find({
             coursename: course.coursename
         })

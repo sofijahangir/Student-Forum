@@ -12,10 +12,9 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 })
 export class AddcourseComponent implements OnInit {
 
-  // private isLoading;
 
   addcourseform: FormGroup;
-  
+
 
   constructor(private fb: FormBuilder, private router: Router, private store: StoreService) { }
 
@@ -36,14 +35,10 @@ export class AddcourseComponent implements OnInit {
       Swal.fire('Oops..', 'Please enter required details', 'error')
       this.addcourseform.reset();
     } else {
-      // console.log(this.addcourseform.value);
-      // this.isLoading = true;
       this.store.post('/addcourse', this.addcourseform.value).subscribe((res) => {
         this.router.navigate(['/course/browse']);
-        // this.isLoading = false;
       }, err => {
         console.log(err);
-        // this.isLoading = false;
       });
     }
   }

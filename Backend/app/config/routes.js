@@ -53,11 +53,6 @@ module.exports.routes = {
     action: 'courses'
   },
 
-  'GET /enrollcourse': {
-    controller: 'EnrollmentController',
-    action: 'registeruser'
-  },
-
   'POST /enroll': {
     controller: 'CoursesController',
     action: 'enroll'
