@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
+import Swal from 'sweetalert2';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-browsecourse',
@@ -8,18 +10,52 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class BrowsecourseComponent implements OnInit {
 
+  result: any;
+  courses = [];
+  scourses = [];
+
   keyword: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private store: StoreService) {
   }
 
   ngOnInit() {
     const param = new URLSearchParams(window.location.search);
     this.keyword = param.get("keyword");
+    if (!this.keyword) {
+      this.store.get('/getcourse').subscribe((res) => {
+        this.result = res;
+        console.log((this.result));
+        var i: number;
+        for (i = 0; i < this.result.length; i++) {
+          this.courses[i] = { id: this.result[i].id, title: this.result[i].coursename, code: this.result[i].coursecode, school_code: "Dalhousie University", description: this.result[i].desc, sdate: this.result[i].startdate, edate: this.result[i].enddate, isEnrolled: this.result[i].enroll }
+        }
+      }, err => {
+        console.log(err);
+      });
+
+    }
   }
 
   searchCourse(value: string) {
     this.keyword = value;
+    if (this.keyword) {
+      var sk = { coursename: this.keyword };
+      console.log(sk);
+      this.store.post('/searchcourse', sk).subscribe((res) => {
+        this.result = res;
+        var i: number;
+        this.scourses = [];
+        for (i = 0; i < this.result.length; i++) {
+          this.scourses[i] = { id: this.result[i].id, title: this.result[i].coursename, code: this.result[i].coursecode, school_code: "Dalhousie University", description: this.result[i].desc, sdate: this.result[i].startdate, edate: this.result[i].enddate, isEnrolled: this.result[i].enroll }
+          console.log(this.scourses);
+          this.courses = this.scourses;
+        }
+      }, err => {
+      });
+    } else {
+      this.ngOnInit();
+    }
   }
 
   collapse() {
@@ -30,49 +66,27 @@ export class BrowsecourseComponent implements OnInit {
     }
   }
 
-  courses = [{
-    id: 1,
-    title: "Data Management",
-    code: "CSCI 1234",
-    school_code: "Dalhousie University",
-    prof: "Dr. Saurbh Dey",
-    join_code: 6789
-  }, {
-    id: 2,
-    title: "Web Development",
-    code: "CSCI 5709",
-    prof: "Maria Gabriella Mosquera",
-    school_code: "Dalhousie University",
-    join_code: 7282,
-    isEnrolled: true
-  }, {
-    id: 3,
-    title: "Cloud Computing",
-    code: "CSC 8701",
-    prof: "Dr. Peter Bodorik",
-    school_code: "Saint Mary's University",
-    join_code: 9281
-  }, {
-    id: 4,
-    title: "Software Development Concepts",
-    code: "CSCI 5709",
-    prof: "Dr. Michael",
-    school_code: "Dalhousie University",
-    join_code: 4536
-  }, {
-    id: 5,
-    title: "Mobile Computing",
-    code: "CSC 9004",
-    prof: "Dr. Hackett",
-    school_code: "Saint Mary's University",
-    join_code: 8362,
-    isEnrolled: true
-  }, {
-    id: 6,
-    title: "Visual Analytics",
-    code: "CSCI 5929",
-    prof: "Dr. Fernado",
-    school_code: "Concordia University",
-    join_code: 9172
-  }];
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
+  }
+
+  enroll(ct) {
+    var cid = { id: ct };
+    console.log(cid);
+    this.store.post('/enroll', cid).subscribe((res) => {
+      if (!this.keyword) {
+        this.ngOnInit();
+        Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
+      } else {
+        this.searchCourse(this.keyword);
+        Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
+      }
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
+  }
 }

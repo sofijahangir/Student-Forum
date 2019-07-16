@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import Swal from 'sweetalert2';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-comingsoon',
@@ -8,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class ComingsoonComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private store: StoreService) {
 
   }
 
@@ -27,5 +29,13 @@ export class ComingsoonComponent implements OnInit {
     } else {
       document.getElementById("wrapper").classList.add("collapse");
     }
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
   }
 }
