@@ -56,7 +56,33 @@ module.exports.routes = {
   'Get /getName' : {
     controller: 'UserController',
     action: 'fetchName'
-  }
+  },
+  
+  'POST /addcourse': {
+    controller: 'CoursesController',
+    action: 'create'
+  },
+
+  'GET /getcourse': {
+    controller: 'CoursesController',
+    action: 'courses'
+  },
+
+  'POST /enroll': {
+    controller: 'CoursesController',
+    action: 'enroll'
+  },
+
+  'POST /searchcourse': {
+    controller: 'CoursesController',
+    action: 'search'
+  },
+
+
+
+
+
+
 
   /***************************************************************************
    *                                                                          *

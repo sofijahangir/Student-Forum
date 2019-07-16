@@ -5,14 +5,19 @@
         <a class="navbar-brand" href="#"><img src="assets/logo.png" class="logo" alt="logo"></a>
       </div>
       <div class="quick-create text-left" title="New Post">
-        <button type="button" class="btn btn-primary" routerLink="/discussions/add"><i class="fas fa-plus"></i><span>&nbsp;&nbsp;New Post</span></button>
+        <button type="button" class="btn btn-primary" routerLink="/discussions/add"><i
+            class="fas fa-plus"></i><span>&nbsp;&nbsp;New Post</span></button>
       </div>
 
       <ul class="nav flex-column text-left">
-        <li class="nav-item"><a href="#" class="nav-link" routerLink="/dashboard"><i class="fas fa-tv"></i><span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
-        <li class="nav-item active"><a href="#" class="nav-link" routerLink="/discussions"><i class="far fa-comments"></i><span>&nbsp;&nbsp;&nbsp;Discussions</span></a></li>
-        <li class="nav-item"><a routerLink="/comingsoon" class="nav-link"><i class="fas fa-sliders-h"></i><span>&nbsp;&nbsp;&nbsp;Settings</span></a></li>
-        <li class="nav-item"><a routerLink="/comingsoon" class="nav-link"><i class="fas fa-question-circle"></i><span>&nbsp;&nbsp;&nbsp;Help</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link" routerLink="/dashboard"><i
+              class="fas fa-tv"></i><span>&nbsp;&nbsp;&nbsp;Dashboard</span></a></li>
+        <li class="nav-item active"><a href="#" class="nav-link" routerLink="/discussions"><i
+              class="far fa-comments"></i><span>&nbsp;&nbsp;&nbsp;Discussions</span></a></li>
+        <li class="nav-item"><a routerLink="/comingsoon" class="nav-link"><i
+              class="fas fa-sliders-h"></i><span>&nbsp;&nbsp;&nbsp;Settings</span></a></li>
+        <li class="nav-item"><a routerLink="/comingsoon" class="nav-link"><i
+              class="fas fa-question-circle"></i><span>&nbsp;&nbsp;&nbsp;Help</span></a></li>
       </ul>
 
       <div class="collapse-in-out" (click)="collapse()" title="collapse">
@@ -25,20 +30,24 @@
     <div class="top-nav">
       <nav class="navbar navbar-light pb-0 pr-2">
         <div class="form-group search-box bg-transparent">
-          <input type="text" class="form-control bg-transparent" placeholder="Search Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
+          <input type="text" class="form-control bg-transparent" placeholder="Search Course" #courseSearch
+            (keyup.enter)="searchCourse(courseSearch.value)">
           <i class="fa fa-search"></i>
         </div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown profile-menu">
-            <a class="nav-link dropdown-toggle pt-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
+            <a class="nav-link dropdown-toggle pt-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span
+                class="align-middle">Chandler Bing</span>
             </a>
             <div class="dropdown-menu animate appear">
               <a class="dropdown-item" routerLink="/comingsoon">Manage profile</a>
               <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link"><i class="far fa-bell"></i><span class="badge d-inline-block"></span></a></li>
+          <li class="nav-item"><a class="nav-link"><i class="far fa-bell"></i><span
+                class="badge d-inline-block"></span></a></li>
         </ul>
       </nav>
 
@@ -51,7 +60,7 @@
             <h6 *ngIf="!keyword">
               All Courses&nbsp;&nbsp;
             </h6>
-            <span class="badge badge-light py-2 px-3 ml-4"  *ngIf="keyword">Your search result for: {{keyword}}</span>
+            <span class="badge badge-light py-2 px-3 ml-4" *ngIf="keyword">Your search result for: {{keyword}}</span>
           </div>
         </div>
       </div>
@@ -60,16 +69,19 @@
       <div class="row course-list ml-3">
         <div class="course-item col-sm-11 col-xs-12 mt-4 row" *ngFor="let course of courses">
           <div class="col-sm-10">
-            <h6>{{course.title}}<span class="text-warning internal-label">&nbsp;&nbsp;&nbsp;<i class="fas fa-circle align-middle"></i>&nbsp;{{course.code}}</span>
+            <h6>{{course.title}}<span class="text-warning internal-label">&nbsp;&nbsp;&nbsp;<i
+                  class="fas fa-circle align-middle"></i>&nbsp;{{course.code}}</span>
             </h6>
-            <p class="mb-2 font-sm mt-2"><i class="fas fa-user-tie"></i>&nbsp;&nbsp;{{course.prof}}</p>
-            <p class="mb-2 font-sm"><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;Jan 12,  &nbsp;2019 - Apr 30,  &nbsp;2019</p>
+            <p class="mb-2 font-sm mt-2"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;{{course.description}}</p>
+            <p class="mb-2 font-sm"><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{course.sdate | date:'MMM d, y'}}
+              &nbsp;- &nbsp;{{course.edate | date:'MMM d, y'}}</p>
             <p>{{course.school_code}}</p>
           </div>
           <div class="col-sm-2 mb-3 d-flex justify-content-center text-right flex-column">
             <div class="float-right">
-              <button type="submit" class="btn btn-primary" [class.btn-outlined]="course.isEnrolled">
-                <span *ngIf="course.isEnrolled"><i class="fas fa-check font-sm" >&nbsp;&nbsp;</i>Enrolled</span>
+              <button type="submit" [disabled]="course.isEnrolled" (click)="enroll(course.id)" class="btn btn-primary"
+                [class.btn-outlined]="course.isEnrolled">
+                <span *ngIf="course.isEnrolled"><i class="fas fa-check font-sm">&nbsp;&nbsp;</i>Enrolled</span>
                 <span *ngIf="!course.isEnrolled">Enroll</span>
               </button>
             </div>
