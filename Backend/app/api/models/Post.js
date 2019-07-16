@@ -7,11 +7,7 @@
 
 module.exports = {
 
-  attributes: {
-    postID: {
-      type: 'number',
-      autoIncrement: true,
-    },  
+  attributes: { 
     title: {
       type: 'string',
       required: true

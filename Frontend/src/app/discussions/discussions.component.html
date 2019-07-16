@@ -67,12 +67,11 @@
       <div class="row post-list ml-4">
         <div class="post-item col-sm-11 col-xs-12 mt-4" *ngFor="let post of posts">
           <h6>{{post.title}}<span class="text-warning internal-label" *ngIf="post.isInternal">&nbsp;&nbsp;&nbsp;<i class="fas fa-circle align-middle"></i>&nbsp;Internal</span>
-            <span class="float-right comments" *ngIf="post.comments"><i class="far fa-comment-alt"></i>&nbsp;{{post.comments}}</span>
+            <span class="float-right comments"><i class="far fa-comment-alt"></i>&nbsp;{{post.comments}}</span>
           </h6>
           <p class="mb-2">by&nbsp;&nbsp;{{post.author}}</p>
           <p><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{post.date}}</p>
-          <div class="mb-3 post-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat sed cras ornare arcu. Faucibus nisl tincidunt eget nullam non nisi est. Neque
-            viverra justo nec ultrices...&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails()">Continue Reading</span></div>
+          <div class="mb-3 post-desc">{{post.content}}&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails()">Continue Reading</span></div>
         </div>
       </div>
 

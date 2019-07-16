@@ -46,7 +46,11 @@ export class StoreService {
   };
 
   post(endpoint, data = {}) {
-    if(endpoint=='/signin' || endpoint=='/user')
+    if(endpoint=='/signout')
+    {
+      this.email = "";
+    }
+    else if(endpoint=='/signin')
     {
       this.email = data["email"];
     }
