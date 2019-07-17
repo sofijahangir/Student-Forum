@@ -44,7 +44,8 @@ The following are the pages that I've developed as the part of the student forum
 4. Logout - An option to logout and reset the user session.
 
 ### Feature Owner - Nirav Solanki
-
+1. [add Post](https://student-forum-2020.herokuapp.com/discussions/add) - This page allows the user to create a new post for a particular subject.
+2. [discussion list](https://student-forum-2020.herokuapp.com/discussions) - This page list the discussions of the subject the user is registered to. It allows the user to give different types of filter (discussion of particular course, active discussion, archived discussion, etc)
 ### Feature Owner - Nishant Bhambhani
 
 
@@ -52,6 +53,7 @@ The following are the pages that I've developed as the part of the student forum
 ## Application tour :rocket:
 Now let us go for around to visit the above pages.
 
+### Discussion List
 ### Feature Owner - Nirav Solanki
 * This feature requires the user to be logged in to the website.
 * After, logging in the user must navigate to discussion from the right-hand side navigation bar. From here the user can click on “+” symbol to add a new post.
