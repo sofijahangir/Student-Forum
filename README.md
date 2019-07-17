@@ -38,9 +38,9 @@ This application is built using the following frameworks and libraries :package:
 The following are the pages that I've developed as the part of the student forum application
 
 ### Feature Owner - Sharmila Thirumalainathan
-1. [Login](https://student-forum-2019.herokuapp.com/login) - This page allows the user (both professor & student) to sign into the application. Session Management is done by maintaining  'sid' between client and server.
-2. [Signup](https://student-forum-2019.herokuapp.com/signup) - This page allows the user to signup for the application. Once the user has signed-in, he/she will be logged in and the session will also be created simultaneously.
-3. [Reset](https://student-forum-2019.herokuapp.com/reset) - This page allow the user to reset the password if they've forgotten the password.
+1. [Login](https://student-forum-2020.herokuapp.com/login) - This page allows the user (both professor & student) to sign into the application. Session Management is done by maintaining  'sid' between client and server.
+2. [Signup](https://student-forum-2020.herokuapp.com/signup) - This page allows the user to signup for the application. Once the user has signed-in, he/she will be logged in and the session will also be created simultaneously.
+3. [Reset](https://student-forum-2020.herokuapp.com/reset) - This page allow the user to reset the password if they've forgotten the password.
 4. Logout - An option to logout and reset the user session.
 
 ### Feature Owner - Nirav Solanki
