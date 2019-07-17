@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 
 export class LoginComponent implements OnInit {
   private isLoading;
-  private isLogin = true;
+  public isLogin = true;
 
   loginForm: FormGroup;
   forgotPasswordForm: FormGroup;

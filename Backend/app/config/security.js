@@ -30,7 +30,10 @@ module.exports.security = {
 
   cors: {
     allRoutes: true,
-    allowOrigins: 'https://student-forum-2019.herokuapp.com',
+    allowOrigins: ['https://student-forum-2019.herokuapp.com',
+      'https://student-forum-2020.herokuapp.com',
+      'http://localhost:4200'
+    ],
     allowCredentials: true,
   },
 
