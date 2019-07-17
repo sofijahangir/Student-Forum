@@ -56,11 +56,11 @@ Now let us go for around to visit the above pages.
 ### User Management - Sharmila Thirumalainathan
 * The application by default will open the *landing page* when served :checkered_flag: . Here we have a welcome section, customer review section and a feature display section.
 * Now to go into the application, you'll have to click on the *login menu* in the top navbar :checkered_flag: .
-* Ahanha...! You can't just sneak into the application. So give a proper email-id and a  password.
-* If you haven't signed-up click on the register option right below the login button.
-* If you forgotten your password, don't worry just reset it by using the reset option below the login button.
+* Ahanha...! You can't just sneak into the application. So give a proper email-id and password.
+* If you haven't signed-up click on the *register* option right below the login button :checkered_flag:.
+* If you forgotten your password, don't worry just reset it by using the *reset password* option below the login button :checkered_flag:.
 * On successful login you will be taken to *dashboard* page of the application :checkered_flag: .
-* Now you can find logout option in top menu bar.
+* Now you can find *logout* option in top menu bar :checkered_flag:.
 
 
 ### Discussion List - Nirav Solanki

@@ -41,7 +41,10 @@ export class LoginComponent implements OnInit {
       Swal.fire('Oops..', 'Please enter valid E-mail', 'error')
       this.forgotPasswordForm.reset();
     } else {
-      this.store.post('/forgotpassword', this.forgotPasswordForm.value).subscribe((res) => {
+      var data = {
+        email: this.forgotPasswordForm.controls.email.value
+      };
+      this.store.post('/forgotpassword', ).subscribe((res) => {
         Swal.fire('Email Sent successfully', 'Please check your inbox for further steps.', 'success')
         this.isLoading = false;
       }, err => {
