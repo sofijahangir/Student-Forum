@@ -54,7 +54,7 @@ export class StoreService {
     else if (endpoint == '/signin') {
       this.email = data["email"];
     }
-    else if (endpoint != '/resetpassword' && endpoint != '/user') {
+    else if (endpoint != '/resetpassword' && endpoint != '/user' && endpoint != '/forgotpassword' && this.email != "") {
       data["email"] = this.email;
     }
     this.url = `${apiURL}${endpoint}`;
