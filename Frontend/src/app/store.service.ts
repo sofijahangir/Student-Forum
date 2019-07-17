@@ -4,7 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
-const apiURL = 'http://localhost:1337';
+const apiURL = 'https://forum-webservice.herokuapp.com/';
 
 
 const httpOptions = {
