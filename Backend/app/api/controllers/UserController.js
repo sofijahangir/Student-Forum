@@ -13,7 +13,7 @@ module.exports = {
   fetchName: function(request,response)
   {
     var email = request.allParams();
-    User.find({email:email.email})
+    User.find({email:email.emailID})
     .exec(function(err,user)
     {
         if(err)

@@ -22,7 +22,6 @@ module.exports = {
                     }
                     else
                     {   
-                        console.log(list)
                         response.send(list)
                     }
                 })

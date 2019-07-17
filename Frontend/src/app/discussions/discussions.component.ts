@@ -22,10 +22,9 @@ export class DiscussionsComponent implements OnInit {
       var length = Object.keys(res).length;
       for(var i=0;i<length;i++)
       {
-        var post = {};
+        var post = {};    
         post["title"] = res[i].title;
         post["author"] = res[i].email;
-        console.log(res[i].messageCount);
         post["comments"] = res[i].messageCount;
         post["id"] = res[i].id;
         post["content"] = res[i].content;

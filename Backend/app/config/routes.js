@@ -53,7 +53,7 @@ module.exports.routes = {
     action: 'getList'
   },
 
-  'Get /getName' : {
+  'Post /getName' : {
     controller: 'UserController',
     action: 'fetchName'
   },
@@ -77,8 +77,6 @@ module.exports.routes = {
     controller: 'CoursesController',
     action: 'search'
   },
-
-
 
 
 
