@@ -1,7 +1,7 @@
 # Student Forum
 The main purpose of this web application is to create a **tailor-made forum for students**. With a plethora of online forums, there doesn't exist a customized forum for students. Recognizing the importance of the educational forum, the intention is to create a forum that facilitates interactions and learnings outside the classroom.
 
-  Application is live [here!!](https://student-forum-2020.herokuapp.com/home)
+  Application is live at [Frontend](https://student-forum-2020.herokuapp.com/home) and [Web Service](https://forum-webservice.herokuapp.com/).
 
 ## What are the framework & libraries used ?
 This application is built using the following frameworks and libraries :package:.
@@ -37,27 +37,25 @@ This application is built using the following frameworks and libraries :package:
 ## What you can expect to see in here ?
 The following are the pages that I've developed as the part of the student forum application
 
-1. [Landing page](https://student-forum-2019.herokuapp.com/home) - This the first page that a user will visit which can also be called as Destination Page.
-2. [Login](https://student-forum-2019.herokuapp.com/login) - This page allows the user (both professor & student) to sign into the application.
-3. [Dashboard](https://student-forum-2019.herokuapp.com/dashboard) - Dashboard is similar to a control panel which is the initial page of this application. From here the student can navigate to any desired page.
-4. [Discussion List Page](https://student-forum-2019.herokuapp.com/discussions) - It lists all the posts which has posted in the enrolled course group.
-5. [Discussion Details page](https://student-forum-2019.herokuapp.com/discussions/details) - Discussion thread view
-6. [Discussion post page](https://student-forum-2019.herokuapp.com/discussions/add)
-7. [Course Add page](https://student-forum-2019.herokuapp.com/course/add)
-8. [Browse Course](https://student-forum-2019.herokuapp.com/course/browse?keyword=csc)
+### Feature Owner - Sharmila Thirumalainathan
+1. [Login](https://student-forum-2019.herokuapp.com/login) - This page allows the user (both professor & student) to sign into the application. Session Management is done by maintaining  'sid' between client and server.
+2. [Signup](https://student-forum-2019.herokuapp.com/signup) - This page allows the user to signup for the application. Once the user has signed-in, he/she will be logged in and the session will also be created simultaneously.
+3. [Reset](https://student-forum-2019.herokuapp.com/reset) - This page allow the user to reset the password if they've forgotten the password.
+4. Logout - An option to logout and reset the user session.
+
+### Feature Owner - Nirav Solanki
+
+### Feature Owner - Nishant Bhambhani
+
+
 
 ## Application tour :rocket:
 Now let us go for around to visit the above pages.
 
-* The application by default will open the *landing page* when served :checkered_flag: . Here we have a welcome section, customer review section and a feature display section.
-* Now to go into the application, you'll have to click on the *login menu* in the top navbar :checkered_flag: .
-* Ahanha...! You can't just sneak into the application. So give a proper email-id and a dummy password.
-* Now we are here in the *dashboard* page of the application :checkered_flag: .
-* You can get an overall view about what are the features and how it is implemented in this application by seeing this page. I think the blue button in the sidebar prominently caught your see. If it is so, then I have succeeded in my motive to place it there. That is a quick create button placed there to make the user task easier. It will change according to the page.
-* Here we are at the final phase, we have one more page to visit. I think you can see the discussion menu in the sidebar, click on that to visit the *discussion list* page :checkered_flag: .
-* In discussions page we have all the post displayed in a list view. Here we have some filter and sorting option.
-
-So that's it for this episode. I know you are excited to see the completed version of this. Have a Coffee and come back to our project review to examine the application with a lot more enhancement.
+### Feature Owner - Nirav Solanki
+* This feature requires the user to be logged in to the website.
+* After, logging in the user must navigate to discussion from the right-hand side navigation bar. From here the user can click on “+” symbol to add a new post.
+* The user will then be routed to the discussion list page, where the user can see the entry posted by him.
 
 ## Design Credits :art:
 
@@ -87,5 +85,7 @@ So that's it for this episode. I know you are excited to see the completed versi
 5. The Most Important Color In UI Design. (2017, November 03). Retrieved from https://blog.marvelapp.com/important-color-ui-design/
 6. Wanyoike, M. (2018, October 25). History of front-end frameworks. Retrieved from https://logrocket.com/blog/history-of-frontend-frameworks/
 
-## Author
+## Authors
 - Sharmila Thirumalainathan, *B00823668*.
+- Nirav Solanki, *B00808427*
+- Nishant Bhambhani, *B00823348*
