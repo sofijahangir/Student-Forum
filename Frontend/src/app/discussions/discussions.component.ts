@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import Swal from 'sweetalert2';
 import { StoreService } from '../store.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-discussions',
@@ -17,6 +18,21 @@ export class DiscussionsComponent implements OnInit {
 
   ngOnInit() {
 
+    this.store.get('/getDiscussions?filter=All&course=',{}).subscribe((res) => {
+      var length = Object.keys(res).length;
+      for(var i=0;i<length;i++)
+      {
+        var post = {};    
+        post["title"] = res[i].title;
+        post["author"] = res[i].email;
+        post["comments"] = res[i].messageCount;
+        post["id"] = res[i].id;
+        post["content"] = res[i].content;
+        this.posts.push(post);
+      }
+    }, err => {
+      console.log(err);
+    });
   }
 
   goToDetails() {
@@ -63,45 +79,7 @@ export class DiscussionsComponent implements OnInit {
     join_code: 9172
   }];
 
-  posts = [{
-    id: 1,
-    title: "Google I/O Conference - 2019",
-    author: "Michael Hackett",
-    date: "April 30, 2019",
-    comments: 24
-  }, {
-    id: 2,
-    title: "REST API Architecture",
-    author: "Michael Hackett",
-    date: "May 7, 2019",
-    comments: 6
-  }, {
-    id: 3,
-    title: "Weekly Course Updates",
-    author: "Gabriella Mosquera",
-    date: "May 30, 2019",
-    comments: 0,
-    isInternal: true
-  }, {
-    id: 4,
-    title: "Docker Setup Issue in Windows",
-    author: "Aishwarya Naryanan",
-    date: "May 30, 2019",
-    comments: 12
-  }, {
-    id: 5,
-    title: "Tutorial Session Poll",
-    author: "Vishaali Srikanth",
-    date: "May 30, 2019",
-    comments: 0,
-    isInternal: true
-  }, {
-    id: 6,
-    title: "Massa placerat duis ultricies",
-    author: "Michael Hackett",
-    date: "April 31, 2019",
-    comments: 0
-  }];
+  posts = [];
 
   searchCourse(value: string) {
     if (value) {

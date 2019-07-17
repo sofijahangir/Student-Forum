@@ -21,6 +21,8 @@ const httpOptions = {
 export class StoreService {
   url = '';
 
+  email = '';
+
   constructor(private http: HttpClient) {
 
   }
@@ -44,8 +46,19 @@ export class StoreService {
   };
 
   post(endpoint, data = {}) {
+    if(endpoint=='/signout')
+    {
+      this.email = "";
+    }
+    else if(endpoint=='/signin')
+    {
+      this.email = data["email"];
+    }
+    else if(endpoint!='/resetpassword')
+    {
+      data["email"] = this.email;
+    }
     this.url = `${apiURL}${endpoint}`;
-
     return this.http.post(this.url, data, httpOptions)
       .pipe(
         tap(data => console.log('Request successful')),
@@ -55,10 +68,13 @@ export class StoreService {
 
   get(endpoint, data = {}) {
     this.url = `${apiURL}${endpoint}`;
-
+    if(endpoint!='/user')
+    {
+      this.url = this.url + '&email=' + this.email;
+    }
     return this.http.get(this.url, httpOptions)
       .pipe(
-        tap(data => console.log('Request successful')),
+        tap(_=> console.log('Request successful')),
         catchError(this.handleError)
       );
   }
