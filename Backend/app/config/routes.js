@@ -63,6 +63,16 @@ module.exports.routes = {
     action: 'search'
   },
 
+  'GET /getDiscussions/:id': {
+    controller: 'DetailController',
+    action: 'find'
+  },
+
+  'POST /newComents': {
+    controller: 'DetailController',
+    action: 'create'
+  }
+
 
 
 
