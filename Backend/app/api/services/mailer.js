@@ -16,7 +16,7 @@ module.exports.sendResetPwdMail = function(obj) {
       Name: obj.name,
       Url: obj.url
     }, {
-      to: "sharmilathirumalai@gmail.com",
+      to: obj.email,
       subject: "Password Reset - Reg"
     },
     function(err) {
