@@ -1,8 +1,8 @@
 {
-  "name": "app",
+  "name": "student-forum",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "Forum Web service",
   "keywords": [],
   "dependencies": {
     "@sailshq/connect-redis": "^3.2.1",

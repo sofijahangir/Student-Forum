@@ -1,6 +1,7 @@
 {
   "name": "student-forum",
   "version": "0.0.0",
+  "description": "Forum Frontend",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
