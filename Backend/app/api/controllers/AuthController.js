@@ -77,7 +77,7 @@ module.exports = {
 
             mailer.sendResetPwdMail({
               name: user.name,
-              url: `https://student-forum-2019.herokuapp.com/resetpassword?id=${hash}`,
+              url: `https://student-forum-2020.herokuapp.com/resetpassword?id=${hash}`,
               email: user.email
             })
 
