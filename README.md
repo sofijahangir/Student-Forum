@@ -53,8 +53,17 @@ The following are the pages that I've developed as the part of the student forum
 ## Application tour :rocket:
 Now let us go for around to visit the above pages.
 
-### Discussion List
-### Feature Owner - Nirav Solanki
+### User Management - Sharmila Thirumalainathan
+* The application by default will open the *landing page* when served :checkered_flag: . Here we have a welcome section, customer review section and a feature display section.
+* Now to go into the application, you'll have to click on the *login menu* in the top navbar :checkered_flag: .
+* Ahanha...! You can't just sneak into the application. So give a proper email-id and a  password.
+* If you haven't signed-up click on the register option right below the login button.
+* If you forgotten your password, don't worry just reset it by using the reset option below the login button.
+* On successful login you will be taken to *dashboard* page of the application :checkered_flag: .
+* Now you can find logout option in top menu bar.
+
+
+### Discussion List - Nirav Solanki
 * This feature requires the user to be logged in to the website.
 * After, logging in the user must navigate to discussion from the right-hand side navigation bar. From here the user can click on “+” symbol to add a new post.
 * The user will then be routed to the discussion list page, where the user can see the entry posted by him.
