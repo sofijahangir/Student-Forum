@@ -1,5 +1,5 @@
 # Student Forum
-The main purpose of this web application is to create a **tailor-made forum for students**. With a plethora of online forums, there doesn't exist a customized forum for students. Recognizing the importance of the educational forum, the intention is to create a forum that facilitates interactions and learnings outside the classroom.   
+The main purpose of this web application is to create a **tailor-made forum for students**. With a plethora of online forums, there doesn't exist a customized forum for students. Recognizing the importance of the educational forum, the intention is to create a forum that facilitates interactions and learnings outside the classroom.
 
   Application is live [here!!](https://student-forum-2019.herokuapp.com/home)
 
@@ -9,18 +9,28 @@ This application is built using the following frameworks and libraries :package:
 * [Bootstrap](https://getbootstrap.com/)  - CSS Framework
 * [Google Fonts](https://fonts.google.com/) - Web Fonts Library
 * [HTML and CSS](https://www.w3schools.com/html/)- Web designing Language
+* [Sails JS](https://sailsjs.com/) - MVC Framework to build Web Services.
+* [MongoDB](https://www.mongodb.com/) - NoSQL Database used for data storage.
 
 
 ## What are the prerequisite required ?
  * Node JS - [Install](https://nodejs.org/en/download/)
  * Angular 7 - [Install](https://angular.io/guide/setup-local)
+ * Sails JS - [Install](https://sailsjs.com/get-started)
 
 ## How to run the application ?
-
 1. Clone the repo to your local machine using `git clone https://git.cs.dal.ca/sharmila/A2_Sharmila_Thirumalainathan.git`
 2. Navigate to the workspace folder using `cd student-forum`
-3. Launch the app using `ng serve --open`
-4. Now the application will open in your default browser in following URL [localhost:4200](http:\\localhost:4200\home).
+
+### Front End
+3. Navigate to front workspace using `cd Frontend`
+4. Launch the app using `ng serve --open`
+5. Now the application will open in your default browser in following URL [localhost:4200](http:\\localhost:4200\home).
+
+### Back End
+6. Navigate to front workspace using `cd Backend\app`
+7. Run the server by using `sails lift`
+8. Now the server will be up in following URL [localhost:1337](http:\\localhost:1337).
 
 **Note** The above steps will succeed only if the prerequisite platforms are installed in your local machine.
 
