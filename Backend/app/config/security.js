@@ -37,7 +37,7 @@ module.exports.security = {
     allowCredentials: true,
   },
 
-
+  
   /****************************************************************************
    *                                                                           *
    * By default, Sails' built-in CSRF protection is disabled to facilitate     *

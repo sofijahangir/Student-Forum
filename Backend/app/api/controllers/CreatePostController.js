@@ -1,8 +1,8 @@
 /**
  * CreatePostController
  *
- * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
+ * @description :: Controller to create new post
+ * @author :: Nirav Solanki (B00808427)
  */
 
 module.exports = {

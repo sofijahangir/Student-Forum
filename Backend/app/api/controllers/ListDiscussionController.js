@@ -1,8 +1,8 @@
 /**
  * ListDiscussionController
  *
- * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
+ * @description :: Contoller to fetch list of discussions
+ * @author      :: Nirav Solanki (B00808427)
  */
 
 module.exports = {
