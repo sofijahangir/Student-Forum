@@ -1,3 +1,6 @@
+// Module to fetch and display list of discussion related to the subjects user is enrolled in
+//Created By Nirav Solanki
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import Swal from 'sweetalert2';
