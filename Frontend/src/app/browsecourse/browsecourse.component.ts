@@ -3,6 +3,11 @@ import { Router, ActivatedRoute } from "@angular/router";
 import Swal from 'sweetalert2';
 import { StoreService } from '../store.service';
 
+/*
+*  @description :: Type Script File of Browse Course Component.
+*  @author      :: Nishant Bhambhani, B00823348
+*/
+
 @Component({
   selector: 'app-browsecourse',
   templateUrl: './browsecourse.component.html',
@@ -37,6 +42,7 @@ export class BrowsecourseComponent implements OnInit {
     }
   }
 
+  // search course method will take the search keyword which is course name for now, then it will search the courses with the provided keyword.
   searchCourse(value: string) {
     this.keyword = value;
     if (this.keyword) {
@@ -74,6 +80,8 @@ export class BrowsecourseComponent implements OnInit {
     });
   }
 
+  // enroll method is invoked when the enroll button is clicked. 
+  // parameter ct is passed in function which will be the course to be enrolled.
   enroll(ct) {
     var cid = { id: ct };
     console.log(cid);
