@@ -46,7 +46,11 @@ The following are the pages that I've developed as the part of the student forum
 ### Feature Owner - Nirav Solanki
 1. [add Post](https://student-forum-2020.herokuapp.com/discussions/add) - This page allows the user to create a new post for a particular subject.
 2. [discussion list](https://student-forum-2020.herokuapp.com/discussions) - This page list the discussions of the subject the user is registered to. It allows the user to give different types of filter (discussion of particular course, active discussion, archived discussion, etc)
+
 ### Feature Owner - Nishant Bhambhani
+1. [Add Course](https://student-forum-2020.herokuapp.com/course/add) - This page, allows the users to add the courses for having discussions. Initially, the user will fill in the add course form on this page and then the course will be added. After adding the course, the course along with its details will be stored in the database.
+2. [Browse Course](https://student-forum-2020.herokuapp.com/course/browse) - This page will render the courses stored in the database. The user can search and get enrolled into courses on this page.
+
 
 
 
@@ -67,6 +71,11 @@ Now let us go for around to visit the above pages.
 * This feature requires the user to be logged in to the website.
 * After, logging in the user must navigate to discussion from the right-hand side navigation bar. From here the user can click on “+” symbol to add a new post.
 * The user will then be routed to the discussion list page, where the user can see the entry posted by him.
+
+### Add Course - Nishant Bhambhani
+*  In order to access this feature of the application, you must be logged in. 
+*  After successful login, the add course page can be accessed by clicking on the add course button which is available in the side Nav bar while you are on the Dashboard or you can click [here](https://student-forum-2020.herokuapp.com/course/add). 
+*  After adding the course, you will be redirected to the course browse page where you can see the added list of courses. 
 
 ## Design Credits :art:
 
