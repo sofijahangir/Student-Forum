@@ -5,6 +5,11 @@ import Swal from 'sweetalert2';
 import { StoreService } from '../store.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
+/*
+*  @description :: Type Script File of Add Course Component.
+*  @author      :: Nishant Bhambhani, B00823348
+*/
+
 @Component({
   selector: 'app-addcourse',
   templateUrl: './addcourse.component.html',

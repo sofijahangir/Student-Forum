@@ -22,6 +22,7 @@ module.exports = {
         })
     },
 
+    // courses action will return all the courses to the frontend project
     courses: function (req, res) {
         Courses.find().exec(function (err, data) {
             if (err) return next(err);
@@ -30,6 +31,7 @@ module.exports = {
         });
     },
 
+    // enroll action will change the status of course to enrolled. 
     enroll: async function (req, res) {
         var course = req.allParams();
         console.log(course.id);
@@ -41,6 +43,7 @@ module.exports = {
         return res.send(c);
     },
 
+    // search action will get the keyword from the frontend and will return the courses as per the requested keyword, which is course name for now. 
     search: async function (req, res) {
         var course = req.allParams();
         console.log(course.coursename);
