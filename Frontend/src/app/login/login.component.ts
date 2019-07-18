@@ -4,6 +4,11 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { StoreService } from '../store.service';
 import Swal from 'sweetalert2';
 
+/*
+*  @description :: Login and reset password page
+*  @author      :: Sharmila Thirumalainathan, B00823668
+*/
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

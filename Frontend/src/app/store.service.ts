@@ -4,8 +4,12 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
-const apiURL = 'https://forum-webservice.herokuapp.com';
+/*
+*  @description :: Common service to send any AJAX requests.
+*  @author      :: Sharmila Thirumalainathan, B00823668
+*/
 
+const apiURL = 'https://forum-webservice.herokuapp.com';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,6 +34,8 @@ export class StoreService {
   }
 
   private handleError(error: HttpErrorResponse) {
+    // Error entry point for all AJAX request made using store
+
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {
@@ -48,6 +54,7 @@ export class StoreService {
   };
 
   post(endpoint, data = {}) {
+
     if (endpoint == '/signout') {
       this.email = "";
     }

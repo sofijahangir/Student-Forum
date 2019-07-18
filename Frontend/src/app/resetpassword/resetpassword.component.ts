@@ -3,6 +3,11 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { StoreService } from '../store.service';
 import Swal from 'sweetalert2';
 
+/*
+*  @description :: Reset Password page which will send as the link in email.
+*  @author      :: Sharmila Thirumalainathan, B00823668
+*/
+
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
