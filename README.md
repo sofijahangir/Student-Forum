@@ -96,6 +96,7 @@ Now let us go for around to visit the above pages.
 5. The Most Important Color In UI Design. (2017, November 03). Retrieved from https://blog.marvelapp.com/important-color-ui-design/
 6. Wanyoike, M. (2018, October 25). History of front-end frameworks. Retrieved from https://logrocket.com/blog/history-of-frontend-frameworks/
 7. Hesp, G. (2019). Implement Passport.js authentication with Sails.js 1.0. [online] Medium. Available at: https://medium.com/@greg.hesp/implement-passport-js-authentication-with-sails-js-1-0-50888265fb83 [Accessed 17 Jul. 2019].
+8. Angular Bootstrap. (n.d.). Retrieved July 10, 2019, from https://valor-software.com/ngx-bootstrap/#/datepicker
 
 ## Authors
 - Sharmila Thirumalainathan, *B00823668*.
