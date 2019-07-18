@@ -43,6 +43,21 @@ module.exports.routes = {
     action: 'forgotpassword'
   },
 
+  'Post /addPost' : {
+    controller: 'CreatePostController',
+    action: 'create'
+  },
+
+  'Get /getDiscussions' : {
+    controller: 'ListDiscussionController',
+    action: 'getList'
+  },
+
+  'Post /getName' : {
+    controller: 'UserController',
+    action: 'fetchName'
+  },
+  
   'POST /addcourse': {
     controller: 'CoursesController',
     action: 'create'
@@ -72,8 +87,6 @@ module.exports.routes = {
     controller: 'DetailController',
     action: 'create'
   }
-
-
 
 
 

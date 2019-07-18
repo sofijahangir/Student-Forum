@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { animation: 'HomePage' } },
   { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
   { path: 'dashboard', component: DashboardComponent, data: { animation: 'DashboardPage' } },
-  { path: 'discussions', component: DiscussionsComponent, data: { animation: 'DiscussionsPage' } },
+  { path: 'discussions', component: DiscussionsComponent },
   { path: 'course/add', component: AddcourseComponent, data: { animation: 'DiscussionsPage' } },
   { path: 'course/browse', component: BrowsecourseComponent, data: { animation: 'LoginPage' } },
   { path: 'discussions/add', component: AddpostComponent, data: { animation: 'DashboardPage' } },

@@ -1,7 +1,7 @@
 /**
  * UserController
  *
- * @description :: Server-side actions for handling incoming request.
+ * @description :: Server-side actions for handling user-related requests.
  * @author      :: Sharmila Thirumalainathan, B00823668
  */
 
@@ -9,6 +9,21 @@ var auth = require('./AuthController');
 var bcrypt = require('bcrypt');
 
 module.exports = {
+
+  fetchName: function(request, response) {
+    var email = request.allParams();
+    User.find({
+        email: email.emailID
+      })
+      .exec(function(err, user) {
+        if (err) {
+          response.send(err);
+        } else {
+          response.send(user[0].name)
+        }
+      })
+  },
+
   create: function(request, response) {
 
     var user = request.allParams();
@@ -33,8 +48,5 @@ module.exports = {
         }
       });
     });
-
-
   }
-
 };

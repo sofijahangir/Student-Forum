@@ -11,12 +11,13 @@
 module.exports.sendResetPwdMail = function(obj) {
   process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
 
+  // Binds the user data dynamically to email template.
   sails.hooks.email.send(
     "resetpwd", {
       Name: obj.name,
       Url: obj.url
     }, {
-      to: "sharmilathirumalai@gmail.com",
+      to: obj.email,
       subject: "Password Reset - Reg"
     },
     function(err) {

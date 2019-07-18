@@ -4,11 +4,18 @@ import { StoreService } from '../store.service';
 import Swal from 'sweetalert2';
 import { Router } from "@angular/router";
 
+/*
+*  @description :: Signup-related handlings for the signup page.
+*  @author      :: Sharmila Thirumalainathan, B00823668
+*/
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
+
+
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
@@ -36,8 +43,11 @@ export class SignupComponent implements OnInit {
       Swal.fire('Oops..', 'Please enter required details', 'error')
       this.signupForm.reset();
     } else {
-      var data = this.signupForm.value;
-      delete data.confirmPassword;
+      var data = {
+        email: this.signupForm.controls.email.value,
+        name: this.signupForm.controls.name.value,
+        password: this.signupForm.controls.password.value
+      };
 
       this.store.post('/user', data).subscribe((res) => {
         this.router.navigate(['/dashboard']);

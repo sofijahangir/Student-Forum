@@ -9,7 +9,6 @@
  * For more information on the Sails logger, check out:
  * https://sailsjs.com/docs/concepts/logging
  */
-
 module.exports.log = {
 
   /***************************************************************************
