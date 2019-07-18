@@ -14,6 +14,8 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
+// Override the default method to set custom id, as _id is the default key in mongo.
+
 passport.deserializeUser((id, done) => {
   User.findOne({
     _id: id
@@ -22,6 +24,7 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// Extended the default to include the logic of encryption using bcrypt.
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'

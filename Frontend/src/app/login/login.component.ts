@@ -4,6 +4,11 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { StoreService } from '../store.service';
 import Swal from 'sweetalert2';
 
+/*
+*  @description :: Login and reset password page
+*  @author      :: Sharmila Thirumalainathan, B00823668
+*/
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -41,7 +46,10 @@ export class LoginComponent implements OnInit {
       Swal.fire('Oops..', 'Please enter valid E-mail', 'error')
       this.forgotPasswordForm.reset();
     } else {
-      this.store.post('/forgotpassword', this.forgotPasswordForm.value).subscribe((res) => {
+      var data = {
+        email: this.forgotPasswordForm.controls.email.value
+      };
+      this.store.post('/forgotpassword', data).subscribe((res) => {
         Swal.fire('Email Sent successfully', 'Please check your inbox for further steps.', 'success')
         this.isLoading = false;
       }, err => {
