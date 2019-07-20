@@ -119,6 +119,6 @@ on continue reading
 
 ## Authors
 - Sharmila Thirumalainathan, *B00823668*.
--Jesuseyi Will Fasuyi, *B00787413*
+- Jesuseyi Will Fasuyi, *B00787413*
 - Nirav Solanki, *B00808427*
 - Nishant Bhambhani, *B00823348*
