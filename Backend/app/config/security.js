@@ -32,9 +32,11 @@ module.exports.security = {
     allRoutes: true,
     allowOrigins: ['https://student-forum-2019.herokuapp.com',
       'https://student-forum-2020.herokuapp.com',
-      'http://localhost:4200'
+      'http://localhost:4200',
+      'https://localhost:4200'
     ],
     allowCredentials: true,
+    allowAnyOriginWithCredentialsUnsafe: true,
   },
 
   
@@ -53,5 +55,4 @@ module.exports.security = {
    ****************************************************************************/
 
   // csrf: false
-
 };

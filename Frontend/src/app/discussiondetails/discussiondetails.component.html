@@ -54,12 +54,11 @@
             <div class="media-body pl-1">
               <div class="col-sm">
                 <div class="mb-3">
-                  <strong>Michael Hackett</strong> has started a discussion
+                  <strong>{{post["author"]}}</strong> has started discussion {{post["title"]}}
                   <span class="badge badge-warning py-1 px-2">Internal</span>
-                  <div class="discussion-period">21 June 2019, 12:45 PM</div>
+                  <div class="discussion-period">{{post["time_stamp"]}}</div>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>{{post["content"]}}</p>
               </div>
             </div>
           </div>
@@ -70,25 +69,7 @@
         </div>
       </div>
       <div class="discussion-comments col-sm-11 offset-sm-1" id="discussion-comments">
-        <div class="comment py-3">
-          <div class="media">
-            <div class="media-left">
-              <img class="img-circle" width="25px" height="25px">
-            </div>
-            <div class="media-body pl-1">
-              <div class="col-sm">
-                <div class="mb-2">
-                  <h6>Aishwarya Naryanan</h6>
-                </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <div class="discussion-period">
-                  21 June 2019, 12:45 PM
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="comment py-3">
+        <div *ngFor="let comment of discussion_comments" class="comment py-3">
           <div class="media">
             <div class="media-left">
               <img class="img-circle"  width="25px" height="25px">
@@ -96,11 +77,11 @@
             <div class="media-body pl-1">
               <div class="col-sm">
                 <div class="mb-2">
-                  <h6>Vishaali Kadambur Srikanth</h6>
+                  <h6>{{comment.email}}</h6>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+                <p>{{comment.content}}</p>
                 <div class="discussion-period">
-                  21 June 2019, 12:45 PM
+                  {{getTime(comment.createdAt)}}
                 </div>
               </div>
             </div>
@@ -111,9 +92,9 @@
         <div class="media">
           <div class="media-body pl-1">
             <div class="col-sm">
-              <textarea id="comment-input" placeholder="Reply to the discussion.." class="form-control" rows="2" value=commentData (focus)="showButtons()"></textarea>
+              <textarea id="comment-input" placeholder="Reply to the discussion.." [(ngModel)]="comment" class="form-control" rows="2" (focus)="showButtons()"></textarea>
               <div class="btn-toolbar mt-3" id="add-comment-button-section">
-                <button class="btn btn-primary" (click)="addComment()">Post</button>
+                <button class="btn btn-primary" (click)="add()">Post</button>
               </div>
             </div>
           </div>

@@ -77,7 +77,18 @@ module.exports.routes = {
     controller: 'CoursesController',
     action: 'search'
   },
+  'GET /getDiscussions/:id': {
+    controller: 'DetailController',
+    action: 'find'
+  },
 
+  'POST /newComents': {
+    cors: {
+      origin: '*',
+      allowRequestHeaders:true,  
+   },
+    controller: 'DetailController',
+    action: 'create'},
 
 
 

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+// import { ConsoleReporter } from 'jasmine';
 
 /*
 *  @description :: Common service to send any AJAX requests.
@@ -83,5 +84,47 @@ export class StoreService {
         tap(_ => console.log('Request successful')),
         catchError(this.handleError)
       );
+  }
+
+  public getDiscussions(endpoint){
+    this.url = `${apiURL}${endpoint}`;
+    return this.http.get(this.url, httpOptions)
+    .pipe(
+      tap(_ => console.log('Request successful')),
+      catchError(this.handleError)
+    );
+  }
+
+  /*
+*  @description :: Endpoints To Evaluate Comments.
+*  @author      :: Fasuyi Jesuseyi Will, B00787413
+*/
+
+  public sendComment(endpoint,comment,postID,email){
+    var data = {content:comment,postId:postID,email:email};
+    var option ={ headers: new HttpHeaders({'Content-Type': 'application/json'}),withCredentials: true};
+    var apiURL2="http://localhost:1337"
+    this.url = `${apiURL2}${endpoint}`;
+    return this.http.post(this.url, data, option)
+    .pipe(
+      tap(_ => console.log('Post Successful')),
+      catchError(this.errorC)
+    );
+  }
+
+  public getDiscussionWithID(endpoint,postId){
+    this.url = `${apiURL}${endpoint}${postId}`;
+    return this.http.get(this.url, httpOptions)
+    .pipe(
+      tap(_ => console.log('Request successful')),
+      catchError(this.handleError)
+    );
+  }
+
+  private errorC(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    }
+    return throwError('Something went wrong; please try again later.');
   }
 }

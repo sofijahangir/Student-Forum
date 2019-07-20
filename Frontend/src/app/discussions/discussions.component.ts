@@ -20,9 +20,9 @@ export class DiscussionsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.store.get('/getDiscussions?filter=All&course=',{}).subscribe((res) => {
+    this.store.getDiscussions('/getDiscussions?filter=All&course=').subscribe((res) => {
       var length = Object.keys(res).length;
+      console.log(res)
       for(var i=0;i<length;i++)
       {
         var post = {};    
@@ -38,8 +38,12 @@ export class DiscussionsComponent implements OnInit {
     });
   }
 
-  goToDetails() {
-    this.router.navigate(['/discussions/details']);
+  goToDetails(id) {
+    /*
+    *  @description :: Endpoints To Evaluate Comments.
+    *  @author      :: Fasuyi Jesuseyi Will, B00787413
+    */
+    this.router.navigate(['/discussions/details'],id);
   }
 
   logout() {
