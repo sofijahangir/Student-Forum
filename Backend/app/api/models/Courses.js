@@ -37,7 +37,13 @@ module.exports = {
     enroll: {
       type:'boolean',
       defaultsTo: false
-    }
+    },
+
+    email: {
+      type: 'string',
+      required: true,
+    },
+
   },
 
 };
