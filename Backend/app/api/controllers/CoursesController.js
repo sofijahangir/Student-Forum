@@ -47,13 +47,12 @@ module.exports = {
     search: async function (req, res) {
         var course = req.allParams();
         console.log(course.coursename);
-        var c = await Courses.find({
-            coursename: course.coursename
-        })
+        var coursename = course.coursename;
+        var db = sails.getDatastore().manager;
+        var c = await db.collection('courses').find({"coursename": {"$regex": new RegExp(coursename,"i")}}).toArray();
+        console.log(c);
         return res.send(c);
     },
-
-
 
 
 };
