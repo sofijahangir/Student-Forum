@@ -7,15 +7,15 @@
 
 module.exports = {
 
-  attributes: { 
+  attributes: {
     title: {
       type: 'string',
       required: true
-    },  
-    content: {  
+    },
+    content: {
       type: 'string',
       allowNull: true,
-    },  
+    },
     createdAt: {
       type: 'string',
       autoCreatedAt: true,
@@ -37,9 +37,8 @@ module.exports = {
 
     messageCount: {
       type: 'number',
-      required:true,
+      required: true,
     },
   },
 
 };
- 

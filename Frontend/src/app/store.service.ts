@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
+
 /*
 *  @description :: Common service to send any AJAX requests.
 *  @author      :: Sharmila Thirumalainathan, B00823668
@@ -63,6 +64,7 @@ export class StoreService {
     }
     else if (endpoint != '/resetpassword' && endpoint != '/user' && endpoint != '/forgotpassword' && this.email != "") {
       data["email"] = this.email;
+      sessionStorage.setItem("email", this.email);
     }
     this.url = `${apiURL}${endpoint}`;
     return this.http.post(this.url, data, httpOptions)

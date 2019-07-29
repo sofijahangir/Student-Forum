@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'course/add', component: AddcourseComponent, data: { animation: 'DiscussionsPage' } },
   { path: 'course/browse', component: BrowsecourseComponent, data: { animation: 'LoginPage' } },
   { path: 'discussions/add', component: AddpostComponent, data: { animation: 'DashboardPage' } },
-  { path: 'discussions/details', component: DiscussiondetailsComponent, data: { animation: 'LoginPage' } },
+  { path: 'discussions/details/:id', component: DiscussiondetailsComponent, data: { animation: 'LoginPage' } },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'comingsoon', component: ComingsoonComponent }

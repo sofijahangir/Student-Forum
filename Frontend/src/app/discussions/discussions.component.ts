@@ -21,11 +21,11 @@ export class DiscussionsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.store.get('/getDiscussions?filter=All&course=',{}).subscribe((res) => {
+    this.store.get('/getDiscussions?filter=All&course=', {}).subscribe((res) => {
       var length = Object.keys(res).length;
-      for(var i=0;i<length;i++)
-      {
-        var post = {};    
+
+      for (var i = 0; i < length; i++) {
+        var post = {};
         post["title"] = res[i].title;
         post["author"] = res[i].email;
         post["comments"] = res[i].messageCount;
@@ -37,16 +37,13 @@ export class DiscussionsComponent implements OnInit {
         this.courses.push(res[i].course.toLowerCase());
         var date = new Date(res[i].createdAt);
         var today = new Date();
-        var difference = today.getDate()-date.getDate();
-        if(difference==0)
-        {
+        var difference = today.getDate() - date.getDate();
+        if (difference == 0) {
           var time = today.getHours() - date.getHours();
-          if(time!=0)
-          {
+          if (time != 0) {
             post["createdAt"] = time + " Hours ago"
           }
-          else
-          {
+          else {
             var minutes = today.getMinutes() - date.getMinutes();
             post["createdAt"] = minutes + " Minutes ago";
           }
@@ -59,50 +56,39 @@ export class DiscussionsComponent implements OnInit {
     });
   }
 
-  goToDetails() {
-    this.router.navigate(['/discussions/details']);
-  }
-
-
-  changeSorting(sortBy)
-  {
+  changeSorting(sortBy) {
     console.log(sortBy);
-    if(sortBy=="Recent")
-    {
+    if (sortBy == "Recent") {
       this.sortByTime();
     }
-    else if(sortBy=="Active")
-    {
+    else if (sortBy == "Active") {
       this.sortByMessage();
     }
   }
 
-  filterByCourse(value: string)
-  {
+  filterByCourse(value: string) {
     var len = this.courses.length;
     value = value.toLowerCase();
     var temp = [];
-    for(var i =0; i<len; i++) {
-      if(this.courses[i].includes(value))
-      {
+    for (var i = 0; i < len; i++) {
+      if (this.courses[i].includes(value)) {
         temp.push(this.allPosts[i]);
       }
     }
     this.posts = temp;
   }
 
-  sortByTime(){
+  sortByTime() {
     var len = this.timeArray.length;
     for (let i = 0; i < len; i++) {
       for (let j = 0; j < len; j++) {
-        if(this.timeArray[j]>this.timeArray[j+1])
-        {
+        if (this.timeArray[j] > this.timeArray[j + 1]) {
           var temp_t = this.timeArray[j];
           var temp = this.posts[j];
-          this.timeArray[j] = this.timeArray[j+1];
-          this.posts[j] = this.posts[j+1];
-          this.timeArray[j+1] = temp_t;  
-          this.posts[j+1] = temp;
+          this.timeArray[j] = this.timeArray[j + 1];
+          this.posts[j] = this.posts[j + 1];
+          this.timeArray[j + 1] = temp_t;
+          this.posts[j + 1] = temp;
         }
       }
     }
@@ -112,48 +98,53 @@ export class DiscussionsComponent implements OnInit {
     var len = this.messageArray.length;
     for (let i = 0; i < len; i++) {
       for (let j = 0; j < len; j++) {
-        if(this.messageArray[j]>this.messageArray[j+1])
-        {
+        if (this.messageArray[j] > this.messageArray[j + 1]) {
           var temp_t = this.messageArray[j];
           var temp = this.posts[j];
-          this.messageArray[j] = this.messageArray[j+1];
-          this.posts[j] = this.posts[j+1];
-          this.messageArray[j+1] = temp_t;  
-          this.posts[j+1] = temp;
+          this.messageArray[j] = this.messageArray[j + 1];
+          this.posts[j] = this.posts[j + 1];
+          this.messageArray[j + 1] = temp_t;
+          this.posts[j + 1] = temp;
         }
       }
     }
-  }
 
-  logout() {
-    this.store.post('/signout').subscribe((res) => {
-      this.router.navigate(['/home']);
-    }, err => {
-      Swal.fire('Oops..', 'Something Went Wrong', 'error')
-    });
-  }
-
-  posts = [];
-  messageArray = [];
-  timeArray = [];
-  allPosts = [];
-  courses = [];
-
-  searchCourse(value: string) {
-    if (!value) {
-      this.posts = this.allPosts;
+    goToDetails(id) {
+      /*
+      *  @description :: Endpoints To Evaluate Comments.
+      *  @author      :: Fasuyi Jesuseyi Will, B00787413
+      */
+      this.router.navigate(['/discussions/details'], id);
     }
-    else
-    {
-      this.filterByCourse(value);
-    }
-  }
 
-  collapse() {
-    if (document.getElementById("wrapper").classList.contains("collapse")) {
-      document.getElementById("wrapper").classList.remove("collapse");
-    } else {
-      document.getElementById("wrapper").classList.add("collapse");
+    logout() {
+      this.store.post('/signout').subscribe((res) => {
+        this.router.navigate(['/home']);
+      }, err => {
+        Swal.fire('Oops..', 'Something Went Wrong', 'error')
+      });
+    }
+
+    posts = [];
+    messageArray = [];
+    timeArray = [];
+    allPosts = [];
+    courses = [];
+
+    searchCourse(value: string) {
+      if (!value) {
+        this.posts = this.allPosts;
+      }
+      else {
+        this.filterByCourse(value);
+      }
+    }
+
+    collapse() {
+      if (document.getElementById("wrapper").classList.contains("collapse")) {
+        document.getElementById("wrapper").classList.remove("collapse");
+      } else {
+        document.getElementById("wrapper").classList.add("collapse");
+      }
     }
   }
-}
