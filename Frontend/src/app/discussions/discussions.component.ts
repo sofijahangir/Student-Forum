@@ -31,6 +31,23 @@ export class DiscussionsComponent implements OnInit {
         post["comments"] = res[i].messageCount;
         post["id"] = res[i].id;
         post["content"] = res[i].content;
+        post["createdAt"] = res[i].createdAt;
+        var date = new Date(res[i].createdAt);
+        var today = new Date();
+        var difference = today.getDate()-date.getDate();
+        if(difference==0)
+        {
+          var time = today.getHours() - date.getHours();
+          if(time!=0)
+          {
+            post["createdAt"] = time + " Hours ago"
+          }
+          else
+          {
+            var minutes = today.getMinutes() - date.getMinutes();
+            post["createdAt"] = minutes + " Minutes ago";
+          }
+        }
         this.posts.push(post);
       }
     }, err => {
@@ -49,38 +66,6 @@ export class DiscussionsComponent implements OnInit {
       Swal.fire('Oops..', 'Something Went Wrong', 'error')
     });
   }
-
-  courses = [{
-    id: 1,
-    title: "Data Management",
-    code: "CSCI 1234",
-    join_code: 6789
-  }, {
-    id: 2,
-    title: "Web Development",
-    code: "CSCI 5709",
-    join_code: 7282
-  }, {
-    id: 3,
-    title: "Cloud Computing",
-    code: "CSCI 5701",
-    join_code: 9281
-  }, {
-    id: 4,
-    title: "Software Development Concepts",
-    code: "CSCI 5709",
-    join_code: 4536
-  }, {
-    id: 5,
-    title: "Mobile Computing",
-    code: "CSCI 5609",
-    join_code: 8362
-  }, {
-    id: 6,
-    title: "Visual Analytics",
-    code: "CSCI 5929",
-    join_code: 9172
-  }];
 
   posts = [];
 
