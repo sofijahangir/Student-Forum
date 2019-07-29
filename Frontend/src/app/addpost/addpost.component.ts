@@ -45,6 +45,19 @@ export class AddpostComponent implements OnInit {
       course: ['', Validators.required],
 
     });
+    
+    this.store.post('/getUserCourses?',{}).subscribe((res) => {
+      var length = Object.keys(res).length;
+      for(var i=0;i<length;i++)
+      {
+        var course = {};    
+        course["coursename"] = res[i].coursename;
+        course["courseID"] = res[i].coursecode; 
+        this.courses.push(course);
+      }
+    }, err => {
+      console.log(err);
+    });
   }
 
   searchCourse(value: string) {
@@ -61,11 +74,13 @@ export class AddpostComponent implements OnInit {
     }
   }
 
-  logout() {
+  logout() { 
     this.store.post('/signout').subscribe((res) => {
       this.router.navigate(['/home']);
     }, err => {
       Swal.fire('Oops..', 'Something Went Wrong', 'error')
     });
   }
+
+  courses = [];
 }

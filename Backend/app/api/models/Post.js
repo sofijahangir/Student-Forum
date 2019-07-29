@@ -17,7 +17,7 @@ module.exports = {
       allowNull: true,
     },  
     createdAt: {
-      type: 'number',
+      type: 'string',
       autoCreatedAt: true,
     },
     allowAnon: {
@@ -30,8 +30,8 @@ module.exports = {
       required: true,
     },
 
-    courseID: {
-      type: 'number',
+    course: {
+      type: 'string',
       required: true,
     },
 

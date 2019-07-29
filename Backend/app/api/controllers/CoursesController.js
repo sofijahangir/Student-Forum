@@ -16,6 +16,7 @@ module.exports = {
                     message: 'Course Added Successfully!!'
                 });
             }
+            console.log(err);
             return response.status(500).send({
                 message: 'Can Not Add Course!!'
             });
