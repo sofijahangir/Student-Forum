@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+    
     create: function(request, response) {
         var post = request.allParams();
         post.messageCount = 0;
@@ -33,3 +34,4 @@ module.exports = {
 
 };
 
+    

@@ -34,6 +34,7 @@ export class DiscussionsComponent implements OnInit {
         post["createdAt"] = res[i].createdAt;
         this.timeArray.push(res[i].createdAt);
         this.messageArray.push(res[i].messageCount);
+        this.courses.push(res[i].course.toLowerCase());
         var date = new Date(res[i].createdAt);
         var today = new Date();
         var difference = today.getDate()-date.getDate();
@@ -51,8 +52,8 @@ export class DiscussionsComponent implements OnInit {
           }
         }
         this.posts.push(post);
+        this.allPosts = this.posts;
       }
-      console.log(this.posts);
     }, err => {
       console.log(err);
     });
@@ -74,6 +75,20 @@ export class DiscussionsComponent implements OnInit {
     {
       this.sortByMessage();
     }
+  }
+
+  filterByCourse(value: string)
+  {
+    var len = this.courses.length;
+    value = value.toLowerCase();
+    var temp = [];
+    for(var i =0; i<len; i++) {
+      if(this.courses[i].includes(value))
+      {
+        temp.push(this.allPosts[i]);
+      }
+    }
+    this.posts = temp;
   }
 
   sortByTime(){
@@ -121,10 +136,16 @@ export class DiscussionsComponent implements OnInit {
   posts = [];
   messageArray = [];
   timeArray = [];
+  allPosts = [];
+  courses = [];
 
   searchCourse(value: string) {
-    if (value) {
-      this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
+    if (!value) {
+      this.posts = this.allPosts;
+    }
+    else
+    {
+      this.filterByCourse(value);
     }
   }
 
