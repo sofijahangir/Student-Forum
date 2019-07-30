@@ -19,6 +19,8 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     ReactiveFormsModule,
     HttpClientModule,
     BsDatepickerModule.forRoot(),
-    DatepickerModule.forRoot() 
+    DatepickerModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }) 
   ],
   providers: [],
   bootstrap: [AppComponent]

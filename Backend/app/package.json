@@ -19,7 +19,8 @@
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^1.5.5",
     "sails-mongo": "^1.0.1",
-    "sails-redis": "^1.0.0"
+    "sails-redis": "^1.0.0",
+    "web-push": "^3.3.5"
   },
   "devDependencies": {
     "eslint": "5.16.0"

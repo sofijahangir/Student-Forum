@@ -43,21 +43,21 @@ module.exports.routes = {
     action: 'forgotpassword'
   },
 
-  'Post /addPost' : {
+  'Post /addPost': {
     controller: 'CreatePostController',
     action: 'create'
   },
 
-  'Get /getDiscussions' : {
+  'Get /getDiscussions': {
     controller: 'ListDiscussionController',
     action: 'getList'
   },
 
-  'Post /getName' : {
+  'Post /getName': {
     controller: 'UserController',
     action: 'fetchName'
   },
-  
+
   'POST /addcourse': {
     controller: 'CoursesController',
     action: 'create'
@@ -77,6 +77,11 @@ module.exports.routes = {
     controller: 'CoursesController',
     action: 'search'
   },
+
+  'POST /notifications': {
+    controller: 'NotificationController',
+    action: 'pushNotification'
+  }
 
 
 

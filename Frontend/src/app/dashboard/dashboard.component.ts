@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 
 
 export class DashboardComponent implements OnInit {
+
   constructor(private router: Router, private store: StoreService) {
 
   }
