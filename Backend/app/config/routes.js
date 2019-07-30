@@ -48,6 +48,11 @@ module.exports.routes = {
     action: 'create'
   },
 
+  'Post /getUserCourses': {
+    controller: 'CreatePostController',
+    action: 'getCourses'
+  },
+
   'Get /getDiscussions': {
     controller: 'ListDiscussionController',
     action: 'getList'

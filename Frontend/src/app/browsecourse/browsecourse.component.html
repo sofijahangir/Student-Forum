@@ -79,7 +79,7 @@
           </div>
           <div class="col-sm-2 mb-3 d-flex justify-content-center text-right flex-column">
             <div class="float-right">
-              <button type="submit" [disabled]="course.isEnrolled" (click)="enroll(course.id)" class="btn btn-primary"
+              <button type="submit" [disabled]="course.isEnrolled" (click)="enroll(course.title)" class="btn btn-primary"
                 [class.btn-outlined]="course.isEnrolled">
                 <span *ngIf="course.isEnrolled"><i class="fas fa-check font-sm">&nbsp;&nbsp;</i>Enrolled</span>
                 <span *ngIf="!course.isEnrolled">Enroll</span>
