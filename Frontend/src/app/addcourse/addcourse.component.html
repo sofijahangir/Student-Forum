@@ -129,10 +129,11 @@
         <div class="col-sm-5">
           <div class="file-upload-wrapper">
             <div class="file-upload h-100">
+                <img *ngIf= "url" [src]="url" class="oversize" >
               <div class="card-text file-upload-message text-primary">
                 <p><i class="fas fa-upload"></i> &nbsp;&nbsp;Drag or drop image</p>
               </div>
-              <input type="file" class="file-upload" />
+              <input type="file" class="file-upload" (change)="onImageUpload($event)" />
             </div>
           </div>
         </div>
