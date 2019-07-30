@@ -85,14 +85,19 @@ export class BrowsecourseComponent implements OnInit {
     var cid = { coursename: ct };
     console.log(cid);
     this.store.post('/enroll', cid).subscribe((res) => {
-      var response = res;
-      console.log(response["message"]);
-      if(response["message"] == "Successful"){
-        this.ngOnInit();
-        Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
+      if(!this.keyword){
+        var response = res;
+        console.log(response["message"]);
+        if(response["message"] == "Successful"){
+          this.ngOnInit();
+          Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
 
-      } else {
-        Swal.fire('Course Not Enrolled', response["message"], 'error')
+        } else {
+          Swal.fire('Course Not Enrolled', response["message"], 'error')
+        }
+      }else {
+        this.searchCourse(this.keyword);
+        Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
       }
     }, err => {
       Swal.fire('Oops..', 'Something Went Wrong', 'error')
