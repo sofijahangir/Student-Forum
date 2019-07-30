@@ -32,6 +32,8 @@ export class DiscussionsComponent implements OnInit {
         post["id"] = res[i].id;
         post["content"] = res[i].content;
         post["createdAt"] = res[i].createdAt;
+        this.timeArray.push(res[i].createdAt);
+        this.messageArray.push(res[i].messageCount);
         var date = new Date(res[i].createdAt);
         var today = new Date();
         var difference = today.getDate()-date.getDate();
@@ -50,6 +52,7 @@ export class DiscussionsComponent implements OnInit {
         }
         this.posts.push(post);
       }
+      console.log(this.posts);
     }, err => {
       console.log(err);
     });
@@ -57,6 +60,54 @@ export class DiscussionsComponent implements OnInit {
 
   goToDetails() {
     this.router.navigate(['/discussions/details']);
+  }
+
+
+  changeSorting(sortBy)
+  {
+    console.log(sortBy);
+    if(sortBy=="Recent")
+    {
+      this.sortByTime();
+    }
+    else if(sortBy=="Active")
+    {
+      this.sortByMessage();
+    }
+  }
+
+  sortByTime(){
+    var len = this.timeArray.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len; j++) {
+        if(this.timeArray[j]>this.timeArray[j+1])
+        {
+          var temp_t = this.timeArray[j];
+          var temp = this.posts[j];
+          this.timeArray[j] = this.timeArray[j+1];
+          this.posts[j] = this.posts[j+1];
+          this.timeArray[j+1] = temp_t;  
+          this.posts[j+1] = temp;
+        }
+      }
+    }
+  }
+
+  sortByMessage() {
+    var len = this.messageArray.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len; j++) {
+        if(this.messageArray[j]>this.messageArray[j+1])
+        {
+          var temp_t = this.messageArray[j];
+          var temp = this.posts[j];
+          this.messageArray[j] = this.messageArray[j+1];
+          this.posts[j] = this.posts[j+1];
+          this.messageArray[j+1] = temp_t;  
+          this.posts[j+1] = temp;
+        }
+      }
+    }
   }
 
   logout() {
@@ -68,6 +119,8 @@ export class DiscussionsComponent implements OnInit {
   }
 
   posts = [];
+  messageArray = [];
+  timeArray = [];
 
   searchCourse(value: string) {
     if (value) {

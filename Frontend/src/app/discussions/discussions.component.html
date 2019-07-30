@@ -58,7 +58,15 @@
         </div>
         <div class="col-sm-7 col-xs-12">
           <div class="float-right actions">
-            <i class="fas fa-sort-amount-up text-primary"></i>
+            Sort
+            <select #t (change)="changeSorting(t.value)">
+                  <option selected value="Recent">
+                    Recent
+                  </option>
+                  <option value="Active">
+                    Active
+                  </option>
+            </select>
           </div>
         </div>
       </div>
@@ -73,7 +81,7 @@
           <p><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{post.createdAt}}</p>
           <div class="mb-3 post-desc">{{post.content}}&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails()">Continue Reading</span></div>
         </div>
-      </div>
+      </div> 
 
       <div class="pagination-wrapper row">
         <div class="col-sm-6 page-count">
