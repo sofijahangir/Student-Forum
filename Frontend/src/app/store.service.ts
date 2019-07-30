@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 *  @author      :: Sharmila Thirumalainathan, B00823668
 */
 
-const apiURL = 'https://forum-webservice.herokuapp.com';
+const apiURL = 'http://localhost:1337';
 
 const httpOptions = {
   headers: new HttpHeaders({

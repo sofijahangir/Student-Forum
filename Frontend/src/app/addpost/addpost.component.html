@@ -66,10 +66,7 @@
             <div class="form-group col-md-12">
               <select class="form-control" formControlName="course">
                 <option value="" selected disabled>Select a course group</option>
-                <option>Data Management, CSCI 1234</option>
-                <option>Web Development, CSCI 5709</option>
-                <option>Cloud Computing, CSCI 5701</option>
-                <option>Software Development Concepts, CSCI 5709</option>
+                <option *ngFor="let course of courses" [value]="course.coursename">{{ course.coursename }}</option>
               </select>
             </div>
 

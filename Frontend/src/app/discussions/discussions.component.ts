@@ -31,7 +31,28 @@ export class DiscussionsComponent implements OnInit {
         post["comments"] = res[i].messageCount;
         post["id"] = res[i].id;
         post["content"] = res[i].content;
+        post["createdAt"] = res[i].createdAt;
+        this.timeArray.push(res[i].createdAt);
+        this.messageArray.push(res[i].messageCount);
+        this.courses.push(res[i].course.toLowerCase());
+        var date = new Date(res[i].createdAt);
+        var today = new Date();
+        var difference = today.getDate()-date.getDate();
+        if(difference==0)
+        {
+          var time = today.getHours() - date.getHours();
+          if(time!=0)
+          {
+            post["createdAt"] = time + " Hours ago"
+          }
+          else
+          {
+            var minutes = today.getMinutes() - date.getMinutes();
+            post["createdAt"] = minutes + " Minutes ago";
+          }
+        }
         this.posts.push(post);
+        this.allPosts = this.posts;
       }
     }, err => {
       console.log(err);
@@ -42,6 +63,68 @@ export class DiscussionsComponent implements OnInit {
     this.router.navigate(['/discussions/details']);
   }
 
+
+  changeSorting(sortBy)
+  {
+    console.log(sortBy);
+    if(sortBy=="Recent")
+    {
+      this.sortByTime();
+    }
+    else if(sortBy=="Active")
+    {
+      this.sortByMessage();
+    }
+  }
+
+  filterByCourse(value: string)
+  {
+    var len = this.courses.length;
+    value = value.toLowerCase();
+    var temp = [];
+    for(var i =0; i<len; i++) {
+      if(this.courses[i].includes(value))
+      {
+        temp.push(this.allPosts[i]);
+      }
+    }
+    this.posts = temp;
+  }
+
+  sortByTime(){
+    var len = this.timeArray.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len; j++) {
+        if(this.timeArray[j]>this.timeArray[j+1])
+        {
+          var temp_t = this.timeArray[j];
+          var temp = this.posts[j];
+          this.timeArray[j] = this.timeArray[j+1];
+          this.posts[j] = this.posts[j+1];
+          this.timeArray[j+1] = temp_t;  
+          this.posts[j+1] = temp;
+        }
+      }
+    }
+  }
+
+  sortByMessage() {
+    var len = this.messageArray.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len; j++) {
+        if(this.messageArray[j]>this.messageArray[j+1])
+        {
+          var temp_t = this.messageArray[j];
+          var temp = this.posts[j];
+          this.messageArray[j] = this.messageArray[j+1];
+          this.posts[j] = this.posts[j+1];
+          this.messageArray[j+1] = temp_t;  
+          this.posts[j+1] = temp;
+        }
+      }
+    }
+  }
+
   logout() {
     this.store.post('/signout').subscribe((res) => {
       this.router.navigate(['/home']);
@@ -50,43 +133,19 @@ export class DiscussionsComponent implements OnInit {
     });
   }
 
-  courses = [{
-    id: 1,
-    title: "Data Management",
-    code: "CSCI 1234",
-    join_code: 6789
-  }, {
-    id: 2,
-    title: "Web Development",
-    code: "CSCI 5709",
-    join_code: 7282
-  }, {
-    id: 3,
-    title: "Cloud Computing",
-    code: "CSCI 5701",
-    join_code: 9281
-  }, {
-    id: 4,
-    title: "Software Development Concepts",
-    code: "CSCI 5709",
-    join_code: 4536
-  }, {
-    id: 5,
-    title: "Mobile Computing",
-    code: "CSCI 5609",
-    join_code: 8362
-  }, {
-    id: 6,
-    title: "Visual Analytics",
-    code: "CSCI 5929",
-    join_code: 9172
-  }];
-
   posts = [];
+  messageArray = [];
+  timeArray = [];
+  allPosts = [];
+  courses = [];
 
   searchCourse(value: string) {
-    if (value) {
-      this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
+    if (!value) {
+      this.posts = this.allPosts;
+    }
+    else
+    {
+      this.filterByCourse(value);
     }
   }
 

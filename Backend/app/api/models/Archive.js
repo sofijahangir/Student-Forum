@@ -11,7 +11,7 @@ module.exports = {
     email: {
       type: 'string',
       required: true,
-      unique: true
+      unique: true,
     },
     postID: {
       type: 'number',

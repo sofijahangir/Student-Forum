@@ -30,10 +30,9 @@ export class BrowsecourseComponent implements OnInit {
     if (!this.keyword) {
       this.store.get('/getcourse').subscribe((res) => {
         this.result = res;
-        console.log((this.result));
         var i: number;
         for (i = 0; i < this.result.length; i++) {
-          this.courses[i] = { id: this.result[i].id, title: this.result[i].coursename, code: this.result[i].coursecode, school_code: "Dalhousie University", description: this.result[i].desc, sdate: this.result[i].startdate, edate: this.result[i].enddate, isEnrolled: this.result[i].enroll }
+          this.courses[i] = { id: this.result[i].id, title: this.result[i].coursename, code: this.result[i].coursecode, school_code: "Dalhousie University", description: this.result[i].desc, sdate: this.result[i].startdate, edate: this.result[i].enddate, isEnrolled: this.result[i].isEnrolled }
         }
       }, err => {
         console.log(err);
@@ -53,7 +52,7 @@ export class BrowsecourseComponent implements OnInit {
         var i: number;
         this.scourses = [];
         for (i = 0; i < this.result.length; i++) {
-          this.scourses[i] = { id: this.result[i].id, title: this.result[i].coursename, code: this.result[i].coursecode, school_code: "Dalhousie University", description: this.result[i].desc, sdate: this.result[i].startdate, edate: this.result[i].enddate, isEnrolled: this.result[i].enroll }
+          this.scourses[i] = { id: this.result[i].id, title: this.result[i].coursename, code: this.result[i].coursecode, school_code: "Dalhousie University", description: this.result[i].desc, sdate: this.result[i].startdate, edate: this.result[i].enddate, isEnrolled: this.result[i].isEnrolled }
           console.log(this.scourses);
           this.courses = this.scourses;
         }
@@ -83,15 +82,17 @@ export class BrowsecourseComponent implements OnInit {
   // enroll method is invoked when the enroll button is clicked. 
   // parameter ct is passed in function which will be the course to be enrolled.
   enroll(ct) {
-    var cid = { id: ct };
+    var cid = { coursename: ct };
     console.log(cid);
     this.store.post('/enroll', cid).subscribe((res) => {
-      if (!this.keyword) {
+      var response = res;
+      console.log(response["message"]);
+      if(response["message"] == "Successful"){
         this.ngOnInit();
         Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
+
       } else {
-        this.searchCourse(this.keyword);
-        Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
+        Swal.fire('Course Not Enrolled', response["message"], 'error')
       }
     }, err => {
       Swal.fire('Oops..', 'Something Went Wrong', 'error')
