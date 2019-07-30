@@ -13,6 +13,7 @@ module.exports = {
     coursename: {
       type: 'string',
       required: true,
+      unique: true,
     },
     coursecode: {
       type: 'string',
@@ -34,9 +35,10 @@ module.exports = {
       required: true,
     },
 
-    enroll: {
-      type:'boolean',
-      defaultsTo: false
+    isEnrolled: {
+      type: 'boolean',
+      defaultsTo: false,
+
     },
 
     email: {
