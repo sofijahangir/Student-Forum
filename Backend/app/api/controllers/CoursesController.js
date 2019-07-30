@@ -12,12 +12,6 @@ module.exports = {
         console.log(course);
         Courses.create(course, function (err) {
             if (!err) {
-<<<<<<< HEAD
-                return response.status(201).send({
-                    message: 'Course Added Successfully!!'
-                });
-            }
-=======
                 var enroll = {coursename:course.coursename,email:course.email};
                 Enroll.create(enroll, function (err, user) {
                     if (!err) {
@@ -33,7 +27,6 @@ module.exports = {
 
                 
             } else {
->>>>>>> 97cd64344d92ff2b3145922e9b7c698c73fa9494
             console.log(err);
             return response.status(500).send({
                 message: 'Can Not update Course!!'

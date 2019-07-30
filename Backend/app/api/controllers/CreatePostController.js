@@ -25,7 +25,7 @@ module.exports = {
 
     getCourses: function(request,response) {
         var user = request.allParams();
-        Courses.find({email:user.email}).exec(function (err, data) {
+        Enroll.find({email:user.email}).exec(function (err, data) {
             if (err) return next(err);
             response.json(data);
             console.log(data);
