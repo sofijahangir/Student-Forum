@@ -15,6 +15,14 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 export class DiscussionsComponent implements OnInit {
+
+  posts = [];
+  messageArray = [];
+  timeArray = [];
+  allPosts = [];
+  courses = [];
+
+
   constructor(private router: Router, private store: StoreService) {
 
   }
@@ -125,11 +133,6 @@ export class DiscussionsComponent implements OnInit {
       });
     }
 
-    posts = [];
-    messageArray = [];
-    timeArray = [];
-    allPosts = [];
-    courses = [];
 
     searchCourse(value: string) {
       if (!value) {

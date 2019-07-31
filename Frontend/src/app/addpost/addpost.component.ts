@@ -14,6 +14,8 @@ import { StoreService } from '../store.service';
   styleUrls: ['./addpost.component.scss']
 })
 export class AddpostComponent implements OnInit {
+  courses = [];
+
   newPostform: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router, private store: StoreService) {
@@ -80,5 +82,4 @@ export class AddpostComponent implements OnInit {
     });
   }
 
-  courses = [];
 }
