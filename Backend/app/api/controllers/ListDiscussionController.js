@@ -30,6 +30,7 @@ module.exports = {
                   var length_e = enroll.length;
                   var length_l = list.length;
                   var newPosts = [];
+                  console.log("Course", enroll)
                   for (var i = 0; i < length_e; i++) {
                     for (var j = 0; j < length_l; j++) {
                       console.log(enroll[i].coursename, list[j].course);
