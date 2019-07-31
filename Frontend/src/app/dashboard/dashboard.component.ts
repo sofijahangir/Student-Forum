@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   readonly VAPID_PUBLIC_KEY = 'BHddeLLJNV7FYImxP8-1u_mvcGo6N70ZXCRW2UtZbeKiuwLlo5fyaFJR8BIr8gbWCnWqHJ7x7DrL98zS14ZJkew';
 
-  constructor(private router: Router, private store: StoreService, private _webWorkerService: WebWorkerService, private swpush: SwPush) {
+  constructor(private router: Router, private store: StoreService, private _webWorkerService: WebWorkerService, private swpush: SwPush, private _DomSanitizationService: DomSanitizer) {
     if (swpush.isEnabled) {
       this.subscribeToNotifications()
     }
@@ -77,29 +77,30 @@ export class DashboardComponent implements OnInit {
         console.log(err);
       });
 
-    }
+    });
+  }
 
   courses = [];
 
-    searchCourse(value: string) {
-      if (value) {
-        this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
-      }
-    }
-
-    collapse() {
-      if (document.getElementById("wrapper").classList.contains("collapse")) {
-        document.getElementById("wrapper").classList.remove("collapse");
-      } else {
-        document.getElementById("wrapper").classList.add("collapse");
-      }
-    }
-
-    logout() {
-      this.store.post('/signout').subscribe((res) => {
-        this.router.navigate(['/home']);
-      }, err => {
-        Swal.fire('Oops..', 'Something Went Wrong', 'error')
-      });
+  searchCourse(value: string) {
+    if (value) {
+      this.router.navigate(['/course/browse'], { queryParams: { keyword: value } });
     }
   }
+
+  collapse() {
+    if (document.getElementById("wrapper").classList.contains("collapse")) {
+      document.getElementById("wrapper").classList.remove("collapse");
+    } else {
+      document.getElementById("wrapper").classList.add("collapse");
+    }
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
+  }
+}
