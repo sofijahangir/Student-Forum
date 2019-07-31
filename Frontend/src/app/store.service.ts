@@ -64,7 +64,7 @@ export class StoreService {
       this.email = data["email"];
       sessionStorage.setItem("email", this.email);
     } else if (endpoint != '/resetpassword' && endpoint != '/forgotpassword' && this.email != "") {
-      data["email"] = sessionStorage.getItem("email");
+      data["email"] = this.email;
     }
     this.url = `${apiURL}${endpoint}`;
     return this.http.post(this.url, data, httpOptions)
@@ -76,9 +76,11 @@ export class StoreService {
 
   get(endpoint, data = {}) {
     this.url = `${apiURL}${endpoint}`;
-    this.emailStr = (endpoint.indexOf('?') == -1) ? '?email=' : '&email=';
-    this.url = this.url + this.emailStr + sessionStorage.getItem("email");
-    ;
+    if (!endpoint.includes('email=') && !endpoint.includes('getDiscussions')) {
+      this.emailStr = (endpoint.indexOf('?') == -1) ? '?email=' : '&email=';
+      this.url = this.url + this.emailStr + this.email;
+    }
+
 
     return this.http.get(this.url, httpOptions)
       .pipe(
