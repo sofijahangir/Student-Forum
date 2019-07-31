@@ -68,7 +68,7 @@ export class DashboardComponent implements OnInit {
             course["image"] = this._DomSanitizationService.bypassSecurityTrustUrl(im);
           }
           else {
-            im = res[i].image;
+            im = "data:image/png;base64," + res[i].image;
             course["image"] = this._DomSanitizationService.bypassSecurityTrustUrl(im);
           }
           this.courses.push(course);
@@ -102,5 +102,9 @@ export class DashboardComponent implements OnInit {
     }, err => {
       Swal.fire('Oops..', 'Something Went Wrong', 'error')
     });
+  }
+
+  viewDiscussions(value: string) {
+    this.router.navigate(['/discussions'], { queryParams: { course: value } });
   }
 }

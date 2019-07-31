@@ -26,7 +26,7 @@ const httpOptions = {
 export class StoreService {
   url = '';
 
-  email = '';
+  email = 'sharmilathirumalai@gmail.com';
 
   emailStr = '';
 

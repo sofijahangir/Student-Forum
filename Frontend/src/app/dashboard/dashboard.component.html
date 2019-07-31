@@ -67,7 +67,7 @@
             <strong class="d-inline-block mb-2 code font-sm">{{course.code}}</strong>
             <h6 class="mb-0">{{course.title}}</h6>
             <div class="actions">
-              <a  class="font-sm cursor-pointer">View</a> &nbsp;&nbsp;
+              <a  class="font-sm cursor-pointer text-primary" (click)="viewDiscussions(course.title)">View Discussions</a> &nbsp;&nbsp;
             </div>
           </div>
           <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail"
