@@ -10,7 +10,7 @@ module.exports = {
   create: function(request, response) {
     var post = request.allParams();
     post.messageCount = 0;
-    Post.create(post, function(err, post) {
+    Post.create(post, function(err) {
       if (!err) {
         notifysubscribers(post);
         return response.status(201).send({
