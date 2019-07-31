@@ -76,7 +76,7 @@ export class StoreService {
 
   get(endpoint, data = {}) {
     this.url = `${apiURL}${endpoint}`;
-    if (!endpoint.includes('email=') && !endpoint.includes('getDiscussions')) {
+    if (!endpoint.includes('email=') && !endpoint.includes('getDiscussions/')) {
       this.emailStr = (endpoint.indexOf('?') == -1) ? '?email=' : '&email=';
       this.url = this.url + this.emailStr + this.email;
     }
