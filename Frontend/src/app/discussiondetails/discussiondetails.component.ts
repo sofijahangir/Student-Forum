@@ -87,7 +87,6 @@ export class DiscussiondetailsComponent implements OnInit {
   add() {
     if (this.comment != "") {
       var data = { content: this.comment, postId: this.id, isannonymous: this.isannonymous };
-      this.isannonymous = false;
       // data={data:{'postId': this.id,'content': this.comment,'email':"nn@gmail.com"}};
       // let comment = (<HTMLInputElement>document.getElementById('comment-input')).value;
       console.log(this.comment);
@@ -96,7 +95,8 @@ export class DiscussiondetailsComponent implements OnInit {
       })
       var time = new Date();
       var user_email = sessionStorage.getItem("email");
-      this.discussion_comments.push({ content: this.comment, email: user_email, createdAt: time })
+      this.discussion_comments.push({ content: this.comment, email: user_email, createdAt: time, isannonymous: this.isannonymous })
+      this.isannonymous = false;
       this.comment = '';
     }
 
