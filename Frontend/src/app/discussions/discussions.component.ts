@@ -116,38 +116,39 @@ export class DiscussionsComponent implements OnInit {
         }
       }
     }
+  }
 
-    goToDetails(id) {
-      /*
-      *  @description :: Endpoints To Evaluate Comments.
-      *  @author      :: Fasuyi Jesuseyi Will, B00787413
-      */
-      this.router.navigate(['/discussions/details'], id);
+  goToDetails(id) {
+    /*
+    *  @description :: Endpoints To Evaluate Comments.
+    *  @author      :: Fasuyi Jesuseyi Will, B00787413
+    */
+    this.router.navigate(['/discussions/details'], id);
+  }
+
+  logout() {
+    this.store.post('/signout').subscribe((res) => {
+      this.router.navigate(['/home']);
+    }, err => {
+      Swal.fire('Oops..', 'Something Went Wrong', 'error')
+    });
+  }
+
+
+  searchCourse(value: string) {
+    if (!value) {
+      this.posts = this.allPosts;
     }
-
-    logout() {
-      this.store.post('/signout').subscribe((res) => {
-        this.router.navigate(['/home']);
-      }, err => {
-        Swal.fire('Oops..', 'Something Went Wrong', 'error')
-      });
-    }
-
-
-    searchCourse(value: string) {
-      if (!value) {
-        this.posts = this.allPosts;
-      }
-      else {
-        this.filterByCourse(value);
-      }
-    }
-
-    collapse() {
-      if (document.getElementById("wrapper").classList.contains("collapse")) {
-        document.getElementById("wrapper").classList.remove("collapse");
-      } else {
-        document.getElementById("wrapper").classList.add("collapse");
-      }
+    else {
+      this.filterByCourse(value);
     }
   }
+
+  collapse() {
+    if (document.getElementById("wrapper").classList.contains("collapse")) {
+      document.getElementById("wrapper").classList.remove("collapse");
+    } else {
+      document.getElementById("wrapper").classList.add("collapse");
+    }
+  }
+}
