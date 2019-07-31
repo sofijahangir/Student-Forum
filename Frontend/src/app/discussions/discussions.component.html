@@ -25,13 +25,13 @@
     <div class="top-nav">
       <nav class="navbar navbar-light pb-0 pr-2">
         <div class="form-group search-box bg-transparent">
-          <input type="text" class="form-control bg-transparent" placeholder="Search Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
+          <input type="text" class="form-control bg-transparent" placeholder="Search Post by Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
           <i class="fa fa-search"></i>
         </div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown profile-menu">
             <a class="nav-link dropdown-toggle pt-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
+              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">{{userName}}</span>
             </a>
             <div class="dropdown-menu animate appear">
               <a class="dropdown-item" routerLink="/comingsoon">Manage profile</a>

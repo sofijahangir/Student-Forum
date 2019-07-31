@@ -24,7 +24,7 @@ export class DiscussionsComponent implements OnInit {
 
 
   constructor(private router: Router, private store: StoreService) {
-
+    this.userName = sessionStorage.getItem("userName");
   }
 
   ngOnInit() {

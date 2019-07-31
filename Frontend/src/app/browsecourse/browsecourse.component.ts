@@ -22,6 +22,7 @@ export class BrowsecourseComponent implements OnInit {
   keyword: string;
 
   constructor(private router: Router, private route: ActivatedRoute, private store: StoreService) {
+    this.userName = sessionStorage.getItem("userName");
   }
 
   ngOnInit() {
@@ -85,7 +86,7 @@ export class BrowsecourseComponent implements OnInit {
     var cid = { coursename: ct };
     console.log(cid);
     this.store.post('/enroll', cid).subscribe((res) => {
-      if(!this.keyword){
+      if (!this.keyword) {
         var response = res;
         console.log(response["message"]);
         if (response["message"] == "Successful") {

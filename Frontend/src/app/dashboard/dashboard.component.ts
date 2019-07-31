@@ -17,8 +17,12 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.store.get('/user').subscribe((res) => {
+      if (res && res.length != 0) {
+        this.userName = res[0].name;
+        sessionStorage.setItem("userName", res[0].name);
+      }
+
     }, err => {
       console.log(err);
     });

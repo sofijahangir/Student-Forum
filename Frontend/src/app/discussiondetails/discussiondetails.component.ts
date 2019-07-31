@@ -19,7 +19,9 @@ export class DiscussiondetailsComponent implements OnInit {
   public post = [];
   public discussion_comments = [];
   public comment = '';
-  constructor(private router: Router, private store: StoreService, private route: ActivatedRoute) { }
+  constructor(private router: Router, private store: StoreService, private route: ActivatedRoute) {
+    this.userName = sessionStorage.getItem("userName");
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');

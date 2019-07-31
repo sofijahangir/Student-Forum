@@ -21,7 +21,9 @@ export class AddcourseComponent implements OnInit {
   addcourseform: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) { }
+  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) {
+    this.userName = sessionStorage.getItem("userName");
+  }
 
   ngOnInit() {
 

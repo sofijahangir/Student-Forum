@@ -19,7 +19,7 @@ export class AddpostComponent implements OnInit {
   newPostform: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router, private store: StoreService) {
-
+    this.userName = sessionStorage.getItem("userName");
   }
 
   submitForm() {
