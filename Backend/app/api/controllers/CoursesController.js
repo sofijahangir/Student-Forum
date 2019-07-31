@@ -95,8 +95,26 @@ module.exports = {
         "$regex": new RegExp(coursename, "i")
       }
     }).toArray();
+    Enroll.find({email:course.email}, function(err,enroll){
+      var length_e = enroll.length;
+      var length_c = c.length;
+      
+      for(var i = 0; i<length_e;i++){
+          for(var j=0;j<length_c;j++)
+          {
+              if(enroll[i].coursename==c[j].coursename)
+              {
+                  console.log("Hello");
+                  c[j].isEnrolled = true;
+                  return res.send(c);
+              } 
+
+          }
+      }
+      return res.send(c);
+  });
+
     console.log(c);
-    return res.send(c);
   },
 
 
