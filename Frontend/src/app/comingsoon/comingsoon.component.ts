@@ -9,9 +9,10 @@ import { StoreService } from '../store.service';
   styleUrls: ['./comingsoon.component.scss']
 })
 export class ComingsoonComponent implements OnInit {
+  userName: string;
 
   constructor(private router: Router, private store: StoreService) {
-
+    this.userName = sessionStorage.getItem("userName");
   }
 
   ngOnInit() {

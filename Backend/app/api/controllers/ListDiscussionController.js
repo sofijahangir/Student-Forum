@@ -70,9 +70,7 @@ module.exports = {
             }
             return response.send(list)
           }
-        })
-
-
+        });
     }
   },
 

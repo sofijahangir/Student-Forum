@@ -18,7 +18,7 @@ export class BrowsecourseComponent implements OnInit {
   result: any;
   courses = [];
   scourses = [];
-  private userName = '';
+  userName: string;
   keyword: string;
 
   constructor(private router: Router, private route: ActivatedRoute, private store: StoreService) {

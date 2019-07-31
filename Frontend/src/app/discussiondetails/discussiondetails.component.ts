@@ -19,7 +19,7 @@ export class DiscussiondetailsComponent implements OnInit {
   public post = [];
   public discussion_comments = [];
   public comment = '';
-  private userName = '';
+  userName: string;
 
   constructor(private router: Router, private store: StoreService, private route: ActivatedRoute) {
     this.userName = sessionStorage.getItem("userName");

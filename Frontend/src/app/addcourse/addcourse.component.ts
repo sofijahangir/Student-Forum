@@ -19,7 +19,7 @@ export class AddcourseComponent implements OnInit {
   url = ""
   image = ""
   data: any;
-  private userName = '';
+  userName: string;
 
 
 

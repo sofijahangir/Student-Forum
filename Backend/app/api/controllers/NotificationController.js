@@ -13,22 +13,57 @@ webPush.setVapidDetails("mailto:test@test.com", publicKey, privateKey);
 
 module.exports = {
 
-  pushNotification: function(request, response) {
+  pushNotification: async function(request, response) {
     var param = request.allParams();
 
-    const notificationPayload = {
-      notification: {
-        title: 'New Notification',
-        body: 'This is the body of the notification',
-      }
+
+    var param = request.allParams();
+
+    if (!param.email) {
+      return response.status(200).json({
+        message: "No user found"
+      });
+    }
+
+    var subscriber = await Subscriber.findOne({
+      email: request.body.email
+    });
+
+    console.log("Hii");
+
+    if (!subscriber) {
+      await Subscriber.create({
+        email: request.body.email
+      });
+      return response.status(200).json({
+        message: "Subscribed Sucessfully"
+      })
     }
 
 
     const promises = []
-    console.log("Hii");
-    promises.push(webPush.sendNotification(request.body.notification, JSON.stringify(notificationPayload)).catch(err => console.error(err)));
+
+    await WebNotification.find({
+      email: request.body.email
+    }).exec(function(err, results) {
+      results.forEach((result) => {
+        var notificationPayload = {
+          notification: {
+            title: result.title,
+            body: result.body
+          }
+        }
+        console.log("Hii");
+        promises.push(webPush.sendNotification(request.body.notification, JSON.stringify(notificationPayload)).catch(err => console.error(err)));
+      })
+
+    });
+
+    await WebNotification.destroy({
+      email: request.body.email
+    });
+
     Promise.all(promises).then(() => {
-      console.log("Hii1");
       return response.status(200).json({
         message: "Notification pushed Sucessfully"
       })

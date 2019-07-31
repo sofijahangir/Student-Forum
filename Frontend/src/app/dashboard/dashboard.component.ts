@@ -2,19 +2,49 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { StoreService } from '../store.service';
 import Swal from 'sweetalert2';
+import { SwPush } from '@angular/service-worker';
+import { WebWorkerService } from 'ngx-web-worker';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  providers: [WebWorkerService]
+
 })
 
 
 export class DashboardComponent implements OnInit {
-  private userName = '';
+  userName: string;
+  sub: any;
 
-  constructor(private router: Router, private store: StoreService) {
+  readonly VAPID_PUBLIC_KEY = 'BHddeLLJNV7FYImxP8-1u_mvcGo6N70ZXCRW2UtZbeKiuwLlo5fyaFJR8BIr8gbWCnWqHJ7x7DrL98zS14ZJkew';
 
+  constructor(private router: Router, private store: StoreService, private _webWorkerService: WebWorkerService, private swpush: SwPush) {
+    if (swpush.isEnabled) {
+      this.subscribeToNotifications()
+    }
+  }
+
+  subscribeToNotifications() {
+    this.swpush.requestSubscription({
+      serverPublicKey: this.VAPID_PUBLIC_KEY
+    })
+      .then(sub => {
+        this.sub = sub;
+        console.log("sub", this.sub);
+        this.sendToServer(this.sub);
+      })
+      .catch(err => console.error(err));
+  }
+
+  sendToServer(params: any) {
+    var email = sessionStorage.getItem("email");
+    this.store.post('/notifications', { notification: params, email: email }).subscribe(sub => {
+      setTimeout(() => {
+        this.subscribeToNotifications();
+      }, 4000)
+    });
   }
 
   ngOnInit() {

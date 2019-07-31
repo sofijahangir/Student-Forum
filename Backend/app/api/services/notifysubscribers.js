@@ -31,9 +31,17 @@ module.exports = async function(post) {
           email: post.email
         });
 
-        console.log("par", user);
-        console.log("owner", owner);
+        var subscriber = await Subscriber.findOne({
+          email: users[i].email
+        });
 
+        if (subscriber) {
+          await WebNotification.create({
+            email: user.email,
+            title: 'New Discussion',
+            body: owner.name + ' has posted in ' + post.course
+          });
+        }
 
         notifier.sendNotification({
           name: user.name,

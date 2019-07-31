@@ -15,7 +15,7 @@ import { StoreService } from '../store.service';
 })
 export class AddpostComponent implements OnInit {
   courses = [];
-  private userName = '';
+  userName: string;
 
   newPostform: FormGroup;
 
