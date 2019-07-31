@@ -147,6 +147,16 @@ export class DiscussionsComponent implements OnInit {
     }
   }
 
+  getTime(time) {
+    var formattedTime = new Date(time).toString();
+    if (formattedTime != "Invalid Date") {
+      return formattedTime;
+    } else {
+      return time;
+    }
+
+  }
+
   collapse() {
     if (document.getElementById("wrapper").classList.contains("collapse")) {
       document.getElementById("wrapper").classList.remove("collapse");
