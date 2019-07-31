@@ -25,13 +25,13 @@
     <div class="top-nav">
       <nav class="navbar navbar-light pb-0 pr-2">
         <div class="form-group search-box bg-transparent">
-          <input type="text" class="form-control bg-transparent" placeholder="Search Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
+          <input type="text" class="form-control bg-transparent" placeholder="Search Post by Course" #courseSearch (keyup.enter)="searchCourse(courseSearch.value)">
           <i class="fa fa-search"></i>
         </div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown profile-menu">
             <a class="nav-link dropdown-toggle pt-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
+              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">{{userName}}</span>
             </a>
             <div class="dropdown-menu animate appear">
               <a class="dropdown-item" routerLink="/comingsoon">Manage profile</a>
@@ -45,26 +45,14 @@
     </div>
 
     <div class="discussions-wrapper px-4">
-      <div class="content-title row pb-3 px-1">
+      <div class="content-title row pb-3 ml-4">
         <div class="col-sm-5 col-xs-0 pl-3">
-
-        </div>
-        <div class="col-sm-7 col-xs-12">
-          <div class="float-right actions">
-            Sort
-            <select #t (change)="changeSorting(t.value)">
-                  <option selected value="Recent">
-                    Recent
-                  </option>
-                  <option value="Active">
-                    Active
-                  </option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-7 col-xs-12">
-          <div class="float-right actions">
-            <i class="fas fa-sort-amount-up text-primary"></i>
+          <div class="dropdown float-left">
+            <div class="dropdown-toggle cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">{{selectedFilter}}</div>
+            <div class="dropdown-menu animate appear">
+              <a class="dropdown-item" (click)="changeSorting('Recent')">Recent</a>
+              <a class="dropdown-item" (click)="changeSorting('Active')">Active</a>
+            </div>
           </div>
         </div>
       </div>
@@ -76,7 +64,7 @@
             <span class="float-right comments"><i class="far fa-comment-alt"></i>&nbsp;{{comments[post.id]}}</span>
           </h6>
           <p class="mb-2">by&nbsp;&nbsp;{{post.author}}</p>
-          <p><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{post.createdAt}}</p>
+          <p><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{getTime(post.createdAt)}}</p>
           <div class="mb-3 post-desc">{{post.content}}&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails(post.id)">Continue Reading</span></div>
         </div>
       </div>

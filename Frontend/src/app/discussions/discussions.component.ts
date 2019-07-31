@@ -22,10 +22,12 @@ export class DiscussionsComponent implements OnInit {
   timeArray = [];
   allPosts = [];
   courses = [];
+  selectedFilter = 'Recent Posts';
+  private userName = '';
 
 
   constructor(private router: Router, private store: StoreService) {
-
+    this.userName = sessionStorage.getItem("userName");
   }
 
   ngOnInit() {
@@ -83,9 +85,11 @@ export class DiscussionsComponent implements OnInit {
   changeSorting(sortBy) {
     console.log(sortBy);
     if (sortBy == "Recent") {
+      this.selectedFilter = "Recent Post";
       this.sortByTime();
     }
     else if (sortBy == "Active") {
+      this.selectedFilter = "Active Post";
       this.sortByMessage();
     }
   }
@@ -159,6 +163,16 @@ export class DiscussionsComponent implements OnInit {
     else {
       this.filterByCourse(value);
     }
+  }
+
+  getTime(time) {
+    var formattedTime = new Date(time).toString();
+    if (formattedTime != "Invalid Date") {
+      return formattedTime;
+    } else {
+      return time;
+    }
+
   }
 
   collapse() {

@@ -11,14 +11,19 @@ import Swal from 'sweetalert2';
 
 
 export class DashboardComponent implements OnInit {
+  private userName = '';
 
   constructor(private router: Router, private store: StoreService) {
 
   }
 
   ngOnInit() {
-
     this.store.get('/user').subscribe((res) => {
+      if (res) {
+        this.userName = res[0].name;
+        sessionStorage.setItem("userName", res[0].name);
+      }
+
     }, err => {
       console.log(err);
     });

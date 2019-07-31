@@ -31,7 +31,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown profile-menu">
             <a class="nav-link dropdown-toggle pt-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">Chandler Bing</span>
+              <img src="assets/profile.jpg" class="profile-pic" alt="Chandler" />&nbsp;&nbsp;<span class="align-middle">{{userName}}</span>
             </a>
             <div class="dropdown-menu animate appear">
               <a class="dropdown-item" routerLink="/comingsoon">Manage profile</a>
@@ -55,10 +55,11 @@
               <div class="col-sm">
                 <div class="mb-3">
 
-                  <strong>{{post["author"]}}</strong> has started discussion {{post["title"]}}
-                  <span class="badge badge-warning py-1 px-2">Internal</span>
+                  <strong>{{post["author"]}}</strong> has started a discussion
+                  <span class="badge badge-warning py-1 px-2">{{post["course"]}}</span>
                   <div class="discussion-period">{{post["time_stamp"]}}</div>
                 </div>
+                <h6>{{post["title"]}}</h6>
                 <p>{{post["content"]}}</p>
               </div>
             </div>

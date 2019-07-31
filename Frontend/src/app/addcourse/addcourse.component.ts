@@ -16,16 +16,19 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./addcourse.component.scss']
 })
 export class AddcourseComponent implements OnInit {
-  url =""
+  url = ""
   image = ""
-  data:any;
+  data: any;
+  private userName = '';
 
 
 
   addcourseform: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) { }
+  constructor(private fb: FormBuilder, private router: Router, private store: StoreService) {
+    this.userName = sessionStorage.getItem("userName");
+  }
 
   ngOnInit() {
 
@@ -45,7 +48,7 @@ export class AddcourseComponent implements OnInit {
       this.addcourseform.reset();
     } else {
       this.data = this.addcourseform.value;
-      if(this.image != ""){
+      if (this.image != "") {
         this.data.image = this.image;
         console.log(this.data);
       }
@@ -83,12 +86,12 @@ export class AddcourseComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 
-      reader.readAsDataURL(event.target.files[0]); 
+      reader.readAsDataURL(event.target.files[0]);
 
-      reader.onload = (event:any) => { 
+      reader.onload = (event: any) => {
 
         this.url = event.target.result;
-        var  cimage = event.target.result;
+        var cimage = event.target.result;
         var index = cimage.indexOf("base64,");
         this.image = cimage.substring(index + 7);
 

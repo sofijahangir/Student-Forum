@@ -19,7 +19,11 @@ export class DiscussiondetailsComponent implements OnInit {
   public post = [];
   public discussion_comments = [];
   public comment = '';
-  constructor(private router: Router, private store: StoreService, private route: ActivatedRoute) { }
+  private userName = '';
+
+  constructor(private router: Router, private store: StoreService, private route: ActivatedRoute) {
+    this.userName = sessionStorage.getItem("userName");
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -42,11 +46,18 @@ export class DiscussiondetailsComponent implements OnInit {
             this.post["author"] = "Anonymous";
           }else{
             this.post["author"] = res[i].email;
+            this.store.get('/user?email=' + res[i].email).subscribe((user) => {
+            }, err => {
+              console.log(err);
+            });
           }
+          
+
           this.post["time_stamp"] = new Date(res[i].createdAt);
           this.post["comments"] = res[i].messageCount;
           this.post["id"] = res[i].id;
           this.post["content"] = res[i].content;
+          this.post["course"] = res[i].course;
         }
       }
     }, err => {

@@ -75,3 +75,19 @@
     display: none !important;
   }
 }
+
+.custom-select {
+  background-color: #ffc107;
+  color: #212529;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  height: auto;
+  line-height: 1.2;
+  .options{
+    background-color: #fff;
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
