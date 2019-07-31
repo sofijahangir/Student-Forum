@@ -22,6 +22,7 @@ export class DiscussionsComponent implements OnInit {
   allPosts = [];
   courses = [];
   selectedFilter = 'Recent Posts';
+  private userName = '';
 
 
   constructor(private router: Router, private store: StoreService) {
