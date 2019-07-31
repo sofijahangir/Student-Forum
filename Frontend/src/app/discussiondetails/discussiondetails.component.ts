@@ -42,11 +42,16 @@ export class DiscussiondetailsComponent implements OnInit {
         if (res[i].id == this.id) {
           console.log(res[i]);
           this.post["title"] = res[i].title;
-          this.store.get('/user?email=' + res[i].email).subscribe((user) => {
-            this.post["author"] = user[0].name;
-          }, err => {
-            console.log(err);
-          });
+          if(res[i].allowAnon){
+            this.post["author"] = "Anonymous";
+          }else{
+            this.post["author"] = res[i].email;
+            this.store.get('/user?email=' + res[i].email).subscribe((user) => {
+            }, err => {
+              console.log(err);
+            });
+          }
+          
 
           this.post["time_stamp"] = new Date(res[i].createdAt);
           this.post["comments"] = res[i].messageCount;
