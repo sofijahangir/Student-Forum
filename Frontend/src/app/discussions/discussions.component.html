@@ -65,7 +65,7 @@
           </h6>
           <p class="mb-2">by&nbsp;&nbsp;{{post.author}}</p>
           <p><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{post.createdAt}}</p>
-          <div class="mb-3 post-desc">{{post.content}}&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails()">Continue Reading</span></div>
+          <div class="mb-3 post-desc">{{post.content}}&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails(post.id)">Continue Reading</span></div>
         </div>
       </div>
 

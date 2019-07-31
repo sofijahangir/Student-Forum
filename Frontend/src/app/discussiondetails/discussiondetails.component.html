@@ -55,10 +55,11 @@
               <div class="col-sm">
                 <div class="mb-3">
 
-                  <strong>{{post["author"]}}</strong> has started discussion {{post["title"]}}
-                  <span class="badge badge-warning py-1 px-2">Internal</span>
+                  <strong>{{post["author"]}}</strong> has started a discussion
+                  <span class="badge badge-warning py-1 px-2">{{post["course"]}}</span>
                   <div class="discussion-period">{{post["time_stamp"]}}</div>
                 </div>
+                <h6>{{post["title"]}}</h6>
                 <p>{{post["content"]}}</p>
               </div>
             </div>

@@ -21,7 +21,7 @@ export class DiscussionsComponent implements OnInit {
   timeArray = [];
   allPosts = [];
   courses = [];
-  selectedFilter = 'All Post';
+  selectedFilter = 'Recent Posts';
 
 
   constructor(private router: Router, private store: StoreService) {
@@ -68,11 +68,11 @@ export class DiscussionsComponent implements OnInit {
   changeSorting(sortBy) {
     console.log(sortBy);
     if (sortBy == "Recent") {
-      this.selectedFilter = sortBy;
+      this.selectedFilter = "Recent Post";
       this.sortByTime();
     }
     else if (sortBy == "Active") {
-      this.selectedFilter = sortBy;
+      this.selectedFilter = "Active Post";
       this.sortByMessage();
     }
   }
@@ -126,7 +126,7 @@ export class DiscussionsComponent implements OnInit {
     *  @description :: Endpoints To Evaluate Comments.
     *  @author      :: Fasuyi Jesuseyi Will, B00787413
     */
-    this.router.navigate(['/discussions/details'], id);
+    this.router.navigate(['/discussions/details/' + id], id);
   }
 
   logout() {
