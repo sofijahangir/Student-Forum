@@ -58,6 +58,8 @@ $sidebar-sm-width: 70px;
   top: 0;
   left: $sidebar-width;
   width: calc(100% - #{$sidebar-width});
+  min-height: 100%;
+  height: fit-content;
   background-color: #F8F9FD;
   transition: all 0.3s ease-in;
 }

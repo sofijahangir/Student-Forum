@@ -21,6 +21,7 @@ export class DiscussionsComponent implements OnInit {
   timeArray = [];
   allPosts = [];
   courses = [];
+  selectedFilter = 'All Post';
 
 
   constructor(private router: Router, private store: StoreService) {
@@ -67,9 +68,11 @@ export class DiscussionsComponent implements OnInit {
   changeSorting(sortBy) {
     console.log(sortBy);
     if (sortBy == "Recent") {
+      this.selectedFilter = sortBy;
       this.sortByTime();
     }
     else if (sortBy == "Active") {
+      this.selectedFilter = sortBy;
       this.sortByMessage();
     }
   }

@@ -45,26 +45,14 @@
     </div>
 
     <div class="discussions-wrapper px-4">
-      <div class="content-title row pb-3 px-1">
+      <div class="content-title row pb-3 ml-4">
         <div class="col-sm-5 col-xs-0 pl-3">
-
-        </div>
-        <div class="col-sm-7 col-xs-12">
-          <div class="float-right actions">
-            Sort
-            <select #t (change)="changeSorting(t.value)">
-                  <option selected value="Recent">
-                    Recent
-                  </option>
-                  <option value="Active">
-                    Active
-                  </option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-7 col-xs-12">
-          <div class="float-right actions">
-            <i class="fas fa-sort-amount-up text-primary"></i>
+          <div class="dropdown float-left">
+            <div class="dropdown-toggle cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">{{selectedFilter}}</div>
+            <div class="dropdown-menu animate appear">
+              <a class="dropdown-item" (click)="changeSorting('Recent')">Recent</a>
+              <a class="dropdown-item" (click)="changeSorting('Active')">Active</a>
+            </div>
           </div>
         </div>
       </div>
