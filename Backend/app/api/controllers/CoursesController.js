@@ -44,27 +44,31 @@ module.exports = {
 
     Courses.find().exec(function(err, course) {
       if (err) {
-        return next(err);
+        return res.send(err);
       } else {
         Enroll.find({
           email: email.email
         }, function(err, enroll) {
+          if(err)
+          {
+              return res.send(err);
+          }  
+          console.log(enroll,course);
           var length_e = enroll.length;
           var length_c = course.length;
-
           for (var i = 0; i < length_e; i++) {
             for (var j = 0; j < length_c; j++) {
+              
               if (enroll[i].coursename == course[j].coursename) {
                 course[j].isEnrolled = true;
               }
-
             }
           }
           return res.json(course);
         })
 
       }
-
+ 
     });
   },
 

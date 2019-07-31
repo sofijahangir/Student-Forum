@@ -102,6 +102,10 @@ module.exports.routes = {
 
 
 
+  'Post /getDashboardCourses': {
+    controller: 'DashboardController',
+    action: 'getCourses'
+  }
 
 
 

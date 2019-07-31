@@ -33,11 +33,24 @@ export class DiscussionsComponent implements OnInit {
   ngOnInit() {
     var that = this;
     this.comments = [];
+
+    const param = new URLSearchParams(window.location.search);
+    const course = param.get("course");
+
+    if (course) {
+      course.toLowerCase();
+    }
+
     this.store.get('/getDiscussions?filter=All&course=', {}).subscribe((res) => {
       var length = Object.keys(res).length;
       // console.log(res)
       for (var i = 0; i < length; i++) {
         var post = {};
+
+        if (course && !res[i].course.includes(course)) {
+          continue;
+        }
+
         post["title"] = res[i].title;
         post["author"] = res[i].email;
         // post["comments"] = res[i].messageCount;
@@ -76,10 +89,13 @@ export class DiscussionsComponent implements OnInit {
         this.posts.push(post);
         this.allPosts = this.posts;
         console.log(this.comments);
+
       }
     }, err => {
       console.log(err);
     });
+
+
   }
 
   changeSorting(sortBy) {
