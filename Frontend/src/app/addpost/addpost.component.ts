@@ -29,7 +29,7 @@ export class AddpostComponent implements OnInit {
     } else {
       console.log(this.newPostform.value);
       this.store.post('/addPost', this.newPostform.value).subscribe((res) => {
-        this.router.navigate(['/discussions']);
+        // this.router.navigate(['/discussions']);
         // this.isLoading = false;
       }, err => {
         console.log(err);

@@ -10,14 +10,14 @@ module.exports = {
   create: function(request, response) {
     var post = request.allParams();
     post.messageCount = 0;
-    Post.create(post, function(err, post) {
+    Post.create(post).fetch().exec(function(err, createdPost) {
       if (!err) {
         notifysubscribers(post);
         return response.status(201).send({
           message: 'Post Added Successfully!!'
         });
       }
-      console.log(err);
+
       return response.status(500).send({
         message: 'Can Not Add Post!!'
       });
