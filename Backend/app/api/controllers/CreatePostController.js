@@ -10,18 +10,20 @@ module.exports = {
   create: function(request, response) {
     var post = request.allParams();
     post.messageCount = 0;
-    Post.create(post, function(err, user) {
+    Post.create(post, function(err) {
       if (!err) {
+        notifysubscribers(post);
         return response.status(201).send({
           message: 'Post Added Successfully!!'
         });
       }
-      console.log(err);
+
       return response.status(500).send({
         message: 'Can Not Add Post!!'
       });
     });
   },
+
 
   getCourses: function(request, response) {
     var user = request.allParams();

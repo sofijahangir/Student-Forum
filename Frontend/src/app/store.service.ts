@@ -40,10 +40,10 @@ export class StoreService {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {
-      if (error.status == 403) {
-        window.location.href = "/home"
-        return throwError('Something went wrong; please try again later.');
-      }
+      // if (error.status == 403) {
+      //   window.location.href = "/home"
+      //   return throwError('Something went wrong; please try again later.');
+      // }
 
       console.error(
         `Backend returned code ${error.status}, ` +

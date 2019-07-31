@@ -8,7 +8,7 @@
 
 
 
-module.exports.sendNotificationV = function(obj) {
+module.exports.sendNotification = function(obj) {
   process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
 
   // Binds the user data dynamically to email template.
@@ -20,7 +20,7 @@ module.exports.sendNotificationV = function(obj) {
       Title: obj.title
     }, {
       to: obj.email,
-      subject: "New Discussion"
+      subject: "New Discussion Posted"
     },
     function(err) {
       if (err) {
