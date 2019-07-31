@@ -7,9 +7,9 @@ describe('DiscussionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiscussionsComponent ]
+      declarations: [DiscussionsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

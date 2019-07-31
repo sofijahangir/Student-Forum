@@ -79,20 +79,25 @@ export class BrowsecourseComponent implements OnInit {
     });
   }
 
-  // enroll method is invoked when the enroll button is clicked. 
+  // enroll method is invoked when the enroll button is clicked.
   // parameter ct is passed in function which will be the course to be enrolled.
   enroll(ct) {
     var cid = { coursename: ct };
     console.log(cid);
     this.store.post('/enroll', cid).subscribe((res) => {
-      var response = res;
-      console.log(response["message"]);
-      if(response["message"] == "Successful"){
-        this.ngOnInit();
-        Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
+      if(!this.keyword){
+        var response = res;
+        console.log(response["message"]);
+        if (response["message"] == "Successful") {
+          this.ngOnInit();
+          Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
 
+        } else {
+          Swal.fire('Course Not Enrolled', response["message"], 'error')
+        }
       } else {
-        Swal.fire('Course Not Enrolled', response["message"], 'error')
+        this.searchCourse(this.keyword);
+        Swal.fire('Course Enrolled', 'Course Enrolled', 'success')
       }
     }, err => {
       Swal.fire('Oops..', 'Something Went Wrong', 'error')

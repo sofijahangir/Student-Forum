@@ -78,9 +78,9 @@ Now let us go for around to visit the above pages.
 * The user will then be routed to the discussion list page, where the user can see the entry posted by him.
 
 ### Add Course - Nishant Bhambhani
-*  In order to access this feature of the application, you must be logged in. 
-*  After successful login, the add course page can be accessed by clicking on the add course button which is available in the side Nav bar while you are on the Dashboard or you can click [here](https://student-forum-2020.herokuapp.com/course/add). 
-*  After adding the course, you will be redirected to the course browse page where you can see the added list of courses. 
+*  In order to access this feature of the application, you must be logged in.
+*  After successful login, the add course page can be accessed by clicking on the add course button which is available in the side Nav bar while you are on the Dashboard or you can click [here](https://student-forum-2020.herokuapp.com/course/add).
+*  After adding the course, you will be redirected to the course browse page where you can see the added list of courses.
 
 ### Comments Under Post - Jesuseyi Will Fasuyi
 * You have to login and go to discussions and then click

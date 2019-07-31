@@ -16,8 +16,7 @@ module.exports = {
     postID: {
       type: 'number',
       required: true
-    },  
+    },
   },
 
 };
-

@@ -47,14 +47,7 @@
     <div class="discussions-wrapper px-4">
       <div class="content-title row pb-3 px-1">
         <div class="col-sm-5 col-xs-0 pl-3">
-          <!-- <div class="dropdown float-left">
-            <div class="dropdown-toggle cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">All Post</div>
-            <div class="dropdown-menu animate appear">
-              <a class="dropdown-item">Trending</a>
-              <a class="dropdown-item">Inactive</a>
-              <a class="dropdown-item">Archived</a>
-            </div>
-          </div> -->
+
         </div>
         <div class="col-sm-7 col-xs-12">
           <div class="float-right actions">
@@ -69,6 +62,11 @@
             </select>
           </div>
         </div>
+        <div class="col-sm-7 col-xs-12">
+          <div class="float-right actions">
+            <i class="fas fa-sort-amount-up text-primary"></i>
+          </div>
+        </div>
       </div>
 
 
@@ -81,7 +79,7 @@
           <p><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{post.createdAt}}</p>
           <div class="mb-3 post-desc">{{post.content}}&nbsp;<span class="text-primary font-sm cursor-pointer" (click)="goToDetails()">Continue Reading</span></div>
         </div>
-      </div> 
+      </div>
 
       <div class="pagination-wrapper row">
         <div class="col-sm-6 page-count">
@@ -108,8 +106,6 @@
           </nav>
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
