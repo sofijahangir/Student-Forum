@@ -39,22 +39,22 @@ export class DiscussionsComponent implements OnInit {
       for (var i = 0; i < length; i++) {
         var post = {};
         post["title"] = res[i].title;
-        if(res[i].allowAnon){
-          post["author"] = "Anonymous";
-        }else{
-          post["author"] = res[i].email;
-        }
+        post["author"] = res[i].email;
         // post["comments"] = res[i].messageCount;
         post["id"] = res[i].id;
-        post["content"] = res[i].content;
+        if (res[i].content.length > 151) {
+          post["content"] = res[i].content.slice(0, 150) + "....";
+        } else {
+          post["content"] = res[i].content;
+        }
         post["createdAt"] = res[i].createdAt;
         post["comments"] = 0;
         that.getComment(post["id"]).subscribe((data) => {
           console.log(data);
           var length = Object.keys(data).length;
-          if(length > 0){
+          if (length > 0) {
             this.comments[data[0].postId] = length;
-          } 
+          }
         });
 
         this.timeArray.push(res[i].createdAt);
@@ -143,8 +143,8 @@ export class DiscussionsComponent implements OnInit {
     *  @description :: Endpoints To Evaluate Comments.
     *  @author      :: Fasuyi Jesuseyi Will, B00787413
     */
-   console.log(id)
-    this.router.navigate(["discussions/details/"+id]);
+    console.log(id)
+    this.router.navigate(["discussions/details/" + id]);
   }
 
   logout() {

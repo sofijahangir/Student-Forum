@@ -49,7 +49,7 @@
         <div class="discussion-content">
           <div class="media">
             <div class="media-left">
-              <img class="img-circle" width="50px" height="50px">
+              <img class="img-circle" src="assets/avatar.png" width="50px" height="50px">
             </div>
             <div class="media-body pl-1">
               <div class="col-sm">
@@ -75,12 +75,13 @@
         <div *ngFor="let comment of discussion_comments" class="comment py-3">
           <div class="media">
             <div class="media-left">
-              <img class="img-circle"  width="25px" height="25px">
+              <img class="img-circle"  src="assets/avatar.png" width="25px" height="25px">
             </div>
             <div class="media-body pl-1">
               <div class="col-sm">
-                <div class="mb-2">
-                  <h6>{{comment.email}}</h6>
+                <div class="mb-2 reply">
+                  <h6 *ngIf="comment.isannonymous; else nameBlock">Guest</h6>
+                  <ng-template #nameBlock><h6>{{comment.email}}</h6></ng-template>
                 </div>
                 <p>{{comment.content}}</p>
                 <div class="discussion-period">
@@ -97,7 +98,8 @@
             <div class="col-sm">
               <textarea id="comment-input" placeholder="Reply to the discussion.." [(ngModel)]="comment" class="form-control" rows="2" (focus)="showButtons()"></textarea>
               <div class="btn-toolbar mt-3" id="add-comment-button-section">
-                <button class="btn btn-primary" (click)="add()">Post</button>
+                <button class="btn btn-primary mr-3" (click)="add()">Post</button>
+                <button class="btn btn-Secondary" (click)="addannonymously()" *ngIf="allowAnon">Post Anonymous</button>
               </div>
             </div>
           </div>

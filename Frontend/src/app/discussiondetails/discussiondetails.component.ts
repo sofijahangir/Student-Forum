@@ -19,7 +19,9 @@ export class DiscussiondetailsComponent implements OnInit {
   public post = [];
   public discussion_comments = [];
   public comment = '';
+  public isannonymous = false;
   userName: string;
+  allowAnon: any;
 
   constructor(private router: Router, private store: StoreService, private route: ActivatedRoute) {
     this.userName = sessionStorage.getItem("userName");
@@ -42,16 +44,13 @@ export class DiscussiondetailsComponent implements OnInit {
         if (res[i].id == this.id) {
           console.log(res[i]);
           this.post["title"] = res[i].title;
-          if(res[i].allowAnon){
-            this.post["author"] = "Anonymous";
-          }else{
-            this.post["author"] = res[i].email;
-            this.store.get('/user?email=' + res[i].email).subscribe((user) => {
-            }, err => {
-              console.log(err);
-            });
-          }
-          
+          this.allowAnon = res[i].allowAnon;
+          this.store.get('/user?email=' + res[i].email).subscribe((user) => {
+            this.post["author"] = user[0].name;
+          }, err => {
+            console.log(err);
+          });
+
 
           this.post["time_stamp"] = new Date(res[i].createdAt);
           this.post["comments"] = res[i].messageCount;
@@ -64,6 +63,7 @@ export class DiscussiondetailsComponent implements OnInit {
       console.log(err);
     });
   }
+
   showButtons() {
     document.getElementById('comment-input').setAttribute('rows', '3');
     document.getElementById('add-comment-button-section').style.display = "block"
@@ -86,7 +86,8 @@ export class DiscussiondetailsComponent implements OnInit {
 
   add() {
     if (this.comment != "") {
-      var data = { content: this.comment, postId: this.id };
+      var data = { content: this.comment, postId: this.id, isannonymous: this.isannonymous };
+      this.isannonymous = false;
       // data={data:{'postId': this.id,'content': this.comment,'email':"nn@gmail.com"}};
       // let comment = (<HTMLInputElement>document.getElementById('comment-input')).value;
       console.log(this.comment);
@@ -100,6 +101,12 @@ export class DiscussiondetailsComponent implements OnInit {
     }
 
   }
+
+  addannonymously() {
+    this.isannonymous = true;
+    this.add();
+  }
+
   // getComment(){
   //   var that = this;
   //   this.store.getDiscussionWithID("/getDiscussions/",this.id).subscribe((res)=>{
