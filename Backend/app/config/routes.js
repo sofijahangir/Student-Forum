@@ -86,7 +86,21 @@ module.exports.routes = {
   'POST /notifications': {
     controller: 'NotificationController',
     action: 'pushNotification'
-  }
+  },
+
+  'POST /newComents': {
+    controller: 'DetailController',
+    action: 'create'
+  },
+
+  'GET /getDiscussions/:id': {
+    controller: 'DetailController',
+    action: 'find'
+  },
+
+
+
+
 
 
 
