@@ -19,7 +19,7 @@ This application is built using the following frameworks and libraries :package:
  * Sails JS - [Install](https://sailsjs.com/get-started)
 
 ## How to run the application ?
-1. Clone the repo to your local machine using `git clone https://git.cs.dal.ca/sharmila/A2_Sharmila_Thirumalainathan.git`
+1. Clone the repo to your local machine using `git clone https://github.com/sharmila-t/Student-Forum.git`
 2. Navigate to the workspace folder using `cd student-forum`
 
 ### Front End
@@ -37,32 +37,22 @@ This application is built using the following frameworks and libraries :package:
 ## What you can expect to see in here ?
 The following are the pages that I've developed as the part of the student forum application
 
-### Feature Owner - Sharmila Thirumalainathan
 1. [Login](https://student-forum-2020.herokuapp.com/login) - This page allows the user (both professor & student) to sign into the application. Session Management is done by maintaining  'sid' between client and server.
 2. [Signup](https://student-forum-2020.herokuapp.com/signup) - This page allows the user to signup for the application. Once the user has signed-in, he/she will be logged in and the session will also be created simultaneously.
 3. [Reset](https://student-forum-2020.herokuapp.com/reset) - This page allow the user to reset the password if they've forgotten the password.
 4. Logout - An option to logout and reset the user session.
-
-### Feature Owner - Nirav Solanki
-1. [add Post](https://student-forum-2020.herokuapp.com/discussions/add) - This page allows the user to create a new post for a particular subject.
-2. [discussion list](https://student-forum-2020.herokuapp.com/discussions) - This page list the discussions of the subject the user is registered to. It allows the user to give different types of filter (discussion of particular course, active discussion, archived discussion, etc)
-
-### Feature Owner - Jesuseyi Will Fasuyi [CODE IN COMMENT BRANCH]
-1. [Comments] This feature allows users to view comments
-2. [Create comments] This feature allows users to create comments.
-3. The code is in 'comment' branch
-
-### Feature Owner - Nishant Bhambhani
-1. [Add Course](https://student-forum-2020.herokuapp.com/course/add) - This page, allows the users to add the courses for having discussions. Initially, the user will fill in the add course form on this page and then the course will be added. After adding the course, the course along with its details will be stored in the database.
-2. [Browse Course](https://student-forum-2020.herokuapp.com/course/browse) - This page will render the courses stored in the database. The user can search and get enrolled into courses on this page.
-
-
+5. [add Post](https://student-forum-2020.herokuapp.com/discussions/add) - This page allows the user to create a new post for a particular subject.
+6. [discussion list](https://student-forum-2020.herokuapp.com/discussions) - This page list the discussions of the subject the user is registered to. It allows the user to give different types of filter (discussion of particular course, active discussion, archived discussion, etc)
+7. [Comments] This feature allows users to view comments
+8. [Create comments] This feature allows users to create comments.
+9. [Add Course](https://student-forum-2020.herokuapp.com/course/add) - This page, allows the users to add the courses for having discussions. Initially, the user will fill in the add course form on this page and then the course will be added. After adding the course, the course along with its details will be stored in the database.
+10. [Browse Course](https://student-forum-2020.herokuapp.com/course/browse) - This page will render the courses stored in the database. The user can search and get enrolled into courses on this page.
 
 
 ## Application tour :rocket:
 Now let us go for around to visit the above pages.
 
-### User Management - Sharmila Thirumalainathan
+### User Management
 * The application by default will open the *landing page* when served :checkered_flag: . Here we have a welcome section, customer review section and a feature display section.
 * Now to go into the application, you'll have to click on the *login menu* in the top navbar :checkered_flag: .
 * Ahanha...! You can't just sneak into the application. So give a proper email-id and password.
@@ -71,21 +61,25 @@ Now let us go for around to visit the above pages.
 * On successful login you will be taken to *dashboard* page of the application :checkered_flag: .
 * Now you can find *logout* option in top menu bar :checkered_flag:.
 
+### Dashboard
 
-### Discussion List - Nirav Solanki
+
+### Discussion Management
 * This feature requires the user to be logged in to the website.
-* After, logging in the user must navigate to discussion from the right-hand side navigation bar. From here the user can click on “+” symbol to add a new post.
-* The user will then be routed to the discussion list page, where the user can see the entry posted by him.
+* After, logging in the user must navigate to discussion from the right-hand side navigation bar. From here the user can click on “+” symbol to add a new post :checkered_flag:.
+* You will be asked enter the respective information (like title, course, content).
+* After submitting the post, the user will then be routed to the discussion list page :checkered_flag:, where the user can see the entry posted by him.
 
-### Add Course - Nishant Bhambhani
+### Course Management
 *  In order to access this feature of the application, you must be logged in.
-*  After successful login, the add course page can be accessed by clicking on the add course button which is available in the side Nav bar while you are on the Dashboard or you can click [here](https://student-forum-2020.herokuapp.com/course/add).
-*  After adding the course, you will be redirected to the course browse page where you can see the added list of courses.
+*  After successful login, the add course page can be accessed by clicking on the add course button which is available in the side Nav bar while you are on the Dashboard or you can click [here](https://student-forum-2020.herokuapp.com/course/add) :checkered_flag:.
+*  You will be asked enter the respective information (like course name, duration, course code).
+*  After adding the course, you will be redirected to the course list page :checkered_flag: where you can see the added list of courses.
 
-### Comments Under Post - Jesuseyi Will Fasuyi
-* You have to login and go to discussions and then click
-on continue reading
-*Once ther you can post a comment and view comments
+### Comments Under Post
+* You have to login and go to discussions and then click on continue reading to view the full content of the post.
+* Once there you can post a comment either by identifying yourself or anonymously.
+
 
 ## Design Credits :art:
 
@@ -106,7 +100,7 @@ on continue reading
 * Code Editor - [Atom](https://atom.io/)
 * Versioning - [Gitlab](https://git.cs.dal.ca/sharmila/A2_Sharmila_Thirumalainathan)
 
-## Other references
+## References
 
 1. A free tutorial to learn HTML and CSS. (n.d.). Retrieved from https://marksheet.io/sass-scss-less.html
 2. Angular Getting Started Tutorial. (n.d.). Retrieved May 30, 2019, from https://angular.io/tutorial
@@ -117,8 +111,10 @@ on continue reading
 7. Hesp, G. (2019). Implement Passport.js authentication with Sails.js 1.0. [online] Medium. Available at: https://medium.com/@greg.hesp/implement-passport-js-authentication-with-sails-js-1-0-50888265fb83 [Accessed 17 Jul. 2019].
 8. Angular Bootstrap. (n.d.). Retrieved July 10, 2019, from https://valor-software.com/ngx-bootstrap/#/datepicker
 
-## Authors
-- Sharmila Thirumalainathan, *B00823668*.
-- Jesuseyi Will Fasuyi, *B00787413*
-- Nirav Solanki, *B00808427*
-- Nishant Bhambhani, *B00823348*
+## Author
+- Sharmila Thirumalainathan
+
+## Contributors
+- Jesuseyi Will Fasuyi
+- Nirav Solanki
+- Nishant Bhambhani
