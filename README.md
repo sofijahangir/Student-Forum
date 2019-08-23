@@ -72,7 +72,7 @@ Now let us go for around to visit the above pages.
 
 ### Course Management
 *  In order to access this feature of the application, you must be logged in.
-*  After successful login, the add course page can be accessed by clicking on the add course button which is available in the side Nav bar while you are on the Dashboard or you can click [here](https://student-forum-2020.herokuapp.com/course/add) :checkered_flag:.
+*  After successful login, the add course page can be accessed by clicking on the add course button which is available in the side Nav bar while you are on the Dashboard or you can click add course button :checkered_flag:.
 *  You will be asked enter the respective information (like course name, duration, course code).
 *  After adding the course, you will be redirected to the course list page :checkered_flag: where you can see the added list of courses.
 
