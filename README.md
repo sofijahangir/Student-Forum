@@ -111,10 +111,8 @@ Now let us go for around to visit the above pages.
 7. Hesp, G. (2019). Implement Passport.js authentication with Sails.js 1.0. [online] Medium. Available at: https://medium.com/@greg.hesp/implement-passport-js-authentication-with-sails-js-1-0-50888265fb83 [Accessed 17 Jul. 2019].
 8. Angular Bootstrap. (n.d.). Retrieved July 10, 2019, from https://valor-software.com/ngx-bootstrap/#/datepicker
 
-## Author
-- Sharmila Thirumalainathan
-
-## Contributors
-- Jesuseyi Will Fasuyi
-- Nirav Solanki
-- Nishant Bhambhani
+## Authors
+- Sharmila Thirumalainathan (Owner)
+- Jesuseyi Will Fasuyi (Contributor)
+- Nirav Solanki (Contributor)
+- Nishant Bhambhani (Contributor)
