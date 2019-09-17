@@ -61,9 +61,6 @@ Now let us go for around to visit the above pages.
 * On successful login you will be taken to *dashboard* page of the application :checkered_flag: .
 * Now you can find *logout* option in top menu bar :checkered_flag:.
 
-### Dashboard
-
-
 ### Discussion Management
 * This feature requires the user to be logged in to the website.
 * After, logging in the user must navigate to discussion from the right-hand side navigation bar. From here the user can click on “+” symbol to add a new post :checkered_flag:.
